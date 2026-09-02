@@ -26,7 +26,13 @@
             </span>
           </div>
         </div>
-        <p class="sdk-card-desc">Add min. 2 items to cart &amp; save instantly at checkout</p>
+        <button class="sdk-acc-trigger" aria-expanded="false">
+          <span>Terms &amp; Details</span>
+          <svg class="sdk-acc-chevron" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+        <div class="sdk-acc-panel">
+          <p class="sdk-card-desc">Add min. 2 items to cart &amp; save instantly at checkout</p>
+        </div>
       </div>
 
       <!-- OFFER 2 -->
@@ -41,7 +47,13 @@
             </span>
           </div>
         </div>
-        <p class="sdk-card-desc">Add min. 3 products to cart &amp; unlock bigger savings</p>
+        <button class="sdk-acc-trigger" aria-expanded="false">
+          <span>Terms &amp; Details</span>
+          <svg class="sdk-acc-chevron" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+        <div class="sdk-acc-panel">
+          <p class="sdk-card-desc">Add min. 3 products to cart &amp; unlock bigger savings</p>
+        </div>
       </div>
 
       <!-- OFFER 3 -->
@@ -57,7 +69,13 @@
             </button>
           </div>
         </div>
-        <p class="sdk-card-desc">Pay online &amp; unlock extra savings — apply at checkout</p>
+        <button class="sdk-acc-trigger" aria-expanded="false">
+          <span>Terms &amp; Details</span>
+          <svg class="sdk-acc-chevron" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+        <div class="sdk-acc-panel">
+          <p class="sdk-card-desc">Pay online &amp; unlock extra savings — apply at checkout</p>
+        </div>
       </div>
 
     </div>
@@ -250,11 +268,53 @@
   color: #b45309;
 }
 
+/* ACCORDION TRIGGER */
+.sdk-acc-trigger {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  background: none;
+  border: none;
+  border-top: 1px dashed #d6e5f8;
+  padding: 6px 0 0;
+  margin-top: 2px;
+  cursor: pointer;
+  color: #3c7bd2;
+  font-size: 9.5px;
+  font-weight: 600;
+  letter-spacing: 0.3px;
+  font-family: Poppins, Arial, sans-serif;
+  text-align: left;
+}
+
+.sdk-acc-chevron {
+  flex-shrink: 0;
+  transition: transform 0.25s ease;
+}
+
+.sdk-acc-trigger[aria-expanded="true"] .sdk-acc-chevron {
+  transform: rotate(180deg);
+}
+
+/* ACCORDION PANEL */
+.sdk-acc-panel {
+  overflow: hidden;
+  max-height: 0;
+  transition: max-height 0.3s ease, padding 0.3s ease;
+  padding: 0;
+}
+
+.sdk-acc-panel.sdk-open {
+  max-height: 120px;
+  padding-top: 6px;
+}
+
 /* DESCRIPTION */
 .sdk-card-desc {
   margin: 0;
   font-size: 9.5px;
-  line-height: 1.45;
+  line-height: 1.5;
   color: #8a8a8a;
   font-weight: 400;
 }
@@ -321,6 +381,15 @@ document.addEventListener('DOMContentLoaded', function () {
         iconCopy.style.display  = 'block';
         iconCheck.style.display = 'none';
       }, 1800);
+    });
+  });
+  /* ── ACCORDION ── */
+  document.querySelectorAll('.sdk-acc-trigger').forEach(function (trigger) {
+    trigger.addEventListener('click', function () {
+      var panel   = trigger.nextElementSibling;
+      var isOpen  = trigger.getAttribute('aria-expanded') === 'true';
+      trigger.setAttribute('aria-expanded', isOpen ? 'false' : 'true');
+      panel.classList.toggle('sdk-open', !isOpen);
     });
   });
 
