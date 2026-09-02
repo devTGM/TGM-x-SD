@@ -762,6 +762,21 @@
         "code_cus_css": ""
       }
     },
+    "custom_liquid_aezcy8": {
+      "type": "custom-liquid",
+      "settings": {
+        "custom_liquid": "<!-- Start of Judge.me code --> \n    <div style='clear:both'></div>\n    <div id='judgeme_product_reviews' class='jdgm-widget jdgm-review-widget' data-id='{{ product.id }}'>\n        {{ product.metafields.judgeme.widget }}\n    </div>\n<!-- End of Judge.me code -->",
+        "layout": "t4s-container-wrap",
+        "cl_bg": "",
+        "cl_bg_gradient": "",
+        "mg": ",,50px,",
+        "pd": "",
+        "mg_tb": "",
+        "pd_tb": "",
+        "mg_mb": ",,30px,",
+        "pd_mb": ""
+      }
+    },
     "product-recommendations": {
       "type": "product-recommendations",
       "settings": {
@@ -952,21 +967,6 @@
         "code_cus_css": ""
       }
     },
-    "custom_liquid_aezcy8": {
-      "type": "custom-liquid",
-      "settings": {
-        "custom_liquid": "<!-- Start of Judge.me code --> \n    <div style='clear:both'></div>\n    <div id='judgeme_product_reviews' class='jdgm-widget jdgm-review-widget' data-id='{{ product.id }}'>\n        {{ product.metafields.judgeme.widget }}\n    </div>\n<!-- End of Judge.me code -->",
-        "layout": "t4s-container-wrap",
-        "cl_bg": "",
-        "cl_bg_gradient": "",
-        "mg": ",,50px,",
-        "pd": "",
-        "mg_tb": "",
-        "pd_tb": "",
-        "mg_mb": ",,30px,",
-        "pd_mb": ""
-      }
-    },
     "recently-viewed-products": {
       "type": "recently_viewed",
       "disabled": true,
@@ -1034,9 +1034,9 @@
     "collections_list_carousel_z9aQDe",
     "infinite_img_slider_yash_EXnGfW",
     "custom_html_eH4aAk",
+    "custom_liquid_aezcy8",
     "product-recommendations",
     "accordion_kVNkUW",
-    "custom_liquid_aezcy8",
     "recently-viewed-products"
   ]
 }
