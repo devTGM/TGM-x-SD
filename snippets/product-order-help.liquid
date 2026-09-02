@@ -7,33 +7,46 @@
   </p>
 
   <div class="sd-help-order-buttons">
+
     <!-- WhatsApp Button -->
-    <a href="https://wa.me/919667955560?text=Hello,%20I%20am%20interested%20in%20this%20product:%0A*{{ product.title | escape }}*%0A{{ shop.url }}{{ product.url }}"
-       target="_blank"
-       rel="noopener"
-       class="sd-help-btn sd-help-whatsapp">
+    <a
+      href="https://wa.me/919667955560?text=Hello,%20I%20am%20interested%20in%20this%20product:%0A*{{ product.title | escape }}*%0A{{ shop.url }}{{ product.url }}"
+      target="_blank"
+      rel="noopener"
+      class="sd-help-btn sd-help-whatsapp"
+    >
       <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
         <path d="M3 21l1.65-3.8a9 9 0 1 1 3.4 2.9L3 21"/>
         <path d="M9 10a.5.5 0 0 0 1 0V9a.5.5 0 0 0-1 0v1a5 5 0 0 0 5 5h1a.5.5 0 0 0 0-1h-1a.5.5 0 0 0 0 1"/>
       </svg>
+
       <span>WhatsApp Us</span>
     </a>
 
     <!-- Chat with Stylist Button -->
-    <a href="https://wa.me/919667955560?text=Hello,%20I%20need%20styling%20advice%20for%20this%20product:%0A*{{ product.title | escape }}*%0A{{ shop.url }}{{ product.url }}"
-       target="_blank"
-       rel="noopener"
-       class="sd-help-btn sd-help-stylist">
-      <!-- Sparkle / Stylist Diamond Icon -->
+    <a
+      href="https://wa.me/919667955560?text=Hello,%20I%20need%20styling%20advice%20for%20this%20product:%0A*{{ product.title | escape }}*%0A{{ shop.url }}{{ product.url }}"
+      target="_blank"
+      rel="noopener"
+      class="sd-help-btn sd-help-stylist"
+    >
       <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
         <path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z"/>
       </svg>
+
       <span>Chat with Stylist</span>
     </a>
+
   </div>
 </div>
 
+
 <style>
+
+/* ================================
+   HELP ORDER CONTAINER
+================================ */
+
 .sd-help-order-wrap {
   text-align: center;
   margin: 10px 0 16px 0;
@@ -43,6 +56,11 @@
   border-radius: 12px;
   box-sizing: border-box;
 }
+
+
+/* ================================
+   TITLE
+================================ */
 
 .sd-help-order-title {
   display: flex;
@@ -59,91 +77,181 @@
 .sd-help-order-title svg {
   color: #0b2d6a;
   flex-shrink: 0;
+  display: block;
 }
+
+
+/* ================================
+   BUTTON WRAPPER
+================================ */
 
 .sd-help-order-buttons {
   display: flex;
   justify-content: center;
+  align-items: center;
   gap: 10px;
   flex-wrap: wrap;
 }
+
+
+/* ================================
+   COMMON BUTTON
+================================ */
 
 .sd-help-btn {
   text-decoration: none !important;
   padding: 8px 18px;
   border-radius: 50px;
+
   font-size: 12.5px;
   font-weight: 600;
+
   display: inline-flex;
   align-items: center;
   justify-content: center;
+
   gap: 7px;
-  line-height: normal;
-  transition: all 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+
+  line-height: 15px !important;
+
   box-sizing: border-box;
   vertical-align: middle;
+
+  transition:
+    all 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
+
+
+/* ================================
+   BUTTON ICONS
+================================ */
 
 .sd-help-btn svg {
-  display: block;
-  flex-shrink: 0;
-  margin: 0;
+  display: block !important;
+
+  width: 15px !important;
+  height: 15px !important;
+
+  flex: 0 0 15px;
+
+  margin: 0 !important;
 }
 
-.sd-help-btn span {
-  display: flex !important;
-  align-items: center !important;
-  justify-content: center !important;
+
+/* ================================
+   BUTTON TEXT
+================================ */
+
+.sd-help-btn > span {
+  display: block !important;
+
   height: 15px !important;
   line-height: 15px !important;
+
+  position: relative !important;
+
+  /*
+    Optical vertical correction.
+    Negative value moves the actual
+    text slightly upward.
+  */
+  top: -1.5px !important;
+
   transform: none !important;
-  position: relative;
-  top: -1px;
+
+  white-space: nowrap;
 }
 
-/* WhatsApp pill styling */
+
+/* ================================
+   WHATSAPP BUTTON
+================================ */
+
 .sd-help-whatsapp {
   border: 1px solid #25d366;
+
   background: #ffffff;
+
   color: #128c7e !important;
-  box-shadow: 0 1px 3px rgba(37, 211, 102, 0.1);
+
+  box-shadow:
+    0 1px 3px rgba(37, 211, 102, 0.1);
 }
 
 .sd-help-whatsapp:hover {
   background: #25d366;
+
   color: #ffffff !important;
+
   transform: translateY(-1px);
-  box-shadow: 0 3px 8px rgba(37, 211, 102, 0.25);
+
+  box-shadow:
+    0 3px 8px rgba(37, 211, 102, 0.25);
 }
 
-/* Stylist pill styling */
+
+/* ================================
+   STYLIST BUTTON
+================================ */
+
 .sd-help-stylist {
   border: 1px solid #0b2d6a;
+
   background: #ffffff;
+
   color: #0b2d6a !important;
-  box-shadow: 0 1px 3px rgba(11, 45, 106, 0.08);
+
+  box-shadow:
+    0 1px 3px rgba(11, 45, 106, 0.08);
 }
 
 .sd-help-stylist:hover {
   background: #0b2d6a;
+
   color: #ffffff !important;
+
   transform: translateY(-1px);
-  box-shadow: 0 3px 8px rgba(11, 45, 106, 0.2);
+
+  box-shadow:
+    0 3px 8px rgba(11, 45, 106, 0.2);
 }
 
+
+/* ================================
+   MOBILE
+================================ */
+
 @media (max-width: 767px) {
+
   .sd-help-order-wrap {
     padding: 12px 14px;
     margin: 10px 0 14px 0;
   }
+
   .sd-help-order-title {
     font-size: 12.5px;
     margin-bottom: 8px;
   }
+
   .sd-help-btn {
     padding: 7px 14px;
     font-size: 11.5px;
     gap: 5px;
+
+    line-height: 14px !important;
+  }
+
+  .sd-help-btn svg {
+    width: 14px !important;
+    height: 14px !important;
+    flex-basis: 14px;
+  }
+
+  .sd-help-btn > span {
+    height: 14px !important;
+    line-height: 14px !important;
+    top: -1px !important;
   }
 }
+
 </style>
