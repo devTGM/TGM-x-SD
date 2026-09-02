@@ -1,0 +1,130 @@
+﻿<div class="sd-help-order-wrap">
+  <p class="sd-help-order-title">
+    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/>
+    </svg>
+    <span>Need Help Placing Your Order?</span>
+  </p>
+
+  <div class="sd-help-order-buttons">
+    <!-- WhatsApp Button -->
+    <a href="https://wa.me/919667955560?text=Hello,%20I%20am%20interested%20in%20this%20product:%0A*{{ product.title | escape }}*%0A{{ shop.url }}{{ product.url }}"
+       target="_blank"
+       rel="noopener"
+       class="sd-help-btn sd-help-whatsapp">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M3 21l1.65-3.8a9 9 0 1 1 3.4 2.9L3 21"/>
+        <path d="M9 10a.5.5 0 0 0 1 0V9a.5.5 0 0 0-1 0v1a5 5 0 0 0 5 5h1a.5.5 0 0 0 0-1h-1a.5.5 0 0 0 0 1"/>
+      </svg>
+      <span>WhatsApp Us</span>
+    </a>
+
+    <!-- Chat with Stylist Button -->
+    <a href="https://wa.me/919667955560?text=Hello,%20I%20need%20styling%20advice%20for%20this%20product:%0A*{{ product.title | escape }}*%0A{{ shop.url }}{{ product.url }}"
+       target="_blank"
+       rel="noopener"
+       class="sd-help-btn sd-help-stylist">
+      <!-- Sparkle / Stylist Diamond Icon -->
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z"/>
+      </svg>
+      <span>Chat with Stylist</span>
+    </a>
+  </div>
+</div>
+
+<style>
+.sd-help-order-wrap {
+  text-align: center;
+  margin: 10px 0 16px 0;
+  padding: 14px 16px;
+  background: #fafafa;
+  border: 1px solid #e8e8e8;
+  border-radius: 12px;
+  box-sizing: border-box;
+}
+
+.sd-help-order-title {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  margin: 0 0 10px 0;
+  color: #222222;
+  font-size: 13.5px;
+  font-weight: 600;
+  letter-spacing: 0.1px;
+}
+
+.sd-help-order-title svg {
+  color: #0b2d6a;
+  flex-shrink: 0;
+}
+
+.sd-help-order-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.sd-help-btn {
+  text-decoration: none !important;
+  padding: 8px 16px;
+  border-radius: 50px;
+  font-size: 12px;
+  font-weight: 600;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+  transition: all 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  box-sizing: border-box;
+}
+
+/* WhatsApp pill styling */
+.sd-help-whatsapp {
+  border: 1px solid #25d366;
+  background: #ffffff;
+  color: #128c7e !important;
+  box-shadow: 0 1px 3px rgba(37, 211, 102, 0.1);
+}
+
+.sd-help-whatsapp:hover {
+  background: #25d366;
+  color: #ffffff !important;
+  transform: translateY(-1px);
+  box-shadow: 0 3px 8px rgba(37, 211, 102, 0.25);
+}
+
+/* Stylist pill styling */
+.sd-help-stylist {
+  border: 1px solid #0b2d6a;
+  background: #ffffff;
+  color: #0b2d6a !important;
+  box-shadow: 0 1px 3px rgba(11, 45, 106, 0.08);
+}
+
+.sd-help-stylist:hover {
+  background: #0b2d6a;
+  color: #ffffff !important;
+  transform: translateY(-1px);
+  box-shadow: 0 3px 8px rgba(11, 45, 106, 0.2);
+}
+
+@media (max-width: 767px) {
+  .sd-help-order-wrap {
+    padding: 12px 14px;
+    margin: 10px 0 14px 0;
+  }
+  .sd-help-order-title {
+    font-size: 12.5px;
+    margin-bottom: 8px;
+  }
+  .sd-help-btn {
+    padding: 7px 14px;
+    font-size: 11.5px;
+    gap: 5px;
+  }
+}
+</style>

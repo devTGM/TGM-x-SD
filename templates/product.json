@@ -37,7 +37,7 @@
         "custom_liquid_Ug9E6H": {
           "type": "custom_liquid",
           "settings": {
-            "custom_liquid": "{% if product.metafields.custom.subtitle != blank %}\n  <p class=\"product-subtitle\">{{ product.metafields.custom.subtitle }}</p>\n{% endif %}\n\n<style>\n  .product-subtitle {\n    font-size: 16px;\n    color: #555;\n   margin-top: -10px;\nmargin-bottom: 0px;\nfont-weight: 600;\n  }\n</style>"
+            "custom_liquid": "{% if product.metafields.custom.subtitle != blank %}\n  <p class=\"product-subtitle\">{{ product.metafields.custom.subtitle }}</p>\n{% endif %}\n\n<style>\n  .product-subtitle {\n    font-size: 14.5px;\n    color: #4a5568;\n    margin-top: -4px;\n    margin-bottom: 2px;\n    font-weight: 500;\n    letter-spacing: 0.15px;\n  }\n  @media (max-width: 767px) {\n    .product-subtitle {\n      font-size: 13.5px;\n      margin-top: -2px;\n    }\n  }\n</style>"
           }
         },
         "custom_liquid_jWQGAW": {
@@ -308,7 +308,7 @@
         "custom_liquid_CiDE4g": {
           "type": "custom_liquid",
           "settings": {
-            "custom_liquid": "<div style=\"text-align:center; margin-top:-10px;\">\n\n  <p style=\"margin-bottom:8px; color:#000; font-size:13px; font-weight:500;\">\n    Need Help Placing your Order?\n  </p>\n\n  <div style=\"display:flex; justify-content:center; gap:10px; flex-wrap:wrap;\">\n\n    <!-- WhatsApp Button -->\n    <a href=\"https://wa.me/919667955560?text=Hello,%20I%20am%20interested%20in%20this%20product:%0A*{{ product.title }}*%0A{{ shop.url }}{{ product.url }}\"\n       target=\"_blank\"\n       style=\"text-decoration:none; border:1px solid #203665; color:#203665; padding:6px 14px; border-radius:10px; font-size:12px; font-weight:600; display:inline-flex; align-items:center;\">\n        Whatsapp Us\n    </a>\n\n    <!-- Chat with Stylist Button -->\n    <a href=\"https://wa.me/919667955560?text=Hello,%20I%20am%20interested%20in%20this%20product:%0A*{{ product.title }}*%0A{{ shop.url }}{{ product.url }}\"\n       target=\"_blank\"\n       style=\"text-decoration:none; border:1px solid #203665; color:#203665; padding:6px 14px; border-radius:10px; font-size:12px; font-weight:600; display:inline-flex; align-items:center;\">\n        Chat with Stylist\n    </a>\n\n  </div>\n\n</div>"
+            "custom_liquid": "{%- render 'product-order-help' -%}"
           }
         }
       },
