@@ -606,6 +606,7 @@
         "image_j9dfeM",
         "image_eccWJJ"
       ],
+      "disabled": true,
       "name": "Static Image Grid",
       "settings": {
         "bg_color": "#ffffff",
@@ -762,7 +763,6 @@
     },
     "product-recommendations": {
       "type": "product-recommendations",
-      "disabled": true,
       "settings": {
         "show": false,
         "design_heading": "1",
