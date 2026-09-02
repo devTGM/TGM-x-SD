@@ -343,7 +343,11 @@
         ".t4s-badge-price {border-radius: 10px; padding: 4px 8px; margin: 0px; line-height: 1.2; font-size: 9px;}",
         ".jdgm-prev-badge__text {font-size: 10px;}",
         ".t4s-tab__title {background-color: #fafafa;}",
-        ".t4s-tab__title .t4s-tab__icon {background-color: #fafafa; color: #000000; border-radius: 5px;}"
+        ".t4s-tab__title .t4s-tab__icon {background-color: #fafafa; color: #000000; border-radius: 5px;}",
+        ".t4s-product-tabs-wrapper { margin: 0 !important; padding: 0 !important; }",
+        ".t4s-product-tabs-wrapper .t4s-container { padding: 0 !important; margin: 0 !important; max-width: 100% !important; }",
+        ".t4s-pr-desc-acc, .t4s-tab-wrapper, .sd-share-container { margin: 10px 0 !important; }",
+        ".t4s-liquid_custom_liquid_Y4Ci7H { margin: 0 !important; padding: 0 !important; }"
       ],
       "settings": {
         "pr_layout": "default",
