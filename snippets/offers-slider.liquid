@@ -50,13 +50,13 @@
         <div class="sdk-card-body">
           <div class="sdk-discount">5<span>% OFF</span></div>
           <div class="sdk-card-action">
-            <button class="sdk-copy-btn" data-code="PREPAID05" aria-label="Copy code PREPAID05">
+            <div class="sdk-code-group">
               <span class="sdk-code-val">PREPAID05</span>
-              <span class="sdk-copy-label">
-                <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
-                Copy
-              </span>
-            </button>
+              <button class="sdk-copy-btn" data-code="PREPAID05" aria-label="Copy code PREPAID05">
+                <svg class="sdk-icon-copy" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+                <svg class="sdk-icon-check" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#22a06b" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="display:none"><polyline points="20 6 9 17 4 12"/></svg>
+              </button>
+            </div>
           </div>
         </div>
         <p class="sdk-card-desc">Pay online &amp; unlock extra savings — apply at checkout</p>
@@ -223,41 +223,39 @@
   white-space: nowrap;
 }
 
-/* COPY BUTTON */
-.sdk-copy-btn {
+/* CODE GROUP (label + icon button) */
+.sdk-code-group {
   display: inline-flex;
   align-items: center;
   gap: 5px;
   background: #fff7e6;
-  color: #b45309;
   border: 1.5px dashed #f59e42;
   border-radius: 60px;
-  padding: 4px 9px 4px 8px;
-  font-size: 9px;
-  font-weight: 700;
-  letter-spacing: 0.3px;
-  cursor: pointer;
-  transition: background 0.18s;
-  white-space: nowrap;
+  padding: 4px 8px 4px 10px;
 }
-
-.sdk-copy-btn:hover { background: #fef3c7; }
-.sdk-copy-btn:active { transform: scale(0.96); }
 
 .sdk-code-val {
   font-size: 9.5px;
   font-weight: 800;
   color: #b45309;
-  letter-spacing: 0.4px;
+  letter-spacing: 0.5px;
 }
 
-.sdk-copy-label {
+/* ICON-ONLY COPY BUTTON */
+.sdk-copy-btn {
   display: inline-flex;
   align-items: center;
-  gap: 3px;
+  justify-content: center;
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
   color: #b45309;
-  font-weight: 600;
+  line-height: 1;
+  transition: transform 0.15s;
 }
+
+.sdk-copy-btn:active { transform: scale(0.85); }
 
 /* DESCRIPTION */
 .sdk-card-desc {
@@ -326,11 +324,14 @@ document.addEventListener('DOMContentLoaded', function () {
   document.querySelectorAll('.sdk-copy-btn').forEach(function (btn) {
     btn.addEventListener('click', function () {
       var code  = btn.getAttribute('data-code');
-      var label = btn.querySelector('.sdk-copy-label');
+      var iconCopy  = btn.querySelector('.sdk-icon-copy');
+      var iconCheck = btn.querySelector('.sdk-icon-check');
       navigator.clipboard.writeText(code).catch(function () {});
-      label.innerHTML = '<svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Copied!';
+      iconCopy.style.display  = 'none';
+      iconCheck.style.display = 'block';
       setTimeout(function () {
-        label.innerHTML = '<svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg> Copy';
+        iconCopy.style.display  = 'block';
+        iconCheck.style.display = 'none';
       }, 1800);
     });
   });
