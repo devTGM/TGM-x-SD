@@ -764,10 +764,10 @@
     "product-recommendations": {
       "type": "product-recommendations",
       "settings": {
-        "show": false,
+        "show": true,
         "design_heading": "1",
-        "heading_align": "t4s-text-center",
-        "top_heading": "You may also like",
+        "heading_align": "t4s-text-start",
+        "top_heading": "You May Also Like",
         "icon_heading": "las la-gem",
         "top_subheading": "",
         "tophead_mb": 30,
