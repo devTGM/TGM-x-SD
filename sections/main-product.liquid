@@ -445,12 +445,91 @@ endif -%}
                     {%- if bk_stts.readm %}<button class="t4s-product__description_readm" data-go-id='#{{ idTabDes }}'>{{ bk_stts.readm_txt }}</button>{% endif -%}
                   {%- endcapture -%}
 
-                  <div class="t4s-product__description t4s-rte" {{ block.shopify_attributes }}>
-                    {%- if bk_stts.des == '1' -%}{{- pr_des -}}
-                    {%- elsif description_excerpt != blank -%}{{- description_excerpt -}}{{ readm }}
-                    {%- else -%}<p>{{- pr_des | strip_html | truncatewords: bk_stts.length -}}{{ readm }}</p>
-                    {%- endif -%}
+                  <div class="t4s-pr-desc-acc" {{ block.shopify_attributes }}>
+                    <button class="t4s-pr-desc-trigger" aria-expanded="false" type="button" onclick="this.setAttribute('aria-expanded', this.getAttribute('aria-expanded') === 'true' ? 'false' : 'true'); this.nextElementSibling.classList.toggle('t4s-opened');">
+                      <span class="t4s-pr-desc-title">{{ 'products.product.description' | t | default: 'Description' }}</span>
+                      <span class="t4s-pr-desc-icon">
+                        <svg class="t4s-pr-desc-chevron" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+                      </span>
+                    </button>
+                    <div class="t4s-pr-desc-panel">
+                      <div class="t4s-product__description t4s-rte">
+                        {%- if bk_stts.des == '1' -%}{{- pr_des -}}
+                        {%- elsif description_excerpt != blank -%}{{- description_excerpt -}}{{ readm }}
+                        {%- else -%}<p>{{- pr_des | strip_html | truncatewords: bk_stts.length -}}{{ readm }}</p>
+                        {%- endif -%}
+                      </div>
+                    </div>
+                    <style>
+                      .t4s-pr-desc-acc {
+                        margin: 20px 0;
+                        border: 1px solid #e8e8e8;
+                        border-radius: 12px;
+                        background: #ffffff;
+                        overflow: hidden;
+                        transition: border-color 0.2s ease, box-shadow 0.2s ease;
+                      }
+                      .t4s-pr-desc-trigger {
+                        width: 100%;
+                        display: flex;
+                        align-items: center;
+                        justify-content: space-between;
+                        padding: 14px 18px;
+                        background: #fafafa;
+                        border: none;
+                        outline: none;
+                        cursor: pointer;
+                        font-family: inherit;
+                        text-align: left;
+                        transition: background-color 0.2s ease;
+                      }
+                      .t4s-pr-desc-trigger:hover {
+                        background-color: #f2f2f2;
+                      }
+                      .t4s-pr-desc-title {
+                        font-size: 15px;
+                        font-weight: 600;
+                        color: #222222;
+                        letter-spacing: 0.2px;
+                      }
+                      .t4s-pr-desc-icon {
+                        display: inline-flex;
+                        align-items: center;
+                        justify-content: center;
+                        width: 24px;
+                        height: 24px;
+                        border-radius: 50%;
+                        background: #ffffff;
+                        color: #222222;
+                        box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+                        transition: transform 0.25s ease;
+                      }
+                      .t4s-pr-desc-trigger[aria-expanded="true"] .t4s-pr-desc-icon {
+                        transform: rotate(180deg);
+                      }
+                      .t4s-pr-desc-panel {
+                        display: none;
+                        padding: 16px 18px 18px;
+                        background: #ffffff;
+                        border-top: 1px solid #f0f0f0;
+                      }
+                      .t4s-pr-desc-panel.t4s-opened {
+                        display: block;
+                        animation: t4sFadeIn 0.25s ease-in-out;
+                      }
+                      .t4s-pr-desc-panel .t4s-product__description {
+                        margin: 0;
+                        font-size: 14px;
+                        line-height: 1.6;
+                        color: #444444;
+                      }
+                      @keyframes t4sFadeIn {
+                        from { opacity: 0; transform: translateY(-4px); }
+                        to { opacity: 1; transform: translateY(0); }
+                      }
+                    </style>
                   </div>
+
 
                 {%- when 'form' -%}
                   {%- liquid
