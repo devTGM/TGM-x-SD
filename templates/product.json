@@ -61,6 +61,12 @@
             "price_sale_color": "#377dde"
           }
         },
+        "custom_liquid_FA6zhm": {
+          "type": "custom_liquid",
+          "settings": {
+            "custom_liquid": "{%- render 'offers-slider' -%}"
+          }
+        },
         "meta": {
           "type": "meta",
           "settings": {
@@ -118,12 +124,6 @@
           "type": "custom_liquid",
           "settings": {
             "custom_liquid": "<p style=\"\n  text-align: center;\n  color: #203665;\n  font-size: 12px;\n  margin-top:-15px;\n  \n\">\n  <b>Free </b>Shipping • \n  <strong>5-8</strong> Days Delivery • \n  <strong>COD</strong> Available\n</p>"
-          }
-        },
-        "custom_liquid_FA6zhm": {
-          "type": "custom_liquid",
-          "settings": {
-            "custom_liquid": "{%- render 'offers-slider' -%}"
           }
         },
         "custom_liquid_bAVjiQ": {
@@ -312,10 +312,10 @@
         "custom_liquid_Ug9E6H",
         "custom_liquid_jWQGAW",
         "price_review",
+        "custom_liquid_FA6zhm",
         "meta",
         "form",
         "custom_liquid_hybFrz",
-        "custom_liquid_FA6zhm",
         "custom_liquid_bAVjiQ",
         "custom_liquid_8hp9Ar",
         "custom_liquid_w7UpK9",
