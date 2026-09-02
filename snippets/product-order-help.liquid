@@ -78,7 +78,7 @@
   align-items: center;
   justify-content: center;
   gap: 7px;
-  line-height: 1;
+  line-height: normal;
   transition: all 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
   box-sizing: border-box;
   vertical-align: middle;
@@ -91,10 +91,14 @@
 }
 
 .sd-help-btn span {
-  display: inline-flex;
-  align-items: center;
-  line-height: 1;
-  transform: translateY(-0.5px);
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  height: 15px !important;
+  line-height: 15px !important;
+  transform: none !important;
+  position: relative;
+  top: -1px;
 }
 
 /* WhatsApp pill styling */
