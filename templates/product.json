@@ -525,6 +525,7 @@
     },
     "collections_list_carousel_DBUyxY": {
       "type": "collections-list-carousel",
+      "disabled": true,
       "custom_css": [
         ".t4s-title > span {color: #0b2d6a;}"
       ],
