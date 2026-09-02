@@ -3,7 +3,7 @@
   <div class="sd-badge-pill">
     <div class="sd-badge-circle">
       <!-- Sparkle / Anti-Tarnish Icon -->
-      <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#0b2d6a" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
         <path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z"/>
         <path d="M5 3v4"/>
         <path d="M19 17v4"/>
@@ -16,7 +16,7 @@
   <div class="sd-badge-pill">
     <div class="sd-badge-circle">
       <!-- Shield / Skin Safe Check Icon -->
-      <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#0b2d6a" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
         <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
         <path d="m9 12 2 2 4-4"/>
       </svg>
@@ -28,7 +28,7 @@
   <div class="sd-badge-pill">
     <div class="sd-badge-circle">
       <!-- Diamond / Jewelry Gem Icon -->
-      <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#0b2d6a" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
         <path d="M6 3h12l4 6-10 12L2 9z"/>
         <path d="M11 3 8 9l4 12 4-12-3-6"/>
         <path d="M2 9h20"/>
@@ -39,14 +39,14 @@
 </div>
 
 <style>
-/* Remove extra bottom margin from price block directly above */
+/* Balanced spacing around the price review cluster and badges */
 .t4s-product__info-container .t4s-product__price-review {
-  margin-bottom: 4px !important;
+  margin-bottom: 8px !important;
 }
 
 .t4s-product__info-container .t4s-liquid_custom_liquid_price_badges {
   margin-top: 0 !important;
-  margin-bottom: 12px !important;
+  margin-bottom: 14px !important;
 }
 
 .sd-price-badges {
@@ -55,7 +55,7 @@
   justify-content: flex-start;
   gap: 8px;
   width: 100%;
-  margin: 4px 0 0 0 !important;
+  margin: 0 !important;
   padding: 0;
   box-sizing: border-box;
 }
@@ -67,19 +67,20 @@
   align-items: center;
   justify-content: center;
   gap: 6px;
-  padding: 5px 8px;
-  border-radius: 60px;
-  border: 1px solid #e8f0fa;
-  background: #f8fbff;
+  padding: 6px 10px;
+  border-radius: 50px;
+  border: 1px solid #dce7f5;
+  background: #ffffff;
+  box-shadow: 0 1px 4px rgba(11, 45, 106, 0.05);
   transition: all 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
   user-select: none;
   box-sizing: border-box;
 }
 
 .sd-badge-pill:hover {
-  border-color: #c4dcfa;
-  background: #f0f6ff;
-  box-shadow: 0 2px 6px rgba(11, 45, 106, 0.06);
+  border-color: #0b2d6a;
+  background: #f8fbff;
+  box-shadow: 0 2px 8px rgba(11, 45, 106, 0.1);
   transform: translateY(-1px);
 }
 
@@ -91,9 +92,8 @@
   height: 22px;
   min-width: 22px;
   border-radius: 50%;
-  background: #ffffff;
-  color: #3c7bd2;
-  box-shadow: 0 1px 3px rgba(11, 45, 106, 0.08);
+  background: #f0f5fc;
+  color: #0b2d6a;
   flex-shrink: 0;
 }
 
@@ -104,76 +104,82 @@
 .sd-badge-text {
   font-size: 12px;
   font-weight: 600;
-  color: #1e3a6d;
+  color: #1a273a;
   letter-spacing: -0.1px;
   white-space: nowrap;
   font-family: inherit;
   line-height: 1;
 }
 
-/* ─── MOBILE VIEW OPTIMIZATION: Fits all 3 pills on a single line ─── */
+/* ─── MOBILE VIEW OPTIMIZATION ─── */
 @media (max-width: 767px) {
   .t4s-product__info-container .t4s-product__price-review {
-    margin-bottom: 2px !important;
+    margin-bottom: 7px !important;
   }
   
   .t4s-product__info-container .t4s-liquid_custom_liquid_price_badges {
     margin-top: 0 !important;
-    margin-bottom: 10px !important;
+    margin-bottom: 12px !important;
   }
 
   .sd-price-badges {
     display: flex !important;
     flex-wrap: nowrap !important;
     overflow: visible !important;
-    gap: 5px !important;
-    margin: 3px 0 0 0 !important;
+    gap: 6px !important;
+    margin: 0 !important;
     width: 100% !important;
   }
 
   .sd-badge-pill {
     flex: 1 1 0 !important;
     min-width: 0 !important;
-    padding: 4px 4px 4px 3px !important;
+    padding: 5px 6px 5px 5px !important;
     gap: 4px !important;
+    border: 1px solid #dce7f5 !important;
+    background: #ffffff !important;
+    box-shadow: 0 1px 3px rgba(11, 45, 106, 0.04) !important;
   }
 
   .sd-badge-circle {
-    width: 18px !important;
-    height: 18px !important;
-    min-width: 18px !important;
+    width: 19px !important;
+    height: 19px !important;
+    min-width: 19px !important;
+    background: #f0f5fc !important;
   }
 
   .sd-badge-circle svg {
-    width: 10px !important;
-    height: 10px !important;
+    width: 10.5px !important;
+    height: 10.5px !important;
   }
 
   .sd-badge-text {
-    font-size: 10px !important;
+    font-size: 10.5px !important;
+    font-weight: 600 !important;
+    color: #1a273a !important;
     letter-spacing: -0.2px !important;
   }
 }
 
 @media (max-width: 360px) {
   .sd-price-badges {
-    gap: 3px !important;
+    gap: 4px !important;
   }
   .sd-badge-pill {
-    padding: 3px 2px !important;
+    padding: 4px 4px !important;
     gap: 3px !important;
   }
   .sd-badge-circle {
-    width: 16px !important;
-    height: 16px !important;
-    min-width: 16px !important;
+    width: 17px !important;
+    height: 17px !important;
+    min-width: 17px !important;
   }
   .sd-badge-circle svg {
-    width: 9px !important;
-    height: 9px !important;
+    width: 9.5px !important;
+    height: 9.5px !important;
   }
   .sd-badge-text {
-    font-size: 9px !important;
+    font-size: 9.5px !important;
   }
 }
 </style>
