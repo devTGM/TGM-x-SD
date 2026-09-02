@@ -133,6 +133,12 @@
   gap: 10px;
 }
 
+.sdk-upsell-dynamic {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
 .sdk-upsell-row {
   display: flex;
   align-items: center;
@@ -141,6 +147,7 @@
   background: #fafcff;
   border: 1px solid #e8f0fa;
   border-radius: 10px;
+  min-height: 72px;
   transition: border-color 0.2s, background 0.2s;
   box-sizing: border-box;
 }
@@ -393,7 +400,11 @@
 
   // Format money helper
   function formatMoney(cents) {
-    return '₹' + (cents / 100).toLocaleString('en-IN', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+    var val = cents / 100;
+    if (val % 1 === 0) {
+      return '₹' + val.toLocaleString('en-IN', { maximumFractionDigits: 0 });
+    }
+    return '₹' + val.toLocaleString('en-IN', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
   }
 
   // Recalculate total price
