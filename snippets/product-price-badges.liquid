@@ -1,0 +1,112 @@
+﻿<div class="sd-price-badges">
+  <!-- 1. Anti-Tarnish -->
+  <div class="sd-badge-pill">
+    <div class="sd-badge-circle">
+      <!-- Sparkle / Anti-Tarnish Icon -->
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#784a1e" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z"/>
+      </svg>
+    </div>
+    <span class="sd-badge-text">Anti-Tarnish</span>
+  </div>
+
+  <!-- 2. Skin Safe Jewellery -->
+  <div class="sd-badge-pill">
+    <div class="sd-badge-circle">
+      <!-- Feather / Sensitive Skin Safe Icon -->
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#784a1e" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M20.24 12.24a6 6 0 0 0-8.49-8.49L5 10.5V19h8.5z"></path>
+        <line x1="16" y1="8" x2="2" y2="22"></line>
+        <line x1="17.5" y1="15" x2="9" y2="15"></line>
+      </svg>
+    </div>
+    <span class="sd-badge-text">Skin Safe Jewellery</span>
+  </div>
+
+  <!-- 3. 18K Gold Plated -->
+  <div class="sd-badge-pill">
+    <div class="sd-badge-circle">
+      <!-- Diamond / Gold Ingot / Jewelry Icon -->
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#784a1e" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M6 3h12l4 6-10 12L2 9z"></path>
+        <path d="M11 3 8 9l4 12 4-12-3-6"></path>
+        <path d="M2 9h20"></path>
+      </svg>
+    </div>
+    <span class="sd-badge-text">18K Gold Plated</span>
+  </div>
+</div>
+
+<style>
+.sd-price-badges {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin: 12px 0 16px;
+}
+
+.sd-badge-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 14px 6px 7px;
+  border-radius: 50px;
+  border: 1px solid #dfcfbc;
+  background: #ffffff;
+  transition: all 0.2s ease;
+  user-select: none;
+}
+
+.sd-badge-pill:hover {
+  border-color: #c9af92;
+  box-shadow: 0 2px 8px rgba(120, 74, 30, 0.08);
+  transform: translateY(-1px);
+}
+
+.sd-badge-circle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: #fbf5ef;
+  flex-shrink: 0;
+}
+
+.sd-badge-circle svg {
+  display: block;
+}
+
+.sd-badge-text {
+  font-size: 13px;
+  font-weight: 600;
+  color: #2b2b2b;
+  letter-spacing: 0.1px;
+  white-space: nowrap;
+  font-family: inherit;
+  line-height: 1;
+}
+
+@media (max-width: 767px) {
+  .sd-price-badges {
+    gap: 8px;
+    margin: 10px 0 14px;
+  }
+  .sd-badge-pill {
+    padding: 5px 12px 5px 6px;
+  }
+  .sd-badge-circle {
+    width: 25px;
+    height: 25px;
+  }
+  .sd-badge-circle svg {
+    width: 13px;
+    height: 13px;
+  }
+  .sd-badge-text {
+    font-size: 12px;
+  }
+}
+</style>

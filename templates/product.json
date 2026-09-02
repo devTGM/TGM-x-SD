@@ -61,6 +61,12 @@
             "price_sale_color": "#377dde"
           }
         },
+        "custom_liquid_price_badges": {
+          "type": "custom_liquid",
+          "settings": {
+            "custom_liquid": "{%- render 'product-price-badges' -%}"
+          }
+        },
         "custom_liquid_FA6zhm": {
           "type": "custom_liquid",
           "settings": {
@@ -311,6 +317,7 @@
         "custom_liquid_Ug9E6H",
         "custom_liquid_jWQGAW",
         "price_review",
+        "custom_liquid_price_badges",
         "custom_liquid_FA6zhm",
         "meta",
         "form",
