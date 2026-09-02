@@ -1,0 +1,331 @@
+<div class="t4s-offers-wrap">
+
+  <!-- HEADER -->
+  <div class="t4s-offers-header">
+    <div class="t4s-offers-title">
+      <span class="t4s-offers-icon">%</span>
+      <span>Deals</span>
+    </div>
+    <div class="t4s-offers-nav">
+      <button class="t4s-offers-prev" aria-label="Previous offer">&#8249;</button>
+      <button class="t4s-offers-next" aria-label="Next offer">&#8250;</button>
+    </div>
+  </div>
+
+  <!-- SLIDER -->
+  <div class="t4s-offers-slider">
+    <div class="t4s-offer-track">
+
+      <!-- OFFER 1 -->
+      <div class="t4s-offer-card">
+        <div class="t4s-offer-tag">Buy Any 2 Items</div>
+        <div class="t4s-offer-mid">
+          <span class="t4s-offer-discount">10% OFF</span>
+          <span class="t4s-offer-auto-btn">
+            AUTO APPLIED
+            <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+          </span>
+        </div>
+        <p class="t4s-offer-desc">Add minimum 2 items to cart &amp; save instantly<br>(Auto-applied at checkout)</p>
+      </div>
+
+      <!-- OFFER 2 -->
+      <div class="t4s-offer-card">
+        <div class="t4s-offer-tag">Buy Any 3 Items</div>
+        <div class="t4s-offer-mid">
+          <span class="t4s-offer-discount">15% OFF</span>
+          <span class="t4s-offer-auto-btn">
+            AUTO APPLIED
+            <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+          </span>
+        </div>
+        <p class="t4s-offer-desc">Add minimum 3 products to cart &amp; save more<br>(Auto-applied at checkout)</p>
+      </div>
+
+      <!-- OFFER 3 -->
+      <div class="t4s-offer-card">
+        <div class="t4s-offer-tag">Prepaid Orders</div>
+        <div class="t4s-offer-mid">
+          <span class="t4s-offer-discount">5% OFF</span>
+          <button class="t4s-offer-code-btn" data-code="PREPAID05">
+            <span class="t4s-code-label">PREPAID05</span>
+            <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+          </button>
+        </div>
+        <p class="t4s-offer-desc">Pay online &amp; unlock extra savings<br>(Apply code at checkout)</p>
+      </div>
+
+    </div>
+  </div>
+
+</div>
+
+<style>
+/* ── WRAPPER ── */
+.t4s-offers-wrap {
+  background: linear-gradient(135deg, #ede9f8 0%, #e8edfb 100%);
+  border-radius: 16px;
+  padding: 12px 14px 14px;
+  font-family: inherit;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* ── HEADER ── */
+.t4s-offers-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 12px;
+}
+
+.t4s-offers-title {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  background: #fff;
+  border-radius: 999px;
+  padding: 5px 13px 5px 6px;
+  font-size: 13px;
+  font-weight: 700;
+  color: #333;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.08);
+}
+
+.t4s-offers-icon {
+  width: 26px;
+  height: 26px;
+  background: #3b2a6e;
+  color: #fff;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 13px;
+  font-weight: 800;
+  flex-shrink: 0;
+}
+
+/* ── NAV ARROWS ── */
+.t4s-offers-nav {
+  display: flex;
+  gap: 6px;
+}
+
+.t4s-offers-prev,
+.t4s-offers-next {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  border: 1.5px solid #ccc;
+  background: #fff;
+  color: #444;
+  font-size: 16px;
+  line-height: 1;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.2s, border-color 0.2s;
+  padding: 0;
+}
+
+.t4s-offers-prev:hover,
+.t4s-offers-next:hover {
+  background: #f0eeff;
+  border-color: #7c5cbf;
+  color: #3b2a6e;
+}
+
+/* ── SLIDER ── */
+.t4s-offers-slider {
+  overflow-x: auto;
+  overflow-y: hidden;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+  scroll-snap-type: x mandatory;
+}
+
+.t4s-offers-slider::-webkit-scrollbar { display: none; }
+
+.t4s-offer-track {
+  display: flex;
+  gap: 10px;
+  width: max-content;
+}
+
+/* ── CARD ── */
+.t4s-offer-card {
+  flex-shrink: 0;
+  background: #fff;
+  border-radius: 12px;
+  padding: 12px 14px 10px;
+  scroll-snap-align: start;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  width: 230px;
+  min-width: 230px;
+  box-shadow: 0 1px 6px rgba(0,0,0,0.06);
+  box-sizing: border-box;
+}
+
+/* TOP TAG */
+.t4s-offer-tag {
+  display: inline-block;
+  background: #4a1a3a;
+  color: #fff;
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  padding: 4px 9px;
+  border-radius: 5px;
+  align-self: flex-start;
+}
+
+/* MID ROW */
+.t4s-offer-mid {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.t4s-offer-discount {
+  font-size: 20px;
+  font-weight: 800;
+  color: #111;
+  line-height: 1;
+}
+
+/* AUTO APPLIED badge */
+.t4s-offer-auto-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  border: 1.8px solid #22a06b;
+  color: #1a8a58;
+  background: transparent;
+  border-radius: 6px;
+  padding: 5px 9px;
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.4px;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+/* COPY CODE button */
+.t4s-offer-code-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  border: 1.8px solid #22a06b;
+  color: #1a8a58;
+  background: transparent;
+  border-radius: 6px;
+  padding: 5px 9px;
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.4px;
+  text-transform: uppercase;
+  white-space: nowrap;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.t4s-offer-code-btn:hover {
+  background: #f0fff8;
+}
+
+.t4s-offer-code-btn:active {
+  transform: scale(0.96);
+}
+
+.t4s-code-label {
+  font-size: 9px;
+  font-weight: 800;
+  color: #1a8a58;
+}
+
+/* DESCRIPTION */
+.t4s-offer-desc {
+  margin: 0;
+  font-size: 10px;
+  line-height: 1.45;
+  color: #666;
+}
+
+/* ── RESPONSIVE ── */
+@media screen and (min-width: 1400px) {
+  .t4s-offer-card { width: 250px; min-width: 250px; }
+}
+
+@media screen and (min-width: 768px) and (max-width: 1399px) {
+  .t4s-offer-card { width: 220px; min-width: 220px; }
+}
+
+@media screen and (max-width: 767px) {
+  .t4s-offer-card {
+    width: 68vw;
+    min-width: 68vw;
+    max-width: 240px;
+  }
+  .t4s-offers-wrap { padding: 10px 11px 12px; }
+}
+</style>
+
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+
+  const slider  = document.querySelector('.t4s-offers-slider');
+  const track   = document.querySelector('.t4s-offer-track');
+  const cards   = document.querySelectorAll('.t4s-offer-card');
+  const prevBtn = document.querySelector('.t4s-offers-prev');
+  const nextBtn = document.querySelector('.t4s-offers-next');
+
+  if (!slider || cards.length === 0) return;
+
+  function getCardStep() {
+    return cards[0].offsetWidth + 10; // 10 = gap
+  }
+
+  /* ── NAV BUTTONS ── */
+  nextBtn.addEventListener('click', function () {
+    slider.scrollBy({ left: getCardStep(), behavior: 'smooth' });
+  });
+
+  prevBtn.addEventListener('click', function () {
+    slider.scrollBy({ left: -getCardStep(), behavior: 'smooth' });
+  });
+
+  /* ── AUTO SLIDE ── */
+  let currentIndex = 0;
+  let autoSlide = setInterval(goNext, 3000);
+
+  function goNext() {
+    currentIndex++;
+    if (currentIndex >= cards.length) currentIndex = 0;
+    slider.scrollTo({ left: currentIndex * getCardStep(), behavior: 'smooth' });
+  }
+
+  slider.addEventListener('mouseenter', () => clearInterval(autoSlide));
+  slider.addEventListener('mouseleave', () => { autoSlide = setInterval(goNext, 3000); });
+  slider.addEventListener('touchstart', () => clearInterval(autoSlide), { passive: true });
+  slider.addEventListener('touchend',   () => { autoSlide = setInterval(goNext, 3000); });
+
+  /* ── COPY CODE ── */
+  document.querySelectorAll('.t4s-offer-code-btn').forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      const code = this.getAttribute('data-code');
+      navigator.clipboard.writeText(code).then(function () {}).catch(function () {});
+      const label = btn.querySelector('.t4s-code-label');
+      const orig  = label.innerText;
+      label.innerText = 'COPIED!';
+      setTimeout(function () { label.innerText = orig; }, 1500);
+    });
+  });
+
+});
+</script>
