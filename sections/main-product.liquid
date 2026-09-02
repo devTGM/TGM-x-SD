@@ -250,6 +250,112 @@ endif -%}
 {{ 'slider-settings.css' | asset_url | stylesheet_tag }}
 {{ 'main-product.css' | asset_url | stylesheet_tag }}
 
+<style>
+/* ─── Global Accordion Styling: Matches Description Accordion Exactly ─── */
+.t4s-product-tabs-wrapper .t4s-tab-wrapper,
+.t4s-section-main-product .t4s-tab-wrapper {
+  margin: 12px 0 !important;
+  border: 1px solid #e8e8e8 !important;
+  border-radius: 12px !important;
+  background: #ffffff !important;
+  overflow: hidden !important;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease !important;
+}
+
+.t4s-product-tabs-wrapper .t4s-tab-wrapper:hover,
+.t4s-section-main-product .t4s-tab-wrapper:hover {
+  border-color: #d6e5f8 !important;
+}
+
+.t4s-product-tabs-wrapper .t4s-tab__title,
+.t4s-section-main-product .t4s-tab__title {
+  width: 100% !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  padding: 14px 18px !important;
+  background: #fafafa !important;
+  background-color: #fafafa !important;
+  border: none !important;
+  outline: none !important;
+  cursor: pointer !important;
+  font-family: inherit !important;
+  text-align: left !important;
+  text-decoration: none !important;
+  transition: background-color 0.2s ease !important;
+}
+
+.t4s-product-tabs-wrapper .t4s-tab__title:hover,
+.t4s-section-main-product .t4s-tab__title:hover {
+  background-color: #f2f2f2 !important;
+}
+
+.t4s-product-tabs-wrapper .t4s-tab__title .t4s-tab__text,
+.t4s-section-main-product .t4s-tab__title .t4s-tab__text {
+  font-size: 15px !important;
+  font-weight: 600 !important;
+  color: #222222 !important;
+  letter-spacing: 0.2px !important;
+  padding: 0 !important;
+}
+
+.t4s-product-tabs-wrapper .t4s-tab__title .t4s-tab__icon,
+.t4s-section-main-product .t4s-tab__title .t4s-tab__icon {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  width: 24px !important;
+  height: 24px !important;
+  min-width: 24px !important;
+  border-radius: 50% !important;
+  background: #ffffff !important;
+  background-color: #ffffff !important;
+  color: #222222 !important;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.08) !important;
+  position: relative !important;
+  margin: 0 !important;
+  margin-left: 10px !important;
+  transition: transform 0.25s ease !important;
+}
+
+.t4s-product-tabs-wrapper .t4s-tab__title .t4s-tab__icon:before,
+.t4s-section-main-product .t4s-tab__title .t4s-tab__icon:before {
+  content: '' !important;
+  display: block !important;
+  width: 6px !important;
+  height: 6px !important;
+  border-right: 2px solid #222222 !important;
+  border-bottom: 2px solid #222222 !important;
+  transform: rotate(45deg) !important;
+  margin-top: -2px !important;
+  position: static !important;
+  background: none !important;
+  opacity: 1 !important;
+  transition: none !important;
+}
+
+.t4s-product-tabs-wrapper .t4s-tab__title .t4s-tab__icon:after,
+.t4s-section-main-product .t4s-tab__title .t4s-tab__icon:after {
+  display: none !important;
+}
+
+.t4s-product-tabs-wrapper .t4s-tab-wrapper.t4s-active .t4s-tab__title .t4s-tab__icon,
+.t4s-section-main-product .t4s-tab-wrapper.t4s-active .t4s-tab__title .t4s-tab__icon {
+  transform: rotate(180deg) !important;
+}
+
+.t4s-product-tabs-wrapper .t4s-tab-content,
+.t4s-section-main-product .t4s-tab-content {
+  padding: 16px 18px 18px !important;
+  background: #ffffff !important;
+  border: none !important;
+  border-top: 1px solid #f0f0f0 !important;
+  font-size: 14px !important;
+  line-height: 1.6 !important;
+  color: #444444 !important;
+}
+</style>
+
 <div class="t4s-container t4s-main-product__content is--layout_{{ se_stts.pr_layout }} t4s-product-media__{{ media_layout }} t4s-product-thumb-size__{{ se_stts.thumb_lr_size }}">
   <div class="t4s-row">
     <div class="t4s-col-item t4s-col-12 t4s-main-area">
