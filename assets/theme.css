@@ -3431,3 +3431,135 @@ border-radius: 50% !important;
         transform: translateX(-100%)
     }
 } 
+
+/* ==========================================================================
+   UNIFIED ACCORDION STYLING (Matches Product Description Accordion)
+   ========================================================================== */
+.t4s-tab-wrapper,
+.t4s-product-tabs-wrapper .t4s-tab-wrapper,
+.is--tab-design__accordion .t4s-tab-wrapper,
+.is--tab-design-mb__accordion .t4s-tab-wrapper,
+.t4s-type-accordion > .t4s-tab-wrapper {
+  margin: 12px 0 !important;
+  border: 1px solid #e8e8e8 !important;
+  border-radius: 12px !important;
+  background: #ffffff !important;
+  overflow: hidden !important;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease !important;
+}
+
+.t4s-tab-wrapper:hover,
+.t4s-product-tabs-wrapper .t4s-tab-wrapper:hover,
+.is--tab-design__accordion .t4s-tab-wrapper:hover,
+.is--tab-design-mb__accordion .t4s-tab-wrapper:hover,
+.t4s-type-accordion > .t4s-tab-wrapper:hover {
+  border-color: #d6e5f8 !important;
+}
+
+.t4s-tab__title,
+.t4s-accor-title,
+.is--tab-design__accordion .t4s-tab__title,
+.is--tab-design-mb__accordion .t4s-tab__title,
+.t4s-product-tabs-wrapper .t4s-tab__title {
+  width: 100% !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  padding: 14px 18px !important;
+  background: #fafafa !important;
+  background-color: #fafafa !important;
+  color: #222222 !important;
+  border: none !important;
+  outline: none !important;
+  cursor: pointer !important;
+  font-family: inherit !important;
+  text-align: left !important;
+  text-decoration: none !important;
+  transition: background-color 0.2s ease !important;
+}
+
+.t4s-tab__title:hover,
+.t4s-accor-title:hover,
+.is--tab-design__accordion .t4s-tab__title:hover,
+.is--tab-design-mb__accordion .t4s-tab__title:hover,
+.t4s-product-tabs-wrapper .t4s-tab__title:hover {
+  background-color: #f2f2f2 !important;
+  background: #f2f2f2 !important;
+}
+
+.t4s-tab__title .t4s-tab__text,
+.t4s-accor-title .t4s-accor-text,
+.t4s-product-tabs-wrapper .t4s-tab__title .t4s-tab__text {
+  font-size: 15px !important;
+  font-weight: 600 !important;
+  color: #222222 !important;
+  letter-spacing: 0.2px !important;
+  padding: 0 !important;
+  line-height: 1.4 !important;
+}
+
+.t4s-tab__title .t4s-tab__icon,
+.t4s-accor-title .t4s-accor-item-nav,
+.t4s-product-tabs-wrapper .t4s-tab__title .t4s-tab__icon {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  width: 24px !important;
+  height: 24px !important;
+  min-width: 24px !important;
+  border-radius: 50% !important;
+  background: #ffffff !important;
+  background-color: #ffffff !important;
+  color: #222222 !important;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.08) !important;
+  position: relative !important;
+  margin: 0 !important;
+  margin-left: 10px !important;
+  right: auto !important;
+  top: auto !important;
+  bottom: auto !important;
+  transition: transform 0.25s ease !important;
+}
+
+.t4s-tab__title .t4s-tab__icon:before,
+.t4s-accor-title .t4s-accor-item-nav:before,
+.t4s-product-tabs-wrapper .t4s-tab__title .t4s-tab__icon:before {
+  content: '' !important;
+  display: block !important;
+  width: 6px !important;
+  height: 6px !important;
+  border-right: 2px solid #222222 !important;
+  border-bottom: 2px solid #222222 !important;
+  transform: rotate(45deg) !important;
+  margin-top: -2px !important;
+  position: static !important;
+  background: none !important;
+  opacity: 1 !important;
+  transition: none !important;
+}
+
+.t4s-tab__title .t4s-tab__icon:after,
+.t4s-accor-title .t4s-accor-item-nav:after,
+.t4s-product-tabs-wrapper .t4s-tab__title .t4s-tab__icon:after {
+  display: none !important;
+}
+
+.t4s-tab-wrapper.t4s-active .t4s-tab__title .t4s-tab__icon,
+.t4s-tab-wrapper.t4s-active .t4s-accor-title .t4s-accor-item-nav,
+.t4s-product-tabs-wrapper .t4s-tab-wrapper.t4s-active .t4s-tab__title .t4s-tab__icon {
+  transform: rotate(180deg) !important;
+}
+
+.t4s-tab-content,
+.t4s-product-tabs-wrapper .t4s-tab-content,
+.is--tab-design__accordion .t4s-tab-content,
+.is--tab-design-mb__accordion .t4s-tab-content {
+  padding: 16px 18px 18px !important;
+  background: #ffffff !important;
+  background-color: #ffffff !important;
+  border: none !important;
+  border-top: 1px solid #f0f0f0 !important;
+  font-size: 14px !important;
+  line-height: 1.6 !important;
+  color: #444444 !important;
+}
