@@ -217,9 +217,9 @@
         },
         "custom_liquid_Y4Ci7H": {
           "type": "custom_liquid",
-          "disabled": true,
+          "disabled": false,
           "settings": {
-            "custom_liquid": "<!-- Share Button HTML -->\n<div class=\"product-share\" style=\"display: inline-block; vertical-align: middle; text-align: center;\">\n    <p style=\"margin: 0; font-size: 14px; font-weight: bold;\">Share This Product</p>\n    <button id=\"shareButton\" style=\"background: none; border: none; cursor: pointer; padding: 0;\">\n        <img src=\"https://cdn-icons-png.flaticon.com/512/786/786205.png\" alt=\"Share\" style=\"width: 24px; height: 24px;\">\n    </button>\n    <div id=\"copyPopup\" style=\"display: none; position: absolute; top: 50px; left: 50%; transform: translateX(-50%); width: 50px; background-color: #333; color: white; padding: 5px; border-radius: 5px; font-size: 12px; white-space: nowrap; text-align: center;\">\n        Copied!\n    </div>\n</div>\n\n<!-- Share Button Script -->\n<script>\n    document.getElementById('shareButton').onclick = function() {\n        const productUrl = window.location.href;\n        const popup = document.getElementById('copyPopup');\n\n        // Check if the native share API is available\n        if (navigator.share) {\n            navigator.share({\n                title: document.title,\n                url: productUrl\n            }).then(() => {\n                console.log('Thanks for sharing!');\n            }).catch(console.error);\n        } else {\n            // Fallback: Copy to clipboard\n            navigator.clipboard.writeText(productUrl).then(() => {\n                popup.innerText = 'Copied!';\n                popup.style.display = 'block';\n\n                // Hide the popup after 3 seconds\n                setTimeout(() => {\n                    popup.style.display = 'none';\n                }, 3000);\n            }).catch(console.error);\n        }\n    };\n</script>"
+            "custom_liquid": "{%- render 'product-share-bar' -%}"
           }
         },
         "live_view_ixEVLh": {
@@ -326,7 +326,6 @@
         "custom_liquid_GGWHXJ",
         "custom_liquid_CmGKpe",
         "order_FA4Dzc",
-        "custom_liquid_Y4Ci7H",
         "live_view_ixEVLh",
         "95d4f334-8ea7-4cd2-b609-2373b1e848b8",
         "56e67368-7424-4d73-8f14-dacdda4c59be",
@@ -336,7 +335,8 @@
         "tab_html_MFNwWp",
         "tab_html_yBYiL8",
         "tab_liquid_DpRjNE",
-        "bded529b-9b8f-4d5c-8f04-5de0b22e627d"
+        "bded529b-9b8f-4d5c-8f04-5de0b22e627d",
+        "custom_liquid_Y4Ci7H"
       ],
       "custom_css": [
         "@media (min-width: 1024px) {.t4s_ratio:not(.t4s_bg) > *:not(.t4s-not-style) {border-radius: 20px; width: 99.5%; }}",
