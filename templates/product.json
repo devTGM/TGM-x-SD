@@ -129,7 +129,7 @@
         "custom_liquid_bAVjiQ": {
           "type": "custom_liquid",
           "settings": {
-            "custom_liquid": ""
+            "custom_liquid": "{%- render 'product-upsell' -%}"
           }
         },
         "custom_liquid_8hp9Ar": {
