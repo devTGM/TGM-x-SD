@@ -1,0 +1,138 @@
+<script type="application/javascript">
+checkoutBuyer = "https://fastrr-boost-ui.pickrr.com/";
+</script>
+
+<input type="hidden" value="sollakdesigns.com" id="sellerDomain"/>
+<link rel="stylesheet" href="https://fastrr-boost-ui.pickrr.com/assets/styles/shopify.css">
+<script src="https://fastrr-boost-ui.pickrr.com/assets/js/channels/shopify.js" defer></script>
+<script src="https://fastrr-boost-ui.pickrr.com/assets/js/channels/shiprocketMarketing.js"></script>
+
+<input type="hidden" value="rz" id="template"/>
+<!-- <input type="hidden" value="percent" id="discountType"/>
+<input type="hidden" value="5" id="discValue"/> -->
+
+
+<style>    
+  .sr-headless-checkout {
+    font-family: inherit;
+    font-size: 11px;
+    font-weight: 600;
+    border-radius: 60px !important;
+    height: 40px;
+    letter-spacing: 1.4px;
+    background-color:rgb(60, 123, 210) !important ;  
+    color: #fff !important; 
+  }
+  .shiprocket-headless{
+    width:100%;
+  }
+  .sr-powered-by {
+    right: 20px;
+}
+.shiprocket-headless[data-type="product"] .sr-headless-checkout{
+  margin-top:20px !important;
+  font-size:14px !important;
+}
+
+ .sr-discount-label:before{
+    content:"EXTRA 5% OFF on PERFUMES";
+    font-size: 9px;
+    color: #000;
+    text-transform: none;
+    top: -8px;
+    left: 6px;
+    background-color: #53ff73;
+    border-radius: 3px;
+    padding: 0 10px;
+} 
+.t4s-sticky-atc .shiprocket-headless[data-type="product"] .sr-headless-checkout{
+  margin-top:0px !important;
+  margin-bottom: 0px !important;
+  padding: 5px 35px !important;
+}
+.t4s-sticky-atc .shiprocket-headless[data-type="product"] img.sr-pl-15.sr-checkout-visible1 {
+    display: none !important;
+}
+.t4s-sticky-atc .shiprocket-headless[data-type="product"] img.sr-pl-15.sr-checkout-visible {
+    display: none !important;
+}
+@media (max-width: 575px) {
+   .t4s-sticky-atc form#product-form-installment {
+        flex-basis: 0;
+        flex-grow: 1;
+        max-width: 100%;
+    }
+}
+</style>
+{% comment %} 
+<script>
+(function () {
+  const replacementHTML = `
+  {% unless product.selected_or_first_available_variant.available %}
+    <style>
+      .sr-headless-checkout{opacity:.5;cursor:not-allowed;pointer-events:none;}
+    </style>
+  {% endunless %}
+  {% form 'product', product, id:'product-form-installment', class:'installment caption-large' %}
+    <input type="hidden" name="id" value="{{ product.selected_or_first_available_variant.id }}">
+    {{ form | payment_terms }}
+    <div class="shiprocket-headless" data-type="product"></div>
+    <input type="hidden" value="true" id="fastrrCollectionPage">
+    <input type="hidden" name="productUrl" value="{{ product.url }}">
+  {% endform %}
+  `;
+  const syncVariant = () => {
+    const main = document.querySelector('form[action*="/cart/add"]:not(#product-form-installment) [name="id"]');
+    const sticky = document.querySelector('#product-form-installment [name="id"]');
+    if (main && sticky) sticky.value = main.value;
+  };
+  new MutationObserver(() => {
+    const bar = document.querySelector('.t4s-sticky-atc');
+    const btn = bar && bar.querySelector('button.t4s-sticky-atc__atc.t4s-btn-loading__svg');
+    if (btn && !bar.querySelector('.shiprocket-headless')) {
+      btn.outerHTML = replacementHTML;
+      requestAnimationFrame(syncVariant);
+    }
+  }).observe(document.body, { childList:true, subtree:true });
+  document.addEventListener('change', e => {
+    if (e.target.name === 'id') syncVariant();
+  });
+})();
+</script> {% endcomment %}
+
+
+<script>
+// Select the node that will be observed for mutations
+let fastrrBtn = '<div id="headless-button" class="shiprocket-headless" data-type="mini-cart"></div>'
+let buttonAdded = false
+let parsedBtnCode = new DOMParser().parseFromString(fastrrBtn, 'text/html').querySelectorAll('.shiprocket-headless')[0];
+const headlessNode = document.querySelector('html');
+
+// Options for the observer (which mutations to observe)
+const configuration = { attributes: true, childList: true, subtree: true };
+
+// Callback function to execute when mutations are observed
+const headlessCallback = (mutationList, observer) => {
+ for (const mutation of mutationList) {
+
+ let sidecart = document.querySelector('.w4-calc-height-footer')
+
+ let sideCartButton = document.querySelector('.wizz-checkout-link')
+
+ if(sidecart) {
+ if(!document.getElementById('headless-button')) {
+
+ sideCartButton.before(parsedBtnCode)
+ }
+ }
+
+ }
+};
+
+// Create an observer instance linked to the callback function
+const observer1 = new MutationObserver(headlessCallback);
+
+// Start observing the target node for configured mutations
+observer1.observe(headlessNode, configuration);
+
+</script>

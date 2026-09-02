@@ -1,0 +1,211 @@
+{% schema %}
+{
+  "name": "Infinite Image Slider",
+  "settings": [
+
+    {
+      "type": "color",
+      "id": "bg_color",
+      "label": "Background Color",
+      "default": "#ffffff"
+    },
+
+    {
+      "type": "range",
+      "id": "desktop_cards",
+      "label": "Cards Per Row (Desktop)",
+      "min": 1,
+      "max": 8,
+      "step": 1,
+      "default": 4
+    },
+
+    {
+      "type": "range",
+      "id": "mobile_cards",
+      "label": "Cards Per Row (Mobile)",
+      "min": 1,
+      "max": 3,
+      "step": 0.1,
+      "default": 1.3
+    },
+
+    {
+      "type": "range",
+      "id": "desktop_height",
+      "label": "Image Height Desktop",
+      "min": 100,
+      "max": 600,
+      "step": 10,
+      "default": 260
+    },
+
+    {
+      "type": "range",
+      "id": "mobile_height",
+      "label": "Image Height Mobile",
+      "min": 80,
+      "max": 400,
+      "step": 10,
+      "default": 180
+    },
+
+    {
+      "type": "range",
+      "id": "gap",
+      "label": "Gap Between Cards",
+      "min": 0,
+      "max": 40,
+      "step": 2,
+      "default": 16
+    },
+
+    {
+      "type": "range",
+      "id": "border_radius",
+      "label": "Border Radius",
+      "min": 0,
+      "max": 40,
+      "step": 2,
+      "default": 18
+    },
+
+    {
+      "type": "range",
+      "id": "section_padding",
+      "label": "Section Padding",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "default": 20
+    },
+
+    {
+      "type": "range",
+      "id": "speed",
+      "label": "Scroll Speed",
+      "min": 10,
+      "max": 80,
+      "step": 2,
+      "default": 30
+    },
+
+    {
+      "type": "checkbox",
+      "id": "pause_hover",
+      "label": "Pause On Hover",
+      "default": true
+    }
+
+  ],
+
+  "blocks": [
+    {
+      "type": "slide",
+      "name": "Slide",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image"
+        }
+      ]
+    }
+  ],
+
+  "presets": [
+    {
+      "name": "Infinite Image Slider"
+    }
+  ]
+}
+{% endschema %}
+
+<section class="infinite-slider-{{ section.id }}">
+  <div class="infinite-slider-track">
+
+    {% for i in (1..2) %}
+      {% for block in section.blocks %}
+
+        {% if block.settings.image != blank %}
+          <div class="infinite-slide" {{ block.shopify_attributes }}>
+            <img
+              src="{{ block.settings.image | image_url: width: 1200 }}"
+              alt=""
+              loading="lazy"
+              width=""
+              height=""
+            >
+          </div>
+        {% endif %}
+
+      {% endfor %}
+    {% endfor %}
+
+  </div>
+</section>
+
+<style>
+
+.infinite-slider-{{ section.id }}{
+  width:100%;
+  overflow:hidden;
+  background:{{ section.settings.bg_color }};
+  padding:{{ section.settings.section_padding }}px 0;
+  position:relative;
+}
+
+.infinite-slider-{{ section.id }} .infinite-slider-track{
+  display:flex;
+  width:max-content;
+  animation:infiniteScroll{{ section.id }} {{ section.settings.speed }}s linear infinite;
+  will-change:transform;
+}
+
+{% if section.settings.pause_hover %}
+.infinite-slider-{{ section.id }} .infinite-slider-track:hover{
+  animation-play-state:paused;
+}
+{% endif %}
+
+.infinite-slider-{{ section.id }} .infinite-slide{
+  flex:0 0 calc((100vw / {{ section.settings.desktop_cards }}) - {{ section.settings.gap }}px);
+  margin-right:{{ section.settings.gap }}px;
+  overflow:hidden;
+  border-radius:{{ section.settings.border_radius }}px;
+}
+
+.infinite-slider-{{ section.id }} .infinite-slide img{
+  width:100%;
+  height:{{ section.settings.desktop_height }}px;
+  object-fit:cover;
+  display:block;
+  border-radius:{{ section.settings.border_radius }}px;
+  user-select:none;
+  -webkit-user-drag:none;
+  pointer-events:none;
+}
+
+@keyframes infiniteScroll{{ section.id }}{
+  0%{
+    transform:translateX(0);
+  }
+
+  100%{
+    transform:translateX(-50%);
+  }
+}
+
+@media screen and (max-width:768px){
+
+  .infinite-slider-{{ section.id }} .infinite-slide{
+    flex:0 0 calc((100vw / {{ section.settings.mobile_cards }}) - {{ section.settings.gap }}px);
+  }
+
+  .infinite-slider-{{ section.id }} .infinite-slide img{
+    height:{{ section.settings.mobile_height }}px;
+  }
+
+}
+
+</style>
