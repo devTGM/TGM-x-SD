@@ -3,8 +3,10 @@
   <div class="sd-badge-pill">
     <div class="sd-badge-circle">
       <!-- Sparkle / Anti-Tarnish Icon -->
-      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#784a1e" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
         <path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z"/>
+        <path d="M5 3v4"/>
+        <path d="M19 17v4"/>
       </svg>
     </div>
     <span class="sd-badge-text">Anti-Tarnish</span>
@@ -13,27 +15,26 @@
   <!-- 2. Skin Safe Jewellery -->
   <div class="sd-badge-pill">
     <div class="sd-badge-circle">
-      <!-- Feather / Sensitive Skin Safe Icon -->
-      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#784a1e" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-        <path d="M20.24 12.24a6 6 0 0 0-8.49-8.49L5 10.5V19h8.5z"></path>
-        <line x1="16" y1="8" x2="2" y2="22"></line>
-        <line x1="17.5" y1="15" x2="9" y2="15"></line>
+      <!-- Shield / Skin Safe Check Icon -->
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+        <path d="m9 12 2 2 4-4"/>
       </svg>
     </div>
     <span class="sd-badge-text">Skin Safe Jewellery</span>
   </div>
 
-  <!-- 3. 18K Gold Plated -->
+  <!-- 3. Gold Plated -->
   <div class="sd-badge-pill">
     <div class="sd-badge-circle">
-      <!-- Diamond / Gold Ingot / Jewelry Icon -->
-      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#784a1e" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-        <path d="M6 3h12l4 6-10 12L2 9z"></path>
-        <path d="M11 3 8 9l4 12 4-12-3-6"></path>
-        <path d="M2 9h20"></path>
+      <!-- Diamond / Jewelry Gem Icon -->
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M6 3h12l4 6-10 12L2 9z"/>
+        <path d="M11 3 8 9l4 12 4-12-3-6"/>
+        <path d="M2 9h20"/>
       </svg>
     </div>
-    <span class="sd-badge-text">18K Gold Plated</span>
+    <span class="sd-badge-text">Gold Plated</span>
   </div>
 </div>
 
@@ -41,26 +42,27 @@
 .sd-price-badges {
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: 8px;
   flex-wrap: wrap;
-  margin: 12px 0 16px;
+  margin: 10px 0 14px;
 }
 
 .sd-badge-pill {
   display: inline-flex;
   align-items: center;
-  gap: 8px;
-  padding: 6px 14px 6px 7px;
-  border-radius: 50px;
-  border: 1px solid #dfcfbc;
-  background: #ffffff;
-  transition: all 0.2s ease;
+  gap: 6px;
+  padding: 5px 12px 5px 6px;
+  border-radius: 60px;
+  border: 1px solid #e8f0fa;
+  background: #f8fbff;
+  transition: all 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
   user-select: none;
 }
 
 .sd-badge-pill:hover {
-  border-color: #c9af92;
-  box-shadow: 0 2px 8px rgba(120, 74, 30, 0.08);
+  border-color: #c4dcfa;
+  background: #f0f6ff;
+  box-shadow: 0 2px 6px rgba(11, 45, 106, 0.06);
   transform: translateY(-1px);
 }
 
@@ -68,10 +70,13 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 28px;
-  height: 28px;
+  width: 24px;
+  height: 24px;
+  min-width: 24px;
   border-radius: 50%;
-  background: #fbf5ef;
+  background: #ffffff;
+  color: #3c7bd2;
+  box-shadow: 0 1px 3px rgba(11, 45, 106, 0.08);
   flex-shrink: 0;
 }
 
@@ -80,33 +85,52 @@
 }
 
 .sd-badge-text {
-  font-size: 13px;
+  font-size: 12.5px;
   font-weight: 600;
-  color: #2b2b2b;
+  color: #1e3a6d;
   letter-spacing: 0.1px;
   white-space: nowrap;
   font-family: inherit;
   line-height: 1;
 }
 
+/* ─── MOBILE VIEW OPTIMIZATION ─── */
 @media (max-width: 767px) {
   .sd-price-badges {
-    gap: 8px;
-    margin: 10px 0 14px;
+    display: flex;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none; /* Firefox */
+    gap: 6px;
+    margin: 8px 0 12px;
+    padding-bottom: 2px;
+    max-width: 100%;
   }
+
+  .sd-price-badges::-webkit-scrollbar {
+    display: none; /* Chrome/Safari */
+  }
+
   .sd-badge-pill {
-    padding: 5px 12px 5px 6px;
+    flex-shrink: 0;
+    padding: 4px 9px 4px 5px;
+    gap: 5px;
   }
+
   .sd-badge-circle {
-    width: 25px;
-    height: 25px;
+    width: 20px;
+    height: 20px;
+    min-width: 20px;
   }
+
   .sd-badge-circle svg {
-    width: 13px;
-    height: 13px;
+    width: 11px;
+    height: 11px;
   }
+
   .sd-badge-text {
-    font-size: 12px;
+    font-size: 11px;
   }
 }
 </style>
