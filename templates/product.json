@@ -615,6 +615,7 @@
     },
     "collections_list_carousel_z9aQDe": {
       "type": "collections-list-carousel",
+      "disabled": true,
       "custom_css": [
         ".t4s_ratio:not(.t4s_bg) > *:not(.t4s-not-style),.no-js .t4s_ratio:not(.t4s_bg) > noscript > *:not(.t4s-not-style) {border-radius: 15px;}",
         ".t4s-title > span {color: #0b2d6a;}"
@@ -718,6 +719,7 @@
         "slide_VgUdx8",
         "slide_9gGYTh"
       ],
+      "disabled": true,
       "name": "Infinite Image Slider",
       "settings": {
         "bg_color": "#ffffff",
