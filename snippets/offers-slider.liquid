@@ -143,7 +143,7 @@
 
 .sdk-track {
   display: flex;
-  gap: 8px;
+  gap: 0;
   width: max-content;
 }
 
@@ -158,8 +158,7 @@
   display: flex;
   flex-direction: column;
   gap: 6px;
-  width: 210px;
-  min-width: 210px;
+  width: 100%;
   box-sizing: border-box;
   box-shadow: 0 1px 5px rgba(60, 123, 210, 0.07);
   transition: box-shadow 0.2s;
@@ -267,20 +266,7 @@
 }
 
 /* ─── RESPONSIVE ──────────────────────────────── */
-@media screen and (min-width: 1400px) {
-  .sdk-card { width: 230px; min-width: 230px; }
-}
-
-@media screen and (min-width: 768px) and (max-width: 1399px) {
-  .sdk-card { width: 200px; min-width: 200px; }
-}
-
 @media screen and (max-width: 767px) {
-  .sdk-card {
-    width: 72vw;
-    min-width: 72vw;
-    max-width: 230px;
-  }
   .sdk-offers-wrap { padding: 10px 11px 12px; }
 }
 </style>
@@ -295,7 +281,15 @@ document.addEventListener('DOMContentLoaded', function () {
 
   if (!slider || !cards.length) return;
 
-  function cardStep() { return cards[0].offsetWidth + 8; }
+  /* set each card to exactly the slider's visible width */
+  function sizeCards() {
+    var w = slider.offsetWidth;
+    cards.forEach(function (c) { c.style.width = w + 'px'; });
+  }
+  sizeCards();
+  window.addEventListener('resize', sizeCards);
+
+  function cardStep() { return slider.offsetWidth; }
 
   nextBtn.addEventListener('click', function () {
     slider.scrollBy({ left: cardStep(), behavior: 'smooth' });
