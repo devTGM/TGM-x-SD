@@ -2592,118 +2592,117 @@ padding: 6px 16px 6px 8px; /* little extra space on right */
   font-weight: 400 !important;
 }
 
-/* 6. Prominent, Always-Visible "Quick Add" Button */
-.t4s-product.t4s-pr-grid .t4s-product-btns,
-.t4s-product.t4s-pr-grid.t4s-pr-style6 .t4s-product-btns {
-  position: static !important;
-  opacity: 1 !important;
-  visibility: visible !important;
-  pointer-events: auto !important;
-  display: block !important;
-  width: 100% !important;
-  margin-top: auto !important;
-  padding-top: 4px !important;
-  left: auto !important;
-  right: auto !important;
-  top: auto !important;
-  bottom: auto !important;
-  transform: none !important;
-  z-index: 1 !important;
+/* 6. Strictly hide any action buttons below the product title/price in grid view */
+.t4s-product.t4s-pr-grid .t4s-product-info .t4s-product-btns,
+.t4s-product.t4s-pr-grid .t4s-product-info .t4s-product-info__btns,
+.t4s-product.t4s-pr-grid .t4s-product-info__btns {
+  display: none !important;
 }
 
-.t4s-product.t4s-pr-grid .t4s-product-btns a,
-.t4s-product.t4s-pr-grid .t4s-product-btns a.t4s-pr-addtocart,
-.t4s-product.t4s-pr-grid.t4s-pr-style6 .t4s-product-btns a,
-.t4s-product.t4s-pr-grid.t4s-pr-style6 .t4s-product-btns a.t4s-pr-addtocart {
+/* 7. Action Icons Floating on the Image Card (Quick Add, Quick View, Wishlist) */
+.t4s-product.t4s-pr-grid .t4s-product-inner .t4s-product-btns {
+  position: absolute !important;
+  bottom: 12px !important;
+  left: 0 !important;
+  right: 0 !important;
+  z-index: 5 !important;
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+  width: 100% !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  pointer-events: none !important;
+  background: transparent !important;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
+}
+
+.t4s-product.t4s-pr-grid .t4s-product-inner .t4s-pr-group-btns {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 8px !important;
+  pointer-events: auto !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  width: auto !important;
+}
+
+.t4s-product.t4s-pr-grid .t4s-product-inner .t4s-pr-group-btns .t4s-pr-item-btn,
+.t4s-product.t4s-pr-grid .t4s-product-inner .t4s-product-btns a.t4s-pr-item-btn {
+  width: 38px !important;
+  height: 38px !important;
+  min-width: 38px !important;
+  min-height: 38px !important;
+  border-radius: 50% !important;
+  background-color: #ffffff !important;
+  color: #0b2d6a !important;
+  border: 1px solid rgba(0, 0, 0, 0.08) !important;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.16) !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  cursor: pointer !important;
+  pointer-events: auto !important;
+  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1) !important;
+  text-decoration: none !important;
+  line-height: 1 !important;
+  box-sizing: border-box !important;
+}
+
+.t4s-product.t4s-pr-grid .t4s-product-inner .t4s-pr-group-btns .t4s-pr-item-btn:hover,
+.t4s-product.t4s-pr-grid .t4s-product-inner .t4s-product-btns a.t4s-pr-item-btn:hover {
+  background-color: #0b2d6a !important;
+  color: #ffffff !important;
+  border-color: #0b2d6a !important;
+  box-shadow: 0 6px 16px rgba(11, 45, 106, 0.3) !important;
+  transform: translateY(-2px) scale(1.06) !important;
+}
+
+.t4s-product.t4s-pr-grid .t4s-product-inner .t4s-pr-group-btns .t4s-pr-item-btn .t4s-svg-pr-icon,
+.t4s-product.t4s-pr-grid .t4s-product-inner .t4s-product-btns a.t4s-pr-item-btn .t4s-svg-pr-icon {
   display: flex !important;
   align-items: center !important;
   justify-content: center !important;
   width: 100% !important;
-  height: 38px !important;
-  line-height: 38px !important;
-  border-radius: 6px !important;
-  background-color: #0b2d6a !important;
-  color: #ffffff !important;
-  font-size: 12px !important;
-  font-weight: 600 !important;
-  letter-spacing: 0.6px !important;
-  text-transform: uppercase !important;
-  box-sizing: border-box !important;
-  padding: 0 16px !important;
-  border: 1px solid #0b2d6a !important;
-  transition: all 0.25s ease !important;
-  text-decoration: none !important;
-  cursor: pointer !important;
-  pointer-events: auto !important;
+  height: 100% !important;
+  position: static !important;
+  transform: none !important;
+  margin: 0 !important;
+  color: inherit !important;
+}
+
+.t4s-product.t4s-pr-grid .t4s-product-inner .t4s-pr-group-btns .t4s-pr-item-btn .t4s-svg-pr-icon svg,
+.t4s-product.t4s-pr-grid .t4s-product-inner .t4s-product-btns a.t4s-pr-item-btn .t4s-svg-pr-icon svg {
+  width: 16px !important;
+  height: 16px !important;
+  fill: currentColor !important;
+}
+
+.t4s-product.t4s-pr-grid .t4s-product-inner .t4s-pr-group-btns .t4s-pr-item-btn .t4s-text-pr,
+.t4s-product.t4s-pr-grid .t4s-product-inner .t4s-product-btns a.t4s-pr-item-btn .t4s-text-pr {
+  display: none !important;
+}
+
+/* Sold-out state for on-image icon */
+.t4s-product.t4s-pr-grid .t4s-product-inner .t4s-pr-item-btn.is--sold-out {
+  background-color: #f1f1f1 !important;
+  color: #999999 !important;
+  cursor: not-allowed !important;
+  opacity: 0.7 !important;
+}
+
+/* Always visible on card image for desktop and mobile */
+.t4s-product.t4s-pr-grid .t4s-product-inner .t4s-product-btns {
   opacity: 1 !important;
   visibility: visible !important;
-}
-
-.t4s-product.t4s-pr-grid .t4s-product-btns a:hover,
-.t4s-product.t4s-pr-grid .t4s-product-btns a.t4s-pr-addtocart:hover {
-  background-color: #2065c4 !important;
-  border-color: #2065c4 !important;
-  color: #ffffff !important;
-  box-shadow: 0 4px 12px rgba(11, 45, 106, 0.25) !important;
-}
-
-/* Sold out state */
-.t4s-product.t4s-pr-grid .t4s-product-btns a.is--sold-out {
-  background-color: #f1f1f1 !important;
-  border-color: #e0e0e0 !important;
-  color: #888888 !important;
-  cursor: not-allowed !important;
-}
-.t4s-product.t4s-pr-grid .t4s-product-btns a.is--sold-out .t4s-text-pr {
-  color: #888888 !important;
-}
-
-/* Ensure button label and icon remain visible */
-.t4s-product.t4s-pr-grid .t4s-product-btns a > span {
-  width: auto !important;
-  height: auto !important;
+  pointer-events: auto !important;
   transform: none !important;
-  opacity: 1 !important;
-  display: inline-flex !important;
-  align-items: center !important;
-  position: static !important;
 }
 
-.t4s-product.t4s-pr-grid .t4s-product-btns a .t4s-text-pr {
-  display: inline-block !important;
-  font-size: 11.5px !important;
-  font-weight: 600 !important;
-  letter-spacing: 0.6px !important;
-  text-transform: uppercase !important;
-  transform: none !important;
-  opacity: 1 !important;
-  color: #ffffff !important;
-  line-height: 1 !important;
-}
-
-.t4s-product.t4s-pr-grid .t4s-product-btns a .t4s-svg-pr-icon {
-  position: static !important;
-  display: inline-flex !important;
-  align-items: center !important;
-  transform: none !important;
-  margin-right: 6px !important;
-  color: #ffffff !important;
-}
-
-.t4s-product.t4s-pr-grid .t4s-product-btns a .t4s-svg-pr-icon svg {
-  width: 14px !important;
-  height: 14px !important;
-  fill: currentColor !important;
-  display: block !important;
-}
-
-.t4s-product.t4s-pr-grid .t4s-product-btns a:hover .t4s-svg-pr-icon,
-.t4s-product.t4s-pr-grid .t4s-product-btns a:hover .t4s-text-pr {
-  transform: none !important;
-  opacity: 1 !important;
-}
-
-/* 7. Mobile optimizations for 2-column grid */
+/* 8. Mobile 2-column grid optimizations */
 @media (max-width: 767px) {
   .t4s-product.t4s-pr-grid .t4s-product-info {
     padding: 8px 2px 0 2px !important;
@@ -2718,7 +2717,7 @@ padding: 6px 16px 6px 8px; /* little extra space on right */
   }
   .t4s-product.t4s-pr-grid .t4s-product-price {
     font-size: 12px !important;
-    margin: 0 0 8px 0 !important;
+    margin: 0 0 6px 0 !important;
     gap: 4px !important;
   }
   .t4s-product.t4s-pr-grid .t4s-product-price ins {
@@ -2727,27 +2726,27 @@ padding: 6px 16px 6px 8px; /* little extra space on right */
   .t4s-product.t4s-pr-grid .t4s-product-price del {
     font-size: 11px !important;
   }
-  .t4s-product.t4s-pr-grid .t4s-product-btns {
-    padding-top: 2px !important;
+  /* On mobile touch devices: action icons always visible on card image */
+  .t4s-product.t4s-pr-grid .t4s-product-inner .t4s-product-btns {
+    opacity: 1 !important;
+    visibility: visible !important;
+    pointer-events: auto !important;
+    transform: none !important;
+    bottom: 8px !important;
   }
-  .t4s-product.t4s-pr-grid .t4s-product-btns a,
-  .t4s-product.t4s-pr-grid .t4s-product-btns a.t4s-pr-addtocart,
-  .t4s-product.t4s-pr-grid.t4s-pr-style6 .t4s-product-btns a {
-    height: 33px !important;
-    line-height: 33px !important;
-    font-size: 10px !important;
-    padding: 0 6px !important;
-    border-radius: 4px !important;
+  .t4s-product.t4s-pr-grid .t4s-product-inner .t4s-pr-group-btns {
+    gap: 6px !important;
   }
-  .t4s-product.t4s-pr-grid .t4s-product-btns a .t4s-text-pr {
-    font-size: 10px !important;
-    letter-spacing: 0.2px !important;
+  .t4s-product.t4s-pr-grid .t4s-product-inner .t4s-pr-group-btns .t4s-pr-item-btn,
+  .t4s-product.t4s-pr-grid .t4s-product-inner .t4s-product-btns a.t4s-pr-item-btn {
+    width: 32px !important;
+    height: 32px !important;
+    min-width: 32px !important;
+    min-height: 32px !important;
   }
-  .t4s-product.t4s-pr-grid .t4s-product-btns a .t4s-svg-pr-icon {
-    margin-right: 4px !important;
-  }
-  .t4s-product.t4s-pr-grid .t4s-product-btns a .t4s-svg-pr-icon svg {
-    width: 11px !important;
-    height: 11px !important;
+  .t4s-product.t4s-pr-grid .t4s-product-inner .t4s-pr-group-btns .t4s-pr-item-btn .t4s-svg-pr-icon svg,
+  .t4s-product.t4s-pr-grid .t4s-product-inner .t4s-product-btns a.t4s-pr-item-btn .t4s-svg-pr-icon svg {
+    width: 13px !important;
+    height: 13px !important;
   }
 }
