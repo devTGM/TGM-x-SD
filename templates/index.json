@@ -1652,85 +1652,6 @@
         "code_cus_css": ""
       }
     },
-    "confidence_slider_yash_a8n6ia": {
-      "type": "confidence-slider-yash",
-      "blocks": {
-        "slide_jGMTmb": {
-          "type": "slide",
-          "settings": {
-            "icon": "shopify://shop_images/Screenshot_2026-05-03_at_8.30.32_PM.png",
-            "subheading": "SKIN SAFE",
-            "description": "Our jewelry is hypoallergenic and <br>thoughtfully crafted for sensitive<br> skin. Designed for all-day <br>comfort without <br>irritation, itching, or discoloration."
-          }
-        },
-        "slide_Vz6YVm": {
-          "type": "slide",
-          "settings": {
-            "icon": "shopify://shop_images/Screenshot_2026-05-03_at_8.30.32_PM.png",
-            "subheading": "PREMIUM PACKAGING",
-            "description": "Every order arrives in elegant,<br> gift-ready packaging that feels <br>luxurious from the moment <br>you open it. Perfect<br>for gifting or treating yourself."
-          }
-        },
-        "slide_QXtQ7e": {
-          "type": "slide",
-          "settings": {
-            "icon": "shopify://shop_images/Screenshot_2026-05-03_at_8.30.32_PM.png",
-            "subheading": "SAFE & SECURE PAYMENTS",
-            "description": "Shop with confidence using<br> trusted and encrypted payment <br>gateways. Your transactions and <br>personal information are always<br> protected."
-          }
-        },
-        "slide_rB3acy": {
-          "type": "slide",
-          "settings": {
-            "icon": "shopify://shop_images/Screenshot_2026-05-03_at_8.30.32_PM.png",
-            "subheading": "FAST & RELIABLE SHIPPING",
-            "description": "We ensure quick processing <br>and dependable delivery<br> so your favorite pieces<br> reach you safely and on time."
-          }
-        },
-        "slide_69QAqn": {
-          "type": "slide",
-          "settings": {
-            "icon": "shopify://shop_images/Screenshot_2026-05-03_at_8.30.32_PM.png",
-            "subheading": "MADE TO LAST",
-            "description": "Crafted with attention to detail <br>and premium-quality materials, <br>our jewelry is designed for <br>everyday elegance and <br>long-lasting wear."
-          }
-        },
-        "slide_FY4gAM": {
-          "type": "slide",
-          "settings": {
-            "icon": "shopify://shop_images/Screenshot_2026-05-03_at_8.30.32_PM.png",
-            "subheading": "EASY CUSTOMER SUPPORT",
-            "description": "Have a question or concern? <br>Our support team is <br>here to help with quick responses <br>and a smooth shopping experience <br>from start to finish."
-          }
-        }
-      },
-      "block_order": [
-        "slide_jGMTmb",
-        "slide_Vz6YVm",
-        "slide_QXtQ7e",
-        "slide_rB3acy",
-        "slide_69QAqn",
-        "slide_FY4gAM"
-      ],
-      "custom_css": [
-        "h2 {color: #0b2d6a;}",
-        ".description {color: #0b2d6a;}",
-        ".subheading {color: #0b2d6a;}"
-      ],
-      "name": "Confidence Slider",
-      "settings": {
-        "main_heading": "SHOP WITH CONFIDENCE",
-        "bg_color": "#f7f7f7",
-        "heading_size_desktop": 28,
-        "heading_size_mobile": 20,
-        "icon_size": 50,
-        "subheading_size": 18,
-        "text_size": 14,
-        "slides_desktop": 3,
-        "autoplay": true,
-        "speed": 1000
-      }
-    },
     "collections_list_hqrb9C": {
       "type": "collections-list",
       "blocks": {
@@ -2025,6 +1946,85 @@
         "code_cus_css": ""
       }
     },
+    "confidence_slider_yash_a8n6ia": {
+      "type": "confidence-slider-yash",
+      "blocks": {
+        "slide_jGMTmb": {
+          "type": "slide",
+          "settings": {
+            "icon": "shopify://shop_images/Screenshot_2026-05-03_at_8.30.32_PM.png",
+            "subheading": "SKIN SAFE",
+            "description": "Our jewelry is hypoallergenic and <br>thoughtfully crafted for sensitive<br> skin. Designed for all-day <br>comfort without <br>irritation, itching, or discoloration."
+          }
+        },
+        "slide_Vz6YVm": {
+          "type": "slide",
+          "settings": {
+            "icon": "shopify://shop_images/Screenshot_2026-05-03_at_8.30.32_PM.png",
+            "subheading": "PREMIUM PACKAGING",
+            "description": "Every order arrives in elegant,<br> gift-ready packaging that feels <br>luxurious from the moment <br>you open it. Perfect<br>for gifting or treating yourself."
+          }
+        },
+        "slide_QXtQ7e": {
+          "type": "slide",
+          "settings": {
+            "icon": "shopify://shop_images/Screenshot_2026-05-03_at_8.30.32_PM.png",
+            "subheading": "SAFE & SECURE PAYMENTS",
+            "description": "Shop with confidence using<br> trusted and encrypted payment <br>gateways. Your transactions and <br>personal information are always<br> protected."
+          }
+        },
+        "slide_rB3acy": {
+          "type": "slide",
+          "settings": {
+            "icon": "shopify://shop_images/Screenshot_2026-05-03_at_8.30.32_PM.png",
+            "subheading": "FAST & RELIABLE SHIPPING",
+            "description": "We ensure quick processing <br>and dependable delivery<br> so your favorite pieces<br> reach you safely and on time."
+          }
+        },
+        "slide_69QAqn": {
+          "type": "slide",
+          "settings": {
+            "icon": "shopify://shop_images/Screenshot_2026-05-03_at_8.30.32_PM.png",
+            "subheading": "MADE TO LAST",
+            "description": "Crafted with attention to detail <br>and premium-quality materials, <br>our jewelry is designed for <br>everyday elegance and <br>long-lasting wear."
+          }
+        },
+        "slide_FY4gAM": {
+          "type": "slide",
+          "settings": {
+            "icon": "shopify://shop_images/Screenshot_2026-05-03_at_8.30.32_PM.png",
+            "subheading": "EASY CUSTOMER SUPPORT",
+            "description": "Have a question or concern? <br>Our support team is <br>here to help with quick responses <br>and a smooth shopping experience <br>from start to finish."
+          }
+        }
+      },
+      "block_order": [
+        "slide_jGMTmb",
+        "slide_Vz6YVm",
+        "slide_QXtQ7e",
+        "slide_rB3acy",
+        "slide_69QAqn",
+        "slide_FY4gAM"
+      ],
+      "custom_css": [
+        "h2 {color: #0b2d6a;}",
+        ".description {color: #0b2d6a;}",
+        ".subheading {color: #0b2d6a;}"
+      ],
+      "name": "Confidence Slider",
+      "settings": {
+        "main_heading": "SHOP WITH CONFIDENCE",
+        "bg_color": "#f7f7f7",
+        "heading_size_desktop": 28,
+        "heading_size_mobile": 20,
+        "icon_size": 50,
+        "subheading_size": 18,
+        "text_size": 14,
+        "slides_desktop": 3,
+        "autoplay": true,
+        "speed": 1000
+      }
+    },
     "1780384910bca18107": {
       "type": "apps",
       "custom_css": [],
@@ -2051,10 +2051,10 @@
     "custom_liquid_N6A94J",
     "slideshow_TEN6PK",
     "blog_post_RdcyyD",
-    "confidence_slider_yash_a8n6ia",
     "collections_list_hqrb9C",
     "slideshow_A6WqpF",
     "slideshow_DTVB9R",
+    "confidence_slider_yash_a8n6ia",
     "1780384910bca18107"
   ]
 }
