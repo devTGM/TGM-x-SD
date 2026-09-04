@@ -504,6 +504,234 @@
         "code_cus_css": ""
       }
     },
+    "collections_list_carousel_QJdByX": {
+      "type": "collections-list-carousel",
+      "custom_css": [
+        ".t4s_ratio:not(.t4s_bg) > *:not(.t4s-not-style),.no-js .t4s_ratio:not(.t4s_bg) > noscript > *:not(.t4s-not-style) {border-radius: 15px;}",
+        ".t4s-title > span {color: #0b2d6a;}"
+      ],
+      "settings": {
+        "show_on": "show_all",
+        "design_heading": "1",
+        "heading_align": "t4s-text-center",
+        "top_heading": "Shop Best Sellers",
+        "icon_heading": "",
+        "top_subheading": "",
+        "tophead_mb": 10,
+        "title_fs": 10,
+        "title_fw": 100,
+        "title_cl": "#ffffff",
+        "title_cl_hover": "#3c7bd2",
+        "open_link": "_self",
+        "image_rd": true,
+        "img_effect": "none",
+        "col_dk": "6",
+        "col_tb": "5",
+        "col_mb": "3",
+        "space_h_item": "30",
+        "space_h_item_mb": "10",
+        "loop": false,
+        "au_time": 0,
+        "au_hover": true,
+        "scrollbar": false,
+        "nav_btn": false,
+        "btn_pos": "default",
+        "btn_vi": "hover",
+        "btn_owl": "default",
+        "btn_shape": "none",
+        "btn_cl": "dark",
+        "btn_size": "small",
+        "btn_hidden_mobile": false,
+        "nav_dot": false,
+        "dot_owl": "default",
+        "dots_cl": "dark",
+        "dots_round": true,
+        "dots_space": 10,
+        "dots_hidden_mobile": false,
+        "layout": "t4s-container-wrap",
+        "cl_bg": "",
+        "cl_bg_gradient": "",
+        "mg": "0px,,,",
+        "pd": "",
+        "mg_tb": "",
+        "pd_tb": "",
+        "mg_mb": ",,,",
+        "pd_mb": "",
+        "use_cus_css": false,
+        "code_cus_css": ""
+      }
+    },
+    "image_grid_custom_yash_kKDVKe": {
+      "type": "image-grid-custom-yash",
+      "blocks": {
+        "image_block_dQbXCa": {
+          "type": "image_block",
+          "settings": {
+            "image": "shopify://shop_images/3-SBS1.png",
+            "link": "https://sollakdesigns.com/products/evil-eye-open-bangle?_pos=1&_psq=aura+guard&_ss=e&_v=1.0"
+          }
+        },
+        "image_block_CtK4xY": {
+          "type": "image_block",
+          "settings": {
+            "image": "shopify://shop_images/3-SBS2.png",
+            "link": "https://sollakdesigns.com/products/18k-gold-stainless-steel-evil-eyes-wide-design-adjustable-double-layers-bend-opening-ring?_pos=1&_psq=boldaura&_ss=e&_v=1.0"
+          }
+        },
+        "image_block_jBCNxF": {
+          "type": "image_block",
+          "settings": {
+            "image": "shopify://shop_images/3-SBS3.png",
+            "link": "https://sollakdesigns.com/products/dainty-18k-gold-plated-stainless-steel-evil-eyes-enamel-clear-cubic-zirconia-adjustable-ring?_pos=1&_psq=protection+loop&_ss=e&_v=1.0"
+          }
+        },
+        "image_block_GgYXCE": {
+          "type": "image_block",
+          "settings": {
+            "image": "shopify://shop_images/3-SBS4.png",
+            "link": "https://sollakdesigns.com/products/charmeye-earrings?_pos=2&_psq=char+evil+eye&_ss=e&_v=1.0"
+          }
+        }
+      },
+      "block_order": [
+        "image_block_dQbXCa",
+        "image_block_CtK4xY",
+        "image_block_jBCNxF",
+        "image_block_GgYXCE"
+      ],
+      "custom_css": [
+        "@media (min-width: 1024px) {.custom-grid {margin-right: 100px; margin-left: 100px; }}"
+      ],
+      "name": "Image Grid Custom Pro",
+      "settings": {
+        "mobile_columns": "2",
+        "desktop_columns": 4,
+        "max_rows": 1,
+        "gap": 6,
+        "border_radius": 16,
+        "aspect_ratio": "4/5",
+        "hover_zoom": false
+      }
+    },
+    "collections_list_carousel_9HYMwF": {
+      "type": "collections-list-carousel",
+      "blocks": {
+        "collection_item_7BTLUz": {
+          "type": "collection_item",
+          "settings": {
+            "collection": "",
+            "image": "shopify://shop_images/4-TB1.png",
+            "collection_title": "Collection name",
+            "collection_link": ""
+          }
+        },
+        "collection_item_QNAFHG": {
+          "type": "collection_item",
+          "settings": {
+            "collection": "",
+            "image": "shopify://shop_images/4-TB2.png",
+            "collection_title": "Collection name",
+            "collection_link": ""
+          }
+        },
+        "collection_item_W8zrLg": {
+          "type": "collection_item",
+          "settings": {
+            "collection": "",
+            "image": "shopify://shop_images/4-TB3.png",
+            "collection_title": "Collection name",
+            "collection_link": ""
+          }
+        },
+        "collection_item_rgcfyk": {
+          "type": "collection_item",
+          "settings": {
+            "collection": "",
+            "image": "shopify://shop_images/4-TB4.png",
+            "collection_title": "Collection name",
+            "collection_link": ""
+          }
+        }
+      },
+      "block_order": [
+        "collection_item_7BTLUz",
+        "collection_item_QNAFHG",
+        "collection_item_W8zrLg",
+        "collection_item_rgcfyk"
+      ],
+      "custom_css": [
+        ".t4s-title > span {color: #0b2d6a;}",
+        "@media (min-width: 1024px) {.t4s-container {width: 55%; }}",
+        "@media (max-width: 1024px) {.t4s-container {width: 95%; }}"
+      ],
+      "settings": {
+        "show_on": "show_all",
+        "design_heading": "1",
+        "heading_align": "t4s-text-center",
+        "top_heading": "Shop With Confidence",
+        "icon_heading": "",
+        "top_subheading": "",
+        "tophead_mb": 10,
+        "title_fs": 10,
+        "title_fw": 100,
+        "title_cl": "#ffffff",
+        "title_cl_hover": "#3c7bd2",
+        "open_link": "_self",
+        "image_rd": true,
+        "img_effect": "none",
+        "col_dk": "4",
+        "col_tb": "4",
+        "col_mb": "4",
+        "space_h_item": "4",
+        "space_h_item_mb": "0",
+        "loop": false,
+        "au_time": 0,
+        "au_hover": true,
+        "scrollbar": false,
+        "nav_btn": false,
+        "btn_pos": "default",
+        "btn_vi": "hover",
+        "btn_owl": "default",
+        "btn_shape": "none",
+        "btn_cl": "dark",
+        "btn_size": "small",
+        "btn_hidden_mobile": false,
+        "nav_dot": false,
+        "dot_owl": "default",
+        "dots_cl": "dark",
+        "dots_round": true,
+        "dots_space": 10,
+        "dots_hidden_mobile": false,
+        "layout": "t4s-se-container",
+        "cl_bg": "",
+        "cl_bg_gradient": "",
+        "mg": "0px,,10px,",
+        "pd": "",
+        "mg_tb": "",
+        "pd_tb": "",
+        "mg_mb": ",,5px,",
+        "pd_mb": "",
+        "use_cus_css": false,
+        "code_cus_css": ""
+      }
+    },
+    "custom_html_TBenhx": {
+      "type": "custom-html",
+      "settings": {
+        "code": "<script src=\"https://shopper.ghostretail.com/gp-shopper.js\" defer></script>\n<div data-gp-account=\"669e20718c9c2ccf19a803e9\" data-gp-collection=\"66a9e6b2a880454908d9e0ef\" data-gp-type=\"carousel\"></div>",
+        "layout": "t4s-container-fluid",
+        "cl_bg": "#ffffff",
+        "cl_bg_gradient": "",
+        "mg": ",50px,50px,50px",
+        "pd": ",,,",
+        "mg_tb": "",
+        "pd_tb": "",
+        "mg_mb": ",,30px,",
+        "pd_mb": "",
+        "use_cus_css": false,
+        "code_cus_css": ""
+      }
+    },
     "collections_list_carousel_EWD3ei": {
       "type": "collections-list-carousel",
       "disabled": true,
@@ -642,115 +870,6 @@
       ],
       "settings": {}
     },
-    "collections_list_carousel_QJdByX": {
-      "type": "collections-list-carousel",
-      "custom_css": [
-        ".t4s_ratio:not(.t4s_bg) > *:not(.t4s-not-style),.no-js .t4s_ratio:not(.t4s_bg) > noscript > *:not(.t4s-not-style) {border-radius: 15px;}",
-        ".t4s-title > span {color: #0b2d6a;}"
-      ],
-      "settings": {
-        "show_on": "show_all",
-        "design_heading": "1",
-        "heading_align": "t4s-text-center",
-        "top_heading": "Shop Best Sellers",
-        "icon_heading": "",
-        "top_subheading": "",
-        "tophead_mb": 10,
-        "title_fs": 10,
-        "title_fw": 100,
-        "title_cl": "#ffffff",
-        "title_cl_hover": "#3c7bd2",
-        "open_link": "_self",
-        "image_rd": true,
-        "img_effect": "none",
-        "col_dk": "6",
-        "col_tb": "5",
-        "col_mb": "3",
-        "space_h_item": "30",
-        "space_h_item_mb": "10",
-        "loop": false,
-        "au_time": 0,
-        "au_hover": true,
-        "scrollbar": false,
-        "nav_btn": false,
-        "btn_pos": "default",
-        "btn_vi": "hover",
-        "btn_owl": "default",
-        "btn_shape": "none",
-        "btn_cl": "dark",
-        "btn_size": "small",
-        "btn_hidden_mobile": false,
-        "nav_dot": false,
-        "dot_owl": "default",
-        "dots_cl": "dark",
-        "dots_round": true,
-        "dots_space": 10,
-        "dots_hidden_mobile": false,
-        "layout": "t4s-container-wrap",
-        "cl_bg": "",
-        "cl_bg_gradient": "",
-        "mg": "0px,,,",
-        "pd": "",
-        "mg_tb": "",
-        "pd_tb": "",
-        "mg_mb": ",,,",
-        "pd_mb": "",
-        "use_cus_css": false,
-        "code_cus_css": ""
-      }
-    },
-    "image_grid_custom_yash_kKDVKe": {
-      "type": "image-grid-custom-yash",
-      "blocks": {
-        "image_block_dQbXCa": {
-          "type": "image_block",
-          "settings": {
-            "image": "shopify://shop_images/3-SBS1.png",
-            "link": "https://sollakdesigns.com/products/evil-eye-open-bangle?_pos=1&_psq=aura+guard&_ss=e&_v=1.0"
-          }
-        },
-        "image_block_CtK4xY": {
-          "type": "image_block",
-          "settings": {
-            "image": "shopify://shop_images/3-SBS2.png",
-            "link": "https://sollakdesigns.com/products/18k-gold-stainless-steel-evil-eyes-wide-design-adjustable-double-layers-bend-opening-ring?_pos=1&_psq=boldaura&_ss=e&_v=1.0"
-          }
-        },
-        "image_block_jBCNxF": {
-          "type": "image_block",
-          "settings": {
-            "image": "shopify://shop_images/3-SBS3.png",
-            "link": "https://sollakdesigns.com/products/dainty-18k-gold-plated-stainless-steel-evil-eyes-enamel-clear-cubic-zirconia-adjustable-ring?_pos=1&_psq=protection+loop&_ss=e&_v=1.0"
-          }
-        },
-        "image_block_GgYXCE": {
-          "type": "image_block",
-          "settings": {
-            "image": "shopify://shop_images/3-SBS4.png",
-            "link": "https://sollakdesigns.com/products/charmeye-earrings?_pos=2&_psq=char+evil+eye&_ss=e&_v=1.0"
-          }
-        }
-      },
-      "block_order": [
-        "image_block_dQbXCa",
-        "image_block_CtK4xY",
-        "image_block_jBCNxF",
-        "image_block_GgYXCE"
-      ],
-      "custom_css": [
-        "@media (min-width: 1024px) {.custom-grid {margin-right: 100px; margin-left: 100px; }}"
-      ],
-      "name": "Image Grid Custom Pro",
-      "settings": {
-        "mobile_columns": "2",
-        "desktop_columns": 4,
-        "max_rows": 1,
-        "gap": 6,
-        "border_radius": 16,
-        "aspect_ratio": "4/5",
-        "hover_zoom": false
-      }
-    },
     "164603686708691778": {
       "type": "featured-collection",
       "disabled": true,
@@ -823,125 +942,6 @@
         "pd_mb": "",
         "use_cus_css": false,
         "code_cus_css": ".SectionID {\nbackground-color:red\n}"
-      }
-    },
-    "custom_html_TBenhx": {
-      "type": "custom-html",
-      "settings": {
-        "code": "<script src=\"https://shopper.ghostretail.com/gp-shopper.js\" defer></script>\n<div data-gp-account=\"669e20718c9c2ccf19a803e9\" data-gp-collection=\"66a9e6b2a880454908d9e0ef\" data-gp-type=\"carousel\"></div>",
-        "layout": "t4s-container-fluid",
-        "cl_bg": "#ffffff",
-        "cl_bg_gradient": "",
-        "mg": ",50px,50px,50px",
-        "pd": ",,,",
-        "mg_tb": "",
-        "pd_tb": "",
-        "mg_mb": ",,30px,",
-        "pd_mb": "",
-        "use_cus_css": false,
-        "code_cus_css": ""
-      }
-    },
-    "collections_list_carousel_9HYMwF": {
-      "type": "collections-list-carousel",
-      "blocks": {
-        "collection_item_7BTLUz": {
-          "type": "collection_item",
-          "settings": {
-            "collection": "",
-            "image": "shopify://shop_images/4-TB1.png",
-            "collection_title": "Collection name",
-            "collection_link": ""
-          }
-        },
-        "collection_item_QNAFHG": {
-          "type": "collection_item",
-          "settings": {
-            "collection": "",
-            "image": "shopify://shop_images/4-TB2.png",
-            "collection_title": "Collection name",
-            "collection_link": ""
-          }
-        },
-        "collection_item_W8zrLg": {
-          "type": "collection_item",
-          "settings": {
-            "collection": "",
-            "image": "shopify://shop_images/4-TB3.png",
-            "collection_title": "Collection name",
-            "collection_link": ""
-          }
-        },
-        "collection_item_rgcfyk": {
-          "type": "collection_item",
-          "settings": {
-            "collection": "",
-            "image": "shopify://shop_images/4-TB4.png",
-            "collection_title": "Collection name",
-            "collection_link": ""
-          }
-        }
-      },
-      "block_order": [
-        "collection_item_7BTLUz",
-        "collection_item_QNAFHG",
-        "collection_item_W8zrLg",
-        "collection_item_rgcfyk"
-      ],
-      "custom_css": [
-        ".t4s-title > span {color: #0b2d6a;}",
-        "@media (min-width: 1024px) {.t4s-container {width: 55%; }}",
-        "@media (max-width: 1024px) {.t4s-container {width: 95%; }}"
-      ],
-      "settings": {
-        "show_on": "show_all",
-        "design_heading": "1",
-        "heading_align": "t4s-text-center",
-        "top_heading": "Shop With Confidence",
-        "icon_heading": "",
-        "top_subheading": "",
-        "tophead_mb": 10,
-        "title_fs": 10,
-        "title_fw": 100,
-        "title_cl": "#ffffff",
-        "title_cl_hover": "#3c7bd2",
-        "open_link": "_self",
-        "image_rd": true,
-        "img_effect": "none",
-        "col_dk": "4",
-        "col_tb": "4",
-        "col_mb": "4",
-        "space_h_item": "4",
-        "space_h_item_mb": "0",
-        "loop": false,
-        "au_time": 0,
-        "au_hover": true,
-        "scrollbar": false,
-        "nav_btn": false,
-        "btn_pos": "default",
-        "btn_vi": "hover",
-        "btn_owl": "default",
-        "btn_shape": "none",
-        "btn_cl": "dark",
-        "btn_size": "small",
-        "btn_hidden_mobile": false,
-        "nav_dot": false,
-        "dot_owl": "default",
-        "dots_cl": "dark",
-        "dots_round": true,
-        "dots_space": 10,
-        "dots_hidden_mobile": false,
-        "layout": "t4s-se-container",
-        "cl_bg": "",
-        "cl_bg_gradient": "",
-        "mg": "-20px,,10px,",
-        "pd": "",
-        "mg_tb": "",
-        "pd_tb": "",
-        "mg_mb": ",,5px,",
-        "pd_mb": "",
-        "use_cus_css": false,
-        "code_cus_css": ""
       }
     },
     "tabs_collection_ft9fNi": {
@@ -2035,14 +2035,14 @@
     "collections_list_carousel_RdrgJz",
     "1646028739ae283905",
     "collections_list_carousel_CHP8j9",
+    "collections_list_carousel_QJdByX",
+    "image_grid_custom_yash_kKDVKe",
+    "collections_list_carousel_9HYMwF",
+    "custom_html_TBenhx",
     "collections_list_carousel_EWD3ei",
     "collections_list_carousel_P4zfCG",
     "1785409691ec43e15a",
-    "collections_list_carousel_QJdByX",
-    "image_grid_custom_yash_kKDVKe",
     "164603686708691778",
-    "custom_html_TBenhx",
-    "collections_list_carousel_9HYMwF",
     "tabs_collection_ft9fNi",
     "slideshow_nA6yrK",
     "slideshow_yMqmEU",
