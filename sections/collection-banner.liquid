@@ -1,0 +1,194 @@
+<!-- sections/collection-banner.liquid -->
+{%- liquid
+  assign se_id = section.id
+  assign se_stts = section.settings
+  assign banner_img = collection.image
+  if banner_img == blank
+    assign banner_img = se_stts.image_fallback
+  endif
+  assign banner_img_mb = se_stts.image_mb | default: banner_img
+-%}
+
+{%- if banner_img != blank or se_stts.show_title -%}
+  {{ 'collection-banner.css' | asset_url | stylesheet_tag }}
+
+  <div class="sd-collection-banner-wrap {% if se_stts.fullwidth %}is--fullwidth{% else %}t4s-container{% endif %}">
+    <div class="sd-collection-banner" style="
+      --banner-ratio-mb: {{ se_stts.ratio_mobile | default: '2 / 1' }};
+      --banner-ratio-dk: {{ se_stts.ratio_desktop | default: '3 / 1' }};
+      --banner-overlay-bg: {{ se_stts.overlay_color | default: '#000000' }};
+      --banner-overlay-op: {{ se_stts.overlay_opacity | divided_by: 100.0 }};
+      --banner-radius: {{ se_stts.border_radius | default: 0 }}px;
+    ">
+      {%- if banner_img != blank -%}
+        <picture class="sd-banner-picture">
+          {%- if banner_img_mb != blank -%}
+            <source media="(max-width: 767px)" srcset="{{ banner_img_mb | image_url: width: 800 }} 1x, {{ banner_img_mb | image_url: width: 1200 }} 2x">
+          {%- endif -%}
+          <img
+            class="sd-banner-img lazyloadt4s"
+            src="{{ banner_img | image_url: width: 1200 }}"
+            srcset="{{ banner_img | image_url: width: 800 }} 800w, {{ banner_img | image_url: width: 1200 }} 1200w, {{ banner_img | image_url: width: 1800 }} 1800w, {{ banner_img | image_url: width: 2400 }} 2400w"
+            sizes="(max-width: 767px) 100vw, (max-width: 1200px) 100vw, 1400px"
+            alt="{{ collection.title | escape }}"
+            loading="eager"
+            width="{{ banner_img.width }}"
+            height="{{ banner_img.height }}"
+          >
+        </picture>
+      {%- endif -%}
+
+      {%- if se_stts.overlay_opacity > 0 -%}
+        <div class="sd-banner-overlay"></div>
+      {%- endif -%}
+
+      {%- if se_stts.show_title or se_stts.show_breadcrumb -%}
+        <div class="sd-banner-content sd-text-{{ se_stts.content_align }}" style="--content-color: {{ se_stts.text_color | default: '#ffffff' }};">
+          {%- if se_stts.show_breadcrumb -%}
+            <nav class="sd-banner-breadcrumbs" role="navigation" aria-label="breadcrumbs">
+              <a href="{{ routes.root_url }}">{{ 'general.breadcrumb.home' | t | default: 'Home' }}</a>
+              <span class="sd-breadcrumb-sep">/</span>
+              <span>{{ collection.title }}</span>
+            </nav>
+          {%- endif -%}
+
+          {%- if se_stts.show_title -%}
+            <h1 class="sd-banner-title">{{ collection.title }}</h1>
+          {%- endif -%}
+
+          {%- if se_stts.show_description and collection.description != blank -%}
+            <div class="sd-banner-desc">{{ collection.description | strip_html | truncatewords: 25 }}</div>
+          {%- endif -%}
+        </div>
+      {%- endif -%}
+    </div>
+  </div>
+{%- endif -%}
+
+{% schema %}
+{
+  "name": "Collection Banner (2:1)",
+  "class": "sd-section-collection-banner",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Banner Images"
+    },
+    {
+      "type": "image_picker",
+      "id": "image_fallback",
+      "label": "Fallback Banner Image",
+      "info": "Displayed if the collection has no assigned image in Shopify Admin."
+    },
+    {
+      "type": "image_picker",
+      "id": "image_mb",
+      "label": "Mobile Image Override (Optional)",
+      "info": "Leave blank to automatically use the 2:1 optimized collection image on mobile."
+    },
+    {
+      "type": "header",
+      "content": "Ratios & Layout"
+    },
+    {
+      "type": "select",
+      "id": "ratio_mobile",
+      "label": "Mobile Aspect Ratio",
+      "default": "2 / 1",
+      "options": [
+        { "value": "2 / 1", "label": "2:1 (Recommended for Mobile)" },
+        { "value": "16 / 9", "label": "16:9" },
+        { "value": "3 / 2", "label": "3:2" }
+      ]
+    },
+    {
+      "type": "select",
+      "id": "ratio_desktop",
+      "label": "Desktop Aspect Ratio",
+      "default": "3 / 1",
+      "options": [
+        { "value": "2 / 1", "label": "2:1" },
+        { "value": "2.5 / 1", "label": "2.5:1" },
+        { "value": "3 / 1", "label": "3:1 (Wide Panorama)" },
+        { "value": "21 / 9", "label": "21:9 (Ultrawide)" }
+      ]
+    },
+    {
+      "type": "checkbox",
+      "id": "fullwidth",
+      "label": "Enable Full Width",
+      "default": true
+    },
+    {
+      "type": "range",
+      "id": "border_radius",
+      "label": "Border Radius",
+      "min": 0,
+      "max": 24,
+      "step": 2,
+      "unit": "px",
+      "default": 0
+    },
+    {
+      "type": "header",
+      "content": "Text & Overlay"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_title",
+      "label": "Show Collection Title",
+      "default": false
+    },
+    {
+      "type": "checkbox",
+      "id": "show_breadcrumb",
+      "label": "Show Breadcrumbs",
+      "default": false
+    },
+    {
+      "type": "checkbox",
+      "id": "show_description",
+      "label": "Show Short Description",
+      "default": false
+    },
+    {
+      "type": "select",
+      "id": "content_align",
+      "label": "Content Alignment",
+      "default": "center",
+      "options": [
+        { "value": "left", "label": "Left" },
+        { "value": "center", "label": "Center" },
+        { "value": "right", "label": "Right" }
+      ]
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Text Color",
+      "default": "#ffffff"
+    },
+    {
+      "type": "color",
+      "id": "overlay_color",
+      "label": "Overlay Color",
+      "default": "#000000"
+    },
+    {
+      "type": "range",
+      "id": "overlay_opacity",
+      "label": "Overlay Opacity",
+      "min": 0,
+      "max": 80,
+      "step": 5,
+      "unit": "%",
+      "default": 0
+    }
+  ],
+  "presets": [
+    {
+      "name": "Collection Banner (2:1)"
+    }
+  ]
+}
+{% endschema %}

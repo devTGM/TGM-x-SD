@@ -369,16 +369,13 @@ padding: 6px 16px 6px 8px; /* little extra space on right */
 }
 .t4s-product .t4s-product-title a {
   color: inherit;
-  .t4s-product-title a {
   display: -webkit-box !important;
   -webkit-line-clamp: 2 !important;
   -webkit-box-orient: vertical !important;
   overflow: hidden !important;
   text-overflow: ellipsis !important;
-  line-height: 1.4em !important;
-  max-height: 2.8em !important;
-}
-
+  line-height: 1.35em !important;
+  height: 2.7em !important;
 }
 .t4s-product .t4s-product-title a:hover {
   color: var(--product-title-color-hover);
@@ -2432,5 +2429,203 @@ padding: 6px 16px 6px 8px; /* little extra space on right */
     a
     span.t4s-text-pr {
     display: inline-block;
+  }
+}
+
+/* ==========================================================================
+   COLLECTION PAGE ENHANCEMENTS: TALL IMAGES, UNIFORMITY & QUICK ADD
+   ========================================================================== */
+
+/* 1. Tall Product Image Framing & Non-Cut / Non-Stretched Fit */
+.t4s_box_pr_grid .t4s-product.t4s-pr-grid,
+.t4s_box_pr_masonry .t4s-product.t4s-pr-grid {
+  display: flex !important;
+  flex-direction: column !important;
+  height: 100% !important;
+}
+
+.t4s-product.t4s-pr-grid .t4s-product-wrapper {
+  display: flex !important;
+  flex-direction: column !important;
+  height: 100% !important;
+  width: 100% !important;
+}
+
+.t4s-product.t4s-pr-grid .t4s-product-inner {
+  width: 100% !important;
+  border-radius: 12px !important;
+  overflow: hidden !important;
+  background-color: #fafafa !important;
+  position: relative !important;
+}
+
+.t4s-product.t4s-pr-grid .t4s-product-img.t4s_ratio {
+  background-color: #fafafa !important;
+  border-radius: 12px !important;
+  overflow: hidden !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+}
+
+/* Ensure images fit cleanly inside tall aspect ratio without being stretched or cut */
+.t4s-product.t4s-pr-grid .t4s-product-img.t4s_ratio img,
+.t4s-product.t4s-pr-grid .t4s-product-main-img {
+  object-fit: contain !important;
+  object-position: center center !important;
+  width: 100% !important;
+  height: 100% !important;
+  padding: 6px !important;
+  box-sizing: border-box !important;
+  transition: transform 0.35s ease !important;
+}
+
+.t4s-product.t4s-pr-grid:hover .t4s-product-img.t4s_ratio img {
+  transform: scale(1.03) !important;
+}
+
+/* 2. Card Content & Baseline Alignment */
+.t4s-product.t4s-pr-grid .t4s-product-info {
+  display: flex !important;
+  flex-direction: column !important;
+  flex: 1 1 auto !important;
+  padding-top: 10px !important;
+}
+
+.t4s-product.t4s-pr-grid .t4s-product-info__inner {
+  display: flex !important;
+  flex-direction: column !important;
+  flex: 1 1 auto !important;
+  margin-bottom: 0 !important;
+}
+
+/* Uniform 2-line title */
+.t4s-product.t4s-pr-grid .t4s-product-title {
+  margin: 0 0 6px 0 !important;
+}
+
+.t4s-product.t4s-pr-grid .t4s-product-title a {
+  display: -webkit-box !important;
+  -webkit-line-clamp: 2 !important;
+  -webkit-box-orient: vertical !important;
+  overflow: hidden !important;
+  text-overflow: ellipsis !important;
+  line-height: 1.35em !important;
+  height: 2.7em !important;
+  font-size: 13.5px !important;
+  font-weight: 500 !important;
+  color: #222222 !important;
+}
+
+/* Price styling & alignment */
+.t4s-product.t4s-pr-grid .t4s-product-price {
+  font-size: 14px !important;
+  font-weight: 600 !important;
+  margin-bottom: 8px !important;
+  display: flex !important;
+  align-items: baseline !important;
+  justify-content: center !important;
+  gap: 6px !important;
+}
+
+/* Push buttons to the absolute bottom of the card for perfect row-level alignment */
+.t4s-product.t4s-pr-grid .t4s-product-btns {
+  margin-top: auto !important;
+  padding-top: 6px !important;
+  width: 100% !important;
+}
+
+/* 3. Sleek, Premium Quick Add Button */
+.t4s-product.t4s-pr-grid.t4s-pr-style6 .t4s-product-btns a,
+.t4s-product.t4s-pr-grid.t4s-pr-style6 .t4s-product-btns a.t4s-pr-addtocart {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  width: 100% !important;
+  height: 38px !important;
+  line-height: 1 !important;
+  border-radius: 40px !important;
+  background-color: var(--accent-color, #3c7bd2) !important;
+  color: #ffffff !important;
+  font-size: 12px !important;
+  font-weight: 600 !important;
+  letter-spacing: 0.5px !important;
+  text-transform: uppercase !important;
+  box-sizing: border-box !important;
+  padding: 0 14px !important;
+  border: 1.5px solid var(--accent-color, #3c7bd2) !important;
+  transition: all 0.25s ease !important;
+  text-decoration: none !important;
+  cursor: pointer !important;
+}
+
+.t4s-product.t4s-pr-grid.t4s-pr-style6 .t4s-product-btns a:hover {
+  background-color: #0b2d6a !important;
+  border-color: #0b2d6a !important;
+  color: #ffffff !important;
+  box-shadow: 0 3px 10px rgba(11, 45, 106, 0.2) !important;
+}
+
+/* Keep Quick Add text & icon visible without shifting away */
+.t4s-product.t4s-pr-grid.t4s-pr-style6 .t4s-product-btns a > span {
+  width: auto !important;
+  height: auto !important;
+  transform: none !important;
+  opacity: 1 !important;
+}
+
+.t4s-product.t4s-pr-grid.t4s-pr-style6 .t4s-product-btns a .t4s-text-pr {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  font-size: 11.5px !important;
+  font-weight: 600 !important;
+  letter-spacing: 0.6px !important;
+  text-transform: uppercase !important;
+  transform: none !important;
+  opacity: 1 !important;
+  color: inherit !important;
+}
+
+.t4s-product.t4s-pr-grid.t4s-pr-style6 .t4s-product-btns a .t4s-svg-pr-icon {
+  position: static !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  transform: none !important;
+  margin-right: 6px !important;
+  color: inherit !important;
+}
+
+.t4s-product.t4s-pr-grid.t4s-pr-style6 .t4s-product-btns a .t4s-svg-pr-icon svg {
+  width: 14px !important;
+  height: 14px !important;
+  fill: currentColor !important;
+  display: block !important;
+}
+
+.t4s-product.t4s-pr-grid.t4s-pr-style6 .t4s-product-btns a:hover .t4s-svg-pr-icon,
+.t4s-product.t4s-pr-grid.t4s-pr-style6 .t4s-product-btns a:hover .t4s-text-pr {
+  transform: none !important;
+}
+
+/* Mobile optimizations for 2-column grid */
+@media (max-width: 767px) {
+  .t4s-product.t4s-pr-grid .t4s-product-title a {
+    font-size: 12.5px !important;
+    line-height: 1.3em !important;
+    height: 2.6em !important;
+  }
+  .t4s-product.t4s-pr-grid.t4s-pr-style6 .t4s-product-btns a {
+    height: 35px !important;
+    font-size: 11px !important;
+    padding: 0 8px !important;
+  }
+  .t4s-product.t4s-pr-grid.t4s-pr-style6 .t4s-product-btns a .t4s-text-pr {
+    font-size: 10.5px !important;
+    letter-spacing: 0.3px !important;
+  }
+  .t4s-product.t4s-pr-grid.t4s-pr-style6 .t4s-product-btns a .t4s-svg-pr-icon svg {
+    width: 12px !important;
+    height: 12px !important;
   }
 }

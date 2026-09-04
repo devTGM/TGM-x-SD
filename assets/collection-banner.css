@@ -1,0 +1,130 @@
+/* assets/collection-banner.css */
+.sd-collection-banner-wrap {
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+.sd-collection-banner-wrap.is--fullwidth {
+  padding-left: 0;
+  padding-right: 0;
+  max-width: 100%;
+}
+
+.sd-collection-banner {
+  position: relative;
+  width: 100%;
+  aspect-ratio: var(--banner-ratio-mb, 2 / 1);
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--banner-radius, 0);
+  background: #f4f6f8;
+}
+
+@media (min-width: 768px) {
+  .sd-collection-banner {
+    aspect-ratio: var(--banner-ratio-dk, 3 / 1);
+  }
+}
+
+.sd-banner-picture {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+.sd-banner-img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+}
+
+.sd-banner-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: var(--banner-overlay-bg, #000000);
+  opacity: var(--banner-overlay-op, 0);
+  pointer-events: none;
+  z-index: 2;
+  transition: opacity 0.3s ease;
+}
+
+.sd-banner-content {
+  position: relative;
+  z-index: 3;
+  padding: 16px 20px;
+  color: var(--content-color, #ffffff);
+  width: 100%;
+  max-width: 900px;
+  box-sizing: border-box;
+}
+
+.sd-text-center {
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.sd-text-left {
+  text-align: left;
+  margin-right: auto;
+}
+
+.sd-text-right {
+  text-align: right;
+  margin-left: auto;
+}
+
+.sd-banner-breadcrumbs {
+  font-size: 11px;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  margin-bottom: 6px;
+  opacity: 0.9;
+}
+
+.sd-banner-breadcrumbs a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.sd-breadcrumb-sep {
+  margin: 0 6px;
+  opacity: 0.6;
+}
+
+.sd-banner-title {
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 1.25;
+  margin: 0 0 6px 0;
+  color: inherit;
+  letter-spacing: 0.5px;
+  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.25);
+}
+
+@media (min-width: 768px) {
+  .sd-banner-title {
+    font-size: 32px;
+  }
+}
+
+.sd-banner-desc {
+  font-size: 13px;
+  line-height: 1.45;
+  margin-top: 4px;
+  opacity: 0.95;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.25);
+}
