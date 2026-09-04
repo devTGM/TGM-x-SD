@@ -2433,10 +2433,23 @@ padding: 6px 16px 6px 8px; /* little extra space on right */
 }
 
 /* ==========================================================================
-   COLLECTION PAGE ENHANCEMENTS: TALL IMAGES, UNIFORMITY & QUICK ADD
+   COLLECTION PAGE ENHANCEMENTS: TALL IMAGES (4:5), UNIFORMITY & QUICK ADD
    ========================================================================== */
 
-/* 1. Tall Product Image Framing & Non-Cut / Non-Stretched Fit */
+/* 1. Enforce 4:5 (125% height) portrait aspect ratio */
+.t4s_box_pr_grid.t4s_ratio5_4,
+.t4s_box_pr_grid.t4s_ratio5_4 .t4s-product-img.t4s_ratio,
+.t4s_box_pr_masonry.t4s_ratio5_4,
+.t4s_box_pr_masonry.t4s_ratio5_4 .t4s-product-img.t4s_ratio {
+  --t4s-aspect-ratio: 125% !important;
+}
+
+.t4s_box_pr_grid.t4s_ratio5_4 .t4s-product-img.t4s_ratio::before,
+.t4s_box_pr_masonry.t4s_ratio5_4 .t4s-product-img.t4s_ratio::before {
+  padding-top: 125% !important;
+}
+
+/* 2. Uniform Card Columns & Flex Layout */
 .t4s_box_pr_grid .t4s-product.t4s-pr-grid,
 .t4s_box_pr_masonry .t4s-product.t4s-pr-grid {
   display: flex !important;
@@ -2451,45 +2464,76 @@ padding: 6px 16px 6px 8px; /* little extra space on right */
   width: 100% !important;
 }
 
+/* 3. Clean, Full-Bleed Product Image (NO letterboxing, NO empty space, NO border padding) */
 .t4s-product.t4s-pr-grid .t4s-product-inner {
   width: 100% !important;
-  border-radius: 12px !important;
+  border-radius: 8px !important;
   overflow: hidden !important;
-  background-color: #fafafa !important;
   position: relative !important;
+  background-color: #f6f6f6 !important;
 }
 
 .t4s-product.t4s-pr-grid .t4s-product-img.t4s_ratio {
-  background-color: #fafafa !important;
-  border-radius: 12px !important;
+  border-radius: 8px !important;
   overflow: hidden !important;
-  display: flex !important;
-  align-items: center !important;
-  justify-content: center !important;
+  position: relative !important;
+  width: 100% !important;
+  background: transparent !important;
 }
 
-/* Ensure images fit cleanly inside tall aspect ratio without being stretched or cut */
 .t4s-product.t4s-pr-grid .t4s-product-img.t4s_ratio img,
 .t4s-product.t4s-pr-grid .t4s-product-main-img {
-  object-fit: contain !important;
+  object-fit: cover !important;
   object-position: center center !important;
   width: 100% !important;
   height: 100% !important;
-  padding: 6px !important;
+  padding: 0 !important;
+  margin: 0 !important;
   box-sizing: border-box !important;
-  transition: transform 0.35s ease !important;
+  display: block !important;
+  transition: transform 0.4s ease !important;
 }
 
 .t4s-product.t4s-pr-grid:hover .t4s-product-img.t4s_ratio img {
-  transform: scale(1.03) !important;
+  transform: scale(1.04) !important;
 }
 
-/* 2. Card Content & Baseline Alignment */
+/* 4. Sleek Badges on Product Image */
+.t4s-product.t4s-pr-grid .t4s-product-badge {
+  position: absolute !important;
+  top: 10px !important;
+  left: 10px !important;
+  right: auto !important;
+  z-index: 5 !important;
+  pointer-events: none !important;
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: flex-start !important;
+  gap: 4px !important;
+}
+
+.t4s-product.t4s-pr-grid .t4s-product-badge > span,
+.t4s-product.t4s-pr-grid .t4s-badge-sale {
+  background-color: #0b2d6a !important;
+  color: #ffffff !important;
+  font-size: 11px !important;
+  font-weight: 700 !important;
+  padding: 4px 8px !important;
+  border-radius: 4px !important;
+  line-height: 1 !important;
+  min-height: auto !important;
+  min-width: auto !important;
+  letter-spacing: 0.5px !important;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15) !important;
+}
+
+/* 5. Product Card Info & Baseline Alignment */
 .t4s-product.t4s-pr-grid .t4s-product-info {
   display: flex !important;
   flex-direction: column !important;
   flex: 1 1 auto !important;
-  padding-top: 10px !important;
+  padding: 12px 4px 0 4px !important;
+  text-align: center !important;
 }
 
 .t4s-product.t4s-pr-grid .t4s-product-info__inner {
@@ -2502,6 +2546,8 @@ padding: 6px 16px 6px 8px; /* little extra space on right */
 /* Uniform 2-line title */
 .t4s-product.t4s-pr-grid .t4s-product-title {
   margin: 0 0 6px 0 !important;
+  min-height: 2.7em !important;
+  text-align: center !important;
 }
 
 .t4s-product.t4s-pr-grid .t4s-product-title a {
@@ -2515,27 +2561,58 @@ padding: 6px 16px 6px 8px; /* little extra space on right */
   font-size: 13.5px !important;
   font-weight: 500 !important;
   color: #222222 !important;
+  text-decoration: none !important;
+}
+
+.t4s-product.t4s-pr-grid .t4s-product-title a:hover {
+  color: #2065c4 !important;
 }
 
 /* Price styling & alignment */
 .t4s-product.t4s-pr-grid .t4s-product-price {
   font-size: 14px !important;
   font-weight: 600 !important;
-  margin-bottom: 8px !important;
+  margin: 0 0 10px 0 !important;
   display: flex !important;
   align-items: baseline !important;
   justify-content: center !important;
   gap: 6px !important;
 }
 
-/* Push buttons to the absolute bottom of the card for perfect row-level alignment */
-.t4s-product.t4s-pr-grid .t4s-product-btns {
-  margin-top: auto !important;
-  padding-top: 6px !important;
-  width: 100% !important;
+.t4s-product.t4s-pr-grid .t4s-product-price ins {
+  color: #0b2d6a !important;
+  font-size: 15px !important;
+  font-weight: 700 !important;
+  text-decoration: none !important;
 }
 
-/* 3. Sleek, Premium Quick Add Button */
+.t4s-product.t4s-pr-grid .t4s-product-price del {
+  color: #888888 !important;
+  font-size: 13px !important;
+  font-weight: 400 !important;
+}
+
+/* 6. Prominent, Always-Visible "Quick Add" Button */
+.t4s-product.t4s-pr-grid .t4s-product-btns,
+.t4s-product.t4s-pr-grid.t4s-pr-style6 .t4s-product-btns {
+  position: static !important;
+  opacity: 1 !important;
+  visibility: visible !important;
+  pointer-events: auto !important;
+  display: block !important;
+  width: 100% !important;
+  margin-top: auto !important;
+  padding-top: 4px !important;
+  left: auto !important;
+  right: auto !important;
+  top: auto !important;
+  bottom: auto !important;
+  transform: none !important;
+  z-index: 1 !important;
+}
+
+.t4s-product.t4s-pr-grid .t4s-product-btns a,
+.t4s-product.t4s-pr-grid .t4s-product-btns a.t4s-pr-addtocart,
 .t4s-product.t4s-pr-grid.t4s-pr-style6 .t4s-product-btns a,
 .t4s-product.t4s-pr-grid.t4s-pr-style6 .t4s-product-btns a.t4s-pr-addtocart {
   display: flex !important;
@@ -2543,89 +2620,134 @@ padding: 6px 16px 6px 8px; /* little extra space on right */
   justify-content: center !important;
   width: 100% !important;
   height: 38px !important;
-  line-height: 1 !important;
-  border-radius: 40px !important;
-  background-color: var(--accent-color, #3c7bd2) !important;
+  line-height: 38px !important;
+  border-radius: 6px !important;
+  background-color: #0b2d6a !important;
   color: #ffffff !important;
   font-size: 12px !important;
   font-weight: 600 !important;
-  letter-spacing: 0.5px !important;
+  letter-spacing: 0.6px !important;
   text-transform: uppercase !important;
   box-sizing: border-box !important;
-  padding: 0 14px !important;
-  border: 1.5px solid var(--accent-color, #3c7bd2) !important;
+  padding: 0 16px !important;
+  border: 1px solid #0b2d6a !important;
   transition: all 0.25s ease !important;
   text-decoration: none !important;
   cursor: pointer !important;
+  pointer-events: auto !important;
+  opacity: 1 !important;
+  visibility: visible !important;
 }
 
-.t4s-product.t4s-pr-grid.t4s-pr-style6 .t4s-product-btns a:hover {
-  background-color: #0b2d6a !important;
-  border-color: #0b2d6a !important;
+.t4s-product.t4s-pr-grid .t4s-product-btns a:hover,
+.t4s-product.t4s-pr-grid .t4s-product-btns a.t4s-pr-addtocart:hover {
+  background-color: #2065c4 !important;
+  border-color: #2065c4 !important;
   color: #ffffff !important;
-  box-shadow: 0 3px 10px rgba(11, 45, 106, 0.2) !important;
+  box-shadow: 0 4px 12px rgba(11, 45, 106, 0.25) !important;
 }
 
-/* Keep Quick Add text & icon visible without shifting away */
-.t4s-product.t4s-pr-grid.t4s-pr-style6 .t4s-product-btns a > span {
+/* Sold out state */
+.t4s-product.t4s-pr-grid .t4s-product-btns a.is--sold-out {
+  background-color: #f1f1f1 !important;
+  border-color: #e0e0e0 !important;
+  color: #888888 !important;
+  cursor: not-allowed !important;
+}
+.t4s-product.t4s-pr-grid .t4s-product-btns a.is--sold-out .t4s-text-pr {
+  color: #888888 !important;
+}
+
+/* Ensure button label and icon remain visible */
+.t4s-product.t4s-pr-grid .t4s-product-btns a > span {
   width: auto !important;
   height: auto !important;
   transform: none !important;
   opacity: 1 !important;
-}
-
-.t4s-product.t4s-pr-grid.t4s-pr-style6 .t4s-product-btns a .t4s-text-pr {
   display: inline-flex !important;
   align-items: center !important;
-  justify-content: center !important;
+  position: static !important;
+}
+
+.t4s-product.t4s-pr-grid .t4s-product-btns a .t4s-text-pr {
+  display: inline-block !important;
   font-size: 11.5px !important;
   font-weight: 600 !important;
   letter-spacing: 0.6px !important;
   text-transform: uppercase !important;
   transform: none !important;
   opacity: 1 !important;
-  color: inherit !important;
+  color: #ffffff !important;
+  line-height: 1 !important;
 }
 
-.t4s-product.t4s-pr-grid.t4s-pr-style6 .t4s-product-btns a .t4s-svg-pr-icon {
+.t4s-product.t4s-pr-grid .t4s-product-btns a .t4s-svg-pr-icon {
   position: static !important;
   display: inline-flex !important;
   align-items: center !important;
   transform: none !important;
   margin-right: 6px !important;
-  color: inherit !important;
+  color: #ffffff !important;
 }
 
-.t4s-product.t4s-pr-grid.t4s-pr-style6 .t4s-product-btns a .t4s-svg-pr-icon svg {
+.t4s-product.t4s-pr-grid .t4s-product-btns a .t4s-svg-pr-icon svg {
   width: 14px !important;
   height: 14px !important;
   fill: currentColor !important;
   display: block !important;
 }
 
-.t4s-product.t4s-pr-grid.t4s-pr-style6 .t4s-product-btns a:hover .t4s-svg-pr-icon,
-.t4s-product.t4s-pr-grid.t4s-pr-style6 .t4s-product-btns a:hover .t4s-text-pr {
+.t4s-product.t4s-pr-grid .t4s-product-btns a:hover .t4s-svg-pr-icon,
+.t4s-product.t4s-pr-grid .t4s-product-btns a:hover .t4s-text-pr {
   transform: none !important;
+  opacity: 1 !important;
 }
 
-/* Mobile optimizations for 2-column grid */
+/* 7. Mobile optimizations for 2-column grid */
 @media (max-width: 767px) {
+  .t4s-product.t4s-pr-grid .t4s-product-info {
+    padding: 8px 2px 0 2px !important;
+  }
+  .t4s-product.t4s-pr-grid .t4s-product-title {
+    margin: 0 0 4px 0 !important;
+  }
   .t4s-product.t4s-pr-grid .t4s-product-title a {
-    font-size: 12.5px !important;
+    font-size: 12px !important;
     line-height: 1.3em !important;
     height: 2.6em !important;
   }
-  .t4s-product.t4s-pr-grid.t4s-pr-style6 .t4s-product-btns a {
-    height: 35px !important;
+  .t4s-product.t4s-pr-grid .t4s-product-price {
+    font-size: 12px !important;
+    margin: 0 0 8px 0 !important;
+    gap: 4px !important;
+  }
+  .t4s-product.t4s-pr-grid .t4s-product-price ins {
+    font-size: 13px !important;
+  }
+  .t4s-product.t4s-pr-grid .t4s-product-price del {
     font-size: 11px !important;
-    padding: 0 8px !important;
   }
-  .t4s-product.t4s-pr-grid.t4s-pr-style6 .t4s-product-btns a .t4s-text-pr {
-    font-size: 10.5px !important;
-    letter-spacing: 0.3px !important;
+  .t4s-product.t4s-pr-grid .t4s-product-btns {
+    padding-top: 2px !important;
   }
-  .t4s-product.t4s-pr-grid.t4s-pr-style6 .t4s-product-btns a .t4s-svg-pr-icon svg {
-    width: 12px !important;
-    height: 12px !important;
+  .t4s-product.t4s-pr-grid .t4s-product-btns a,
+  .t4s-product.t4s-pr-grid .t4s-product-btns a.t4s-pr-addtocart,
+  .t4s-product.t4s-pr-grid.t4s-pr-style6 .t4s-product-btns a {
+    height: 33px !important;
+    line-height: 33px !important;
+    font-size: 10px !important;
+    padding: 0 6px !important;
+    border-radius: 4px !important;
+  }
+  .t4s-product.t4s-pr-grid .t4s-product-btns a .t4s-text-pr {
+    font-size: 10px !important;
+    letter-spacing: 0.2px !important;
+  }
+  .t4s-product.t4s-pr-grid .t4s-product-btns a .t4s-svg-pr-icon {
+    margin-right: 4px !important;
+  }
+  .t4s-product.t4s-pr-grid .t4s-product-btns a .t4s-svg-pr-icon svg {
+    width: 11px !important;
+    height: 11px !important;
   }
 }
