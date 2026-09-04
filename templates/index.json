@@ -705,7 +705,7 @@
         "layout": "t4s-se-container",
         "cl_bg": "",
         "cl_bg_gradient": "",
-        "mg": "0px,,10px,",
+        "mg": "10px,,10px,",
         "pd": "",
         "mg_tb": "",
         "pd_tb": "",
