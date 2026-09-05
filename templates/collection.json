@@ -148,9 +148,8 @@
       "blocks": {
         "3b0cc506-49ea-4851-b5a6-ff7c2153b0e6": {
           "type": "1",
-          "disabled": true,
           "settings": {
-            "heading": "",
+            "heading": "{{ collection.title }}",
             "fontf": "inherit",
             "text_cl": "#ffffff",
             "text_fs": 10,
@@ -233,7 +232,7 @@
       "settings": {
         "heading_fullwidth": true,
         "image": "shopify://shop_images/sollak_designs.png",
-        "use_specify_image": true,
+        "use_specify_image": false,
         "parallax": false,
         "color": "#000000",
         "overlay": 0,
