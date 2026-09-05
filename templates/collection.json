@@ -11,9 +11,9 @@
   "sections": {
     "collection_banner": {
       "type": "collection-banner",
+      "disabled": true,
       "settings": {
         "image_fallback": "shopify://shop_images/sollak_designs.png",
-        "image_mb": "",
         "ratio_mobile": "2 / 1",
         "ratio_desktop": "3 / 1",
         "fullwidth": true,
