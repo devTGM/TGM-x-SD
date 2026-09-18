@@ -561,21 +561,6 @@
         "code_cus_css": ""
       }
     },
-    "17897284664a18604c": {
-      "type": "apps",
-      "blocks": {
-        "tata_bundle_quantity_break_custom_bundle_builder_zXCEFU": {
-          "type": "shopify://apps/tata-bundle-quantity-break/blocks/custom-bundle-builder/38b51047-b7f5-489e-836f-2026c401f536",
-          "settings": {
-            "bundle_id": "a2c65cbb-1eda-4cb8-8b27-c183ef41b2a0"
-          }
-        }
-      },
-      "block_order": [
-        "tata_bundle_quantity_break_custom_bundle_builder_zXCEFU"
-      ],
-      "settings": {}
-    },
     "image_grid_custom_yash_kKDVKe": {
       "type": "image-grid-custom-yash",
       "blocks": {
@@ -2051,7 +2036,6 @@
     "1646028739ae283905",
     "collections_list_carousel_CHP8j9",
     "collections_list_carousel_QJdByX",
-    "17897284664a18604c",
     "image_grid_custom_yash_kKDVKe",
     "collections_list_carousel_9HYMwF",
     "custom_html_TBenhx",
