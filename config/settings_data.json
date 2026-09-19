@@ -2272,13 +2272,13 @@
         "disabled": false,
         "settings": {}
       },
-      "2200952712151285029": {
-        "type": "shopify://apps/microsoft-clarity/blocks/brandAgents_js/31c3d126-8116-4b4a-8ba1-baeda7c4aeea",
+      "12648063332432224287": {
+        "type": "shopify://apps/tata-bundle-quantity-break/blocks/app-embed/38b51047-b7f5-489e-836f-2026c401f536",
         "disabled": false,
         "settings": {}
       },
-      "12648063332432224287": {
-        "type": "shopify://apps/tata-bundle-quantity-break/blocks/app-embed/38b51047-b7f5-489e-836f-2026c401f536",
+      "2200952712151285029": {
+        "type": "shopify://apps/microsoft-clarity/blocks/brandAgents_js/31c3d126-8116-4b4a-8ba1-baeda7c4aeea",
         "disabled": false,
         "settings": {}
       }
