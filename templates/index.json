@@ -150,7 +150,7 @@
         "title_fs": 15,
         "title_fw": 400,
         "title_cl": "#222222",
-        "title_cl_hover": "#111111",
+        "title_cl_hover": "#0B2D6A",
         "open_link": "_self",
         "image_rd": false,
         "img_effect": "none",
@@ -449,7 +449,7 @@
         "collection_item_fceTVr"
       ],
       "custom_css": [
-        ".t4s-title > span {color: #111111;}",
+        ".t4s-title > span {color: #0B2D6A;}",
         "@media (min-width: 1024px) {.t4s-container {width: 60%; }}"
       ],
       "settings": {
@@ -507,7 +507,7 @@
       "type": "collections-list-carousel",
       "custom_css": [
         ".t4s_ratio:not(.t4s_bg) > *:not(.t4s-not-style),.no-js .t4s_ratio:not(.t4s_bg) > noscript > *:not(.t4s-not-style) {border-radius: 15px;}",
-        ".t4s-title > span {color: #111111;}"
+        ".t4s-title > span {color: #0B2D6A;}"
       ],
       "settings": {
         "show_on": "show_all",
@@ -520,7 +520,7 @@
         "title_fs": 10,
         "title_fw": 100,
         "title_cl": "#ffffff",
-        "title_cl_hover": "#111111",
+        "title_cl_hover": "#0B2D6A",
         "open_link": "_self",
         "image_rd": true,
         "img_effect": "none",
@@ -659,7 +659,7 @@
         "collection_item_rgcfyk"
       ],
       "custom_css": [
-        ".t4s-title > span {color: #111111;}",
+        ".t4s-title > span {color: #0B2D6A;}",
         "@media (min-width: 1024px) {.t4s-container {width: 55%; }}",
         "@media (max-width: 1024px) {.t4s-container {width: 95%; }}"
       ],
@@ -674,7 +674,7 @@
         "title_fs": 10,
         "title_fw": 100,
         "title_cl": "#ffffff",
-        "title_cl_hover": "#111111",
+        "title_cl_hover": "#0B2D6A",
         "open_link": "_self",
         "image_rd": true,
         "img_effect": "none",
@@ -1070,7 +1070,7 @@
       ],
       "custom_css": [
         ".t4s_ratio:not(.t4s_bg) > *:not(.t4s-not-style),.no-js .t4s_ratio:not(.t4s_bg) > noscript > *:not(.t4s-not-style) {border-radius: 15px;}",
-        ".t4s-title > span {color: #111111;}",
+        ".t4s-title > span {color: #0B2D6A;}",
         ".t4s-tabs-se .t4s-tabs-ul li a:hover,.t4s-tabs-se .t4s-tabs-ul li a.t4s-active {color: #ffffff;}"
       ],
       "name": "Tabs collection",
@@ -1087,7 +1087,7 @@
         "item_cl": "#222222",
         "item_bg": "#0e0c0c",
         "item_cl_active": "#292929",
-        "item_bg_active": "#111111",
+        "item_bg_active": "#0B2D6A",
         "space_between": 2,
         "tabs_pos": "center",
         "tabslist_mb": 10,
@@ -1107,7 +1107,7 @@
     "collections_list_carousel_P4zfCG": {
       "type": "collections-list-carousel",
       "custom_css": [
-        ".t4s-title > span {color: #111111;}",
+        ".t4s-title > span {color: #0B2D6A;}",
         ".t4s-container {margin-top: 16px; margin-bottom: -20px;}"
       ],
       "settings": {
@@ -1121,7 +1121,7 @@
         "title_fs": 10,
         "title_fw": 100,
         "title_cl": "#ffffff",
-        "title_cl_hover": "#111111",
+        "title_cl_hover": "#0B2D6A",
         "open_link": "_self",
         "image_rd": true,
         "img_effect": "none",
@@ -1366,7 +1366,7 @@
       "type": "collections-list-carousel",
       "custom_css": [
         ".t4s_ratio:not(.t4s_bg) > *:not(.t4s-not-style),.no-js .t4s_ratio:not(.t4s_bg) > noscript > *:not(.t4s-not-style) {border-radius: 15px;}",
-        ".t4s-title > span {color: #111111;}"
+        ".t4s-title > span {color: #0B2D6A;}"
       ],
       "settings": {
         "show_on": "show_all",
@@ -1379,7 +1379,7 @@
         "title_fs": 10,
         "title_fw": 100,
         "title_cl": "#ffffff",
-        "title_cl_hover": "#111111",
+        "title_cl_hover": "#0B2D6A",
         "open_link": "_self",
         "image_rd": true,
         "img_effect": "none",
@@ -2006,7 +2006,7 @@
         "slide_FY4gAM"
       ],
       "custom_css": [
-        "h2 {color: #111111;}",
+        "h2 {color: #0B2D6A;}",
         ".description {color: #111111;}",
         ".subheading {color: #111111;}"
       ],

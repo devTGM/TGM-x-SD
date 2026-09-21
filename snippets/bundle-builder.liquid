@@ -19,7 +19,7 @@
   assign title_text = heading | default: 'Any 3 for ₹1,999'
   assign subtitle_text = subheading | default: 'Curate your signature jewelry collection. Pick any 3 pieces and enjoy the exclusive bundle price at checkout.'
   assign ticker_text = marquee_text | default: '✨ EXCLUSIVE OFFER: ANY 3 FOR ₹1,999 ✨ FREE PAN-INDIA EXPRESS SHIPPING ✨ 100% ANTI-TARNISH & WATERPROOF JEWELRY'
-  assign brand_primary = primary_color | default: '#111111'
+  assign brand_primary = primary_color | default: '#0B2D6A'
   assign brand_accent = accent_color | default: '#c59b27'
   assign currency_sym = cart.currency.symbol | default: '₹'
 -%}
@@ -383,13 +383,13 @@
 }
 
 .tgm-bb-wrapper *:focus-visible {
-  outline: 2px solid #111111 !important;
+  outline: 2px solid var(--tgm-bb-primary, #0B2D6A) !important;
   outline-offset: 2px;
 }
 
 /* Announcement Ticker */
 .tgm-bb-marquee {
-  background: #111111;
+  background: var(--tgm-bb-primary, #0B2D6A);
   color: #ffffff;
   font-size: 11px;
   font-weight: 500;
@@ -424,8 +424,8 @@
 .tgm-bb-badge-top {
   display: inline-block;
   background: transparent;
-  color: #111111;
-  border: 1px solid #111111;
+  color: var(--tgm-bb-primary, #0B2D6A);
+  border: 1px solid var(--tgm-bb-primary, #0B2D6A);
   font-size: 10.5px;
   font-weight: 600;
   letter-spacing: 0.16em;
@@ -438,7 +438,7 @@
   font-family: var(--tgm-bb-font-serif);
   font-size: 42px;
   font-weight: 400;
-  color: #111111;
+  color: var(--tgm-bb-primary, #0B2D6A);
   letter-spacing: -0.01em;
   line-height: 1.2;
   margin: 0 0 12px;
@@ -477,13 +477,13 @@
   font-weight: 400;
 }
 .tgm-bb-stepper-msg strong {
-  color: #111111;
+  color: var(--tgm-bb-primary, #0B2D6A);
   font-weight: 600;
 }
 .tgm-bb-stepper-counter {
   font-weight: 600;
-  color: #111111;
-  background: #f5f4f0;
+  color: var(--tgm-bb-primary, #0B2D6A);
+  background: #edf2f9;
   padding: 4px 12px;
   border-radius: var(--tgm-bb-radius-pill);
   font-size: 11.5px;
@@ -499,7 +499,7 @@
 }
 .tgm-bb-progress-bar-fill {
   height: 100%;
-  background: #111111;
+  background: var(--tgm-bb-primary, #0B2D6A);
   border-radius: 6px;
   transition: width 0.35s cubic-bezier(0.4, 0, 0.2, 1);
 }
@@ -540,9 +540,9 @@
 .tgm-bb-milestone.is-done .tgm-bb-dot-num { display: none; }
 .tgm-bb-milestone.is-done .tgm-bb-dot-check { display: block; }
 .tgm-bb-milestone.is-active .tgm-bb-milestone-dot {
-  background: #111111;
+  background: var(--tgm-bb-primary, #0B2D6A);
   color: #ffffff;
-  box-shadow: 0 0 0 3px rgba(0, 0, 0, 0.12);
+  box-shadow: 0 0 0 3px rgba(11, 45, 106, 0.2);
 }
 .tgm-bb-milestone-label {
   font-size: 10.5px;
@@ -585,14 +585,14 @@
   transition: all 0.2s ease;
 }
 .tgm-bb-tab-btn:hover {
-  border-color: #111111;
-  color: #111111;
+  border-color: var(--tgm-bb-primary, #0B2D6A);
+  color: var(--tgm-bb-primary, #0B2D6A);
 }
 .tgm-bb-tab-btn.is-active {
-  background: #111111;
-  border-color: #111111;
+  background: var(--tgm-bb-primary, #0B2D6A);
+  border-color: var(--tgm-bb-primary, #0B2D6A);
   color: #ffffff;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.12);
+  box-shadow: 0 4px 12px rgba(11, 45, 106, 0.25);
 }
 
 .tgm-bb-search-sort-row {
@@ -624,8 +624,8 @@
   transition: border-color 0.2s ease, box-shadow 0.2s ease;
 }
 .tgm-bb-search-box input:focus {
-  border-color: #111111;
-  box-shadow: 0 0 0 1px #111111;
+  border-color: var(--tgm-bb-primary, #0B2D6A);
+  box-shadow: 0 0 0 1px var(--tgm-bb-primary, #0B2D6A);
 }
 .tgm-bb-search-clear {
   position: absolute;
@@ -709,8 +709,8 @@
   border-color: #d8d4cd;
 }
 .tgm-bb-card.is-selected {
-  border-color: #111111;
-  box-shadow: 0 0 0 2px #111111, 0 8px 24px rgba(0, 0, 0, 0.08);
+  border-color: var(--tgm-bb-primary, #0B2D6A);
+  box-shadow: 0 0 0 2px var(--tgm-bb-primary, #0B2D6A), 0 8px 24px rgba(11, 45, 106, 0.15);
 }
 
 /* Card Media: 1:1 Square Aspect Ratio */
@@ -757,7 +757,7 @@
   z-index: 2;
 }
 .tgm-bb-badge-deal {
-  background: #111111;
+  background: var(--tgm-bb-primary, #0B2D6A);
   color: #ffffff;
   font-size: 9.5px;
   font-weight: 600;
@@ -854,7 +854,7 @@
 .tgm-bb-price-effective {
   font-size: 14px;
   font-weight: 600;
-  color: #111111;
+  color: var(--tgm-bb-primary, #0B2D6A);
 }
 .tgm-bb-price-mrp {
   font-size: 12px;
@@ -892,8 +892,8 @@
 .tgm-bb-btn-add {
   width: 100%;
   background: #ffffff;
-  border: 1.5px solid #111111;
-  color: #111111;
+  border: 1.5px solid var(--tgm-bb-primary, #0B2D6A);
+  color: var(--tgm-bb-primary, #0B2D6A);
   font-size: 12px;
   font-weight: 600;
   letter-spacing: 0.06em;
@@ -908,13 +908,13 @@
   transition: all 0.2s ease;
 }
 .tgm-bb-btn-add:hover {
-  background: #111111;
+  background: var(--tgm-bb-primary, #0B2D6A);
   color: #ffffff;
 }
 .tgm-bb-card.is-selected .tgm-bb-btn-add {
-  background: #111111;
+  background: var(--tgm-bb-primary, #0B2D6A);
   color: #ffffff;
-  border-color: #111111;
+  border-color: var(--tgm-bb-primary, #0B2D6A);
 }
 .tgm-bb-btn-add.is-soldout {
   background: #f5f5f5;
@@ -997,7 +997,7 @@
   text-transform: uppercase;
 }
 .tgm-bb-slot.is-filled {
-  border: 1.5px solid #111111;
+  border: 1.5px solid var(--tgm-bb-primary, #0B2D6A);
   background: #ffffff;
   overflow: hidden;
 }
@@ -1014,7 +1014,7 @@
   width: 18px;
   height: 18px;
   border-radius: 50%;
-  background: #111111;
+  background: var(--tgm-bb-primary, #0B2D6A);
   color: #ffffff;
   border: none;
   cursor: pointer;
@@ -1042,7 +1042,7 @@
   font-weight: 400;
 }
 .tgm-bb-tracker-status-text strong {
-  color: #111111;
+  color: var(--tgm-bb-primary, #0B2D6A);
   font-weight: 600;
 }
 .tgm-bb-tracker-progress-bg {
@@ -1054,7 +1054,7 @@
 }
 .tgm-bb-tracker-progress-fill {
   height: 100%;
-  background: #111111;
+  background: var(--tgm-bb-primary, #0B2D6A);
   border-radius: 5px;
   transition: width 0.3s ease;
 }
@@ -1081,7 +1081,7 @@
 .tgm-bb-deal-val {
   font-size: 20px;
   font-weight: 700;
-  color: #111111;
+  color: var(--tgm-bb-primary, #0B2D6A);
 }
 .tgm-bb-tracker-mrp-row {
   display: flex;
@@ -1105,7 +1105,7 @@
 
 /* Checkout Button - Clean Luxury Black */
 .tgm-bb-checkout-btn {
-  background: #111111;
+  background: var(--tgm-bb-primary, #0B2D6A);
   color: #ffffff;
   border: none;
   font-size: 13px;
@@ -1124,9 +1124,9 @@
   overflow: hidden;
 }
 .tgm-bb-checkout-btn:hover:not(:disabled) {
-  background: #252525;
+  background: #08214d;
   transform: translateY(-2px);
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.22);
+  box-shadow: 0 8px 20px rgba(11, 45, 106, 0.35);
 }
 .tgm-bb-checkout-btn.is-disabled {
   background: #e2ded8;
@@ -1282,9 +1282,9 @@
   cursor: pointer;
 }
 .tgm-bb-drawer-item-remove:hover {
-  background: #111111;
+  background: var(--tgm-bb-primary, #0B2D6A);
   color: #ffffff;
-  border-color: #111111;
+  border-color: var(--tgm-bb-primary, #0B2D6A);
 }
 </style>
 

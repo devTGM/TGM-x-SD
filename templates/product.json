@@ -58,7 +58,7 @@
             "size_price_pr": 17,
             "fw_price_pr": 400,
             "price_color": "#545353",
-            "price_sale_color": "#111111"
+            "price_sale_color": "#0B2D6A"
           }
         },
         "custom_liquid_price_badges": {
@@ -288,7 +288,7 @@
           "type": "tab_liquid",
           "settings": {
             "title": "How It Looks?",
-            "custom_liquid": "{% if product.metafields.custom.how_it_looks.value != blank %}\n  <!-- Your accordion tab block -->\n{% assign images = product.metafields.custom.how_it_looks.value %}\n\n{% if images != blank %}\n\n<style>\n.hil-wrap {\n  max-width: 1200px;\n  margin: 0 auto;\n  position: relative;\n}\n\n/* GRID */\n.hil-grid {\n  display: grid;\n  grid-template-columns: repeat(3, 1fr);\n  gap: 12px;\n}\n\n.hil-item {\n  border-radius: 18px;\n  overflow: hidden;\n}\n\n.hil-item img {\n  width: 100%;\n  height: 100%;\n  aspect-ratio: 3 / 4;\n  object-fit: cover;\n  display: block;\n}\n\n\n\n/* PRICE */\n.hil-price {\n  display: flex;\n  align-items: center;\n  gap: 8px;\n  white-space: nowrap;\n}\n\n.hil-compare {\n  text-decoration: line-through;\n  opacity: 0.6;\n  font-size: 14px;\n}\n\n.hil-final {\n  font-size: 20px;\n  font-weight: 700;\n}\n\n/* CTA BUTTON */\n.hil-cta {\n  background: #111111;\n  color: #fff;\n  border: none;\n\n  padding: 8px 16px;\n  border-radius: 30px;\n\n  font-size: 14px;\n  font-weight: 600;\n\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n  justify-content: center;\n\n  white-space: nowrap;\n  line-height: 1.2;\n  cursor: pointer;\n}\n\n.hil-cta span {\n  font-size: 10px;\n  font-weight: 400;\n}\n\n/* MOBILE */\n@media (max-width: 768px) {\n  .hil-grid {\n    grid-template-columns: repeat(3, 1fr);\n    gap: 8px;\n  }\n\n  .hil-bottom {\n    width: calc(100% - 20px);\n    max-width: 95%;\n    padding: 8px 12px;\n    bottom: 15px;\n  }\n\n  .hil-final {\n    font-size: 18px;\n  }\n\n  .hil-cta {\n    padding: 7px 12px;\n    font-size: 13px;\n  }\n}\n</style>\n\n<div class=\"hil-wrap\">\n\n  <div class=\"hil-grid\">\n    {% for image in images %}\n      <div class=\"hil-item\">\n        <img \n          src=\"{{ image | image_url: width: 800 }}\" \n          alt=\"{{ product.title }}\"\n          loading=\"lazy\"\n        >\n      </div>\n    {% endfor %}\n  </div>\n\n  \n\n</div>\n\n{% endif %}\n{% endif %}"
+            "custom_liquid": "{% if product.metafields.custom.how_it_looks.value != blank %}\n  <!-- Your accordion tab block -->\n{% assign images = product.metafields.custom.how_it_looks.value %}\n\n{% if images != blank %}\n\n<style>\n.hil-wrap {\n  max-width: 1200px;\n  margin: 0 auto;\n  position: relative;\n}\n\n/* GRID */\n.hil-grid {\n  display: grid;\n  grid-template-columns: repeat(3, 1fr);\n  gap: 12px;\n}\n\n.hil-item {\n  border-radius: 18px;\n  overflow: hidden;\n}\n\n.hil-item img {\n  width: 100%;\n  height: 100%;\n  aspect-ratio: 3 / 4;\n  object-fit: cover;\n  display: block;\n}\n\n\n\n/* PRICE */\n.hil-price {\n  display: flex;\n  align-items: center;\n  gap: 8px;\n  white-space: nowrap;\n}\n\n.hil-compare {\n  text-decoration: line-through;\n  opacity: 0.6;\n  font-size: 14px;\n}\n\n.hil-final {\n  font-size: 20px;\n  font-weight: 700;\n}\n\n/* CTA BUTTON */\n.hil-cta {\n  background: #0B2D6A;\n  color: #fff;\n  border: none;\n\n  padding: 8px 16px;\n  border-radius: 30px;\n\n  font-size: 14px;\n  font-weight: 600;\n\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n  justify-content: center;\n\n  white-space: nowrap;\n  line-height: 1.2;\n  cursor: pointer;\n}\n\n.hil-cta span {\n  font-size: 10px;\n  font-weight: 400;\n}\n\n/* MOBILE */\n@media (max-width: 768px) {\n  .hil-grid {\n    grid-template-columns: repeat(3, 1fr);\n    gap: 8px;\n  }\n\n  .hil-bottom {\n    width: calc(100% - 20px);\n    max-width: 95%;\n    padding: 8px 12px;\n    bottom: 15px;\n  }\n\n  .hil-final {\n    font-size: 18px;\n  }\n\n  .hil-cta {\n    padding: 7px 12px;\n    font-size: 13px;\n  }\n}\n</style>\n\n<div class=\"hil-wrap\">\n\n  <div class=\"hil-grid\">\n    {% for image in images %}\n      <div class=\"hil-item\">\n        <img \n          src=\"{{ image | image_url: width: 800 }}\" \n          alt=\"{{ product.title }}\"\n          loading=\"lazy\"\n        >\n      </div>\n    {% endfor %}\n  </div>\n\n  \n\n</div>\n\n{% endif %}\n{% endif %}"
           }
         },
         "bded529b-9b8f-4d5c-8f04-5de0b22e627d": {
@@ -519,7 +519,7 @@
         "pause_when_hover": false,
         "adding_border": false,
         "cl": "#fff",
-        "cl_bg": "#111111",
+        "cl_bg": "#0B2D6A",
         "cl_bg_gradient": "",
         "mg": "5px,,10px,",
         "pd": "5px,,5px,",
@@ -533,7 +533,7 @@
       "type": "collections-list-carousel",
       "disabled": true,
       "custom_css": [
-        ".t4s-title > span {color: #111111;}"
+        ".t4s-title > span {color: #0B2D6A;}"
       ],
       "settings": {
         "show_on": "show_all",
@@ -546,7 +546,7 @@
         "title_fs": 10,
         "title_fw": 100,
         "title_cl": "#ffffff",
-        "title_cl_hover": "#111111",
+        "title_cl_hover": "#0B2D6A",
         "open_link": "_self",
         "image_rd": true,
         "img_effect": "none",
@@ -634,7 +634,7 @@
       "disabled": true,
       "custom_css": [
         ".t4s_ratio:not(.t4s_bg) > *:not(.t4s-not-style),.no-js .t4s_ratio:not(.t4s_bg) > noscript > *:not(.t4s-not-style) {border-radius: 15px;}",
-        ".t4s-title > span {color: #111111;}"
+        ".t4s-title > span {color: #0B2D6A;}"
       ],
       "settings": {
         "show_on": "show_all",
@@ -647,7 +647,7 @@
         "title_fs": 10,
         "title_fw": 100,
         "title_cl": "#ffffff",
-        "title_cl_hover": "#111111",
+        "title_cl_hover": "#0B2D6A",
         "open_link": "_self",
         "image_rd": true,
         "img_effect": "none",

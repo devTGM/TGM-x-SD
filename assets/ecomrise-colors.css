@@ -1,20 +1,20 @@
 /* ==========================================================================
    Sollak Designs - Brand Luxury Overrides & App Drawer Normalization
-   Eliminates third-party app-injected blue accents and enforces luxury palette
+   Enforces signature Navy Blue (#0B2D6A) brand palette across drawer and site
    ========================================================================== */
 
 /* 1. Snap Cart & Drawer Overrides */
 #w4root,
 .wizz4-cart-drawer {
-  --wizz4-primary-color: #111111 !important;
+  --wizz4-primary-color: #0B2D6A !important;
 }
 
 #w4root button,
 #w4root [class*="btn"],
 #w4root [class*="checkout"],
 .w4-storefront-upsell-btnAdd {
-  background-color: #111111 !important;
-  border-color: #111111 !important;
+  background-color: #0B2D6A !important;
+  border-color: #0B2D6A !important;
   color: #ffffff !important;
 }
 
@@ -22,25 +22,22 @@
 #w4root [class*="btn"]:hover,
 #w4root [class*="checkout"]:hover,
 .w4-storefront-upsell-btnAdd:hover {
-  background-color: #222222 !important;
-  border-color: #222222 !important;
+  background-color: #08214d !important;
+  border-color: #08214d !important;
 }
 
 #w4root [style*="#4378C2"],
 #w4root [style*="#4378c2"],
-#w4root [style*="#0B2D6A"],
-#w4root [style*="#0b2d6a"],
-#w4root [style*="rgb(67, 120, 194)"],
-#w4root [style*="rgb(11, 45, 106)"] {
-  background-color: #111111 !important;
-  border-color: #111111 !important;
+#w4root [style*="rgb(67, 120, 194)"] {
+  background-color: #0B2D6A !important;
+  border-color: #0B2D6A !important;
   color: #ffffff !important;
 }
 
 /* 2. Global Accent Cleanups */
 :root {
-  --t4s-primary-color: #111111;
-  --accent-color: #111111;
-  --primary-price-color: #111111;
-  --link-color-hover: #c59b27;
+  --t4s-primary-color: #0B2D6A;
+  --accent-color: #0B2D6A;
+  --primary-price-color: #0B2D6A;
+  --link-color-hover: #0B2D6A;
 }
