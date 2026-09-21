@@ -1,0 +1,102 @@
+<!-- sections/bundle-builder.liquid -->
+{%- liquid
+  assign target_collection = section.settings.collection | default: collection
+-%}
+
+{%- if target_collection != blank -%}
+  {%- render 'bundle-builder',
+    collection: target_collection,
+    bundle_qty: section.settings.bundle_qty,
+    bundle_price: section.settings.bundle_price,
+    discount_code: section.settings.discount_code,
+    heading: section.settings.heading,
+    subheading: section.settings.subheading,
+    marquee_text: section.settings.marquee_text,
+    primary_color: section.settings.primary_color,
+    accent_color: section.settings.accent_color
+  -%}
+{%- else -%}
+  <div class="t4s-container t4s-text-center" style="padding: 60px 20px;">
+    <h2>Please select a collection for the Bundle Builder</h2>
+  </div>
+{%- endif -%}
+
+{% schema %}
+{
+  "name": "Bundle Builder (BYOB)",
+  "tag": "section",
+  "class": "t4s-section t4s-bundle-builder-section",
+  "settings": [
+    {
+      "type": "collection",
+      "id": "collection",
+      "label": "Select Collection",
+      "info": "Leave empty on collection pages to automatically use the current collection."
+    },
+    {
+      "type": "range",
+      "id": "bundle_qty",
+      "min": 2,
+      "max": 10,
+      "step": 1,
+      "label": "Bundle Quantity Target",
+      "default": 3
+    },
+    {
+      "type": "number",
+      "id": "bundle_price",
+      "label": "Bundle Fixed Price",
+      "default": 1999
+    },
+    {
+      "type": "text",
+      "id": "discount_code",
+      "label": "Discount Coupon Code",
+      "default": "ANY31999",
+      "info": "This discount code is automatically applied at checkout when the deal is claimed."
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Buy Any 3 for ₹1,999"
+    },
+    {
+      "type": "text",
+      "id": "subheading",
+      "label": "Subheading",
+      "default": "Choose any 3 of your favourite pieces for just ₹1,999!"
+    },
+    {
+      "type": "textarea",
+      "id": "marquee_text",
+      "label": "Marquee Announcement Text",
+      "default": "✨ BUY ANY 3 FOR ₹1999 ✨ FREE EXPRESS SHIPPING ✨ 100% ANTI-TARNISH JEWELRY ✨ INSTANT DISCOUNT AT CHECKOUT"
+    },
+    {
+      "type": "color",
+      "id": "primary_color",
+      "label": "Primary Brand Color",
+      "default": "#481324"
+    },
+    {
+      "type": "color",
+      "id": "accent_color",
+      "label": "Accent Color",
+      "default": "#ebdaca"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Bundle Builder (Any 3 for 1999)",
+      "settings": {
+        "bundle_qty": 3,
+        "bundle_price": 1999,
+        "discount_code": "ANY31999",
+        "heading": "Buy Any 3 for ₹1,999",
+        "subheading": "Choose any 3 of your favourite pieces for just ₹1,999!"
+      }
+    }
+  ]
+}
+{% endschema %}

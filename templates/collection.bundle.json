@@ -1,0 +1,20 @@
+{
+  "sections": {
+    "bundle_builder": {
+      "type": "bundle-builder",
+      "settings": {
+        "bundle_qty": 3,
+        "bundle_price": 1999,
+        "discount_code": "ANY31999",
+        "heading": "Buy Any 3 for ₹1,999",
+        "subheading": "Choose any 3 of your favourite pieces for just ₹1,999!",
+        "marquee_text": "✨ BUY ANY 3 FOR ₹1999 ✨ FREE EXPRESS SHIPPING ✨ 100% ANTI-TARNISH JEWELRY ✨ INSTANT DISCOUNT AT CHECKOUT",
+        "primary_color": "#481324",
+        "accent_color": "#ebdaca"
+      }
+    }
+  },
+  "order": [
+    "bundle_builder"
+  ]
+}

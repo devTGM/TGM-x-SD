@@ -1,0 +1,1653 @@
+{%- comment -%}
+  Bundle Builder Snippet - "Any 3 for ₹1999" (Elinor Jewels style)
+  Props:
+    - collection: collection object
+    - bundle_qty: integer (default 3)
+    - bundle_price: integer (default 1999)
+    - discount_code: string (default "ANY31999")
+    - heading: string
+    - subheading: string
+    - marquee_text: string
+    - primary_color: string
+    - accent_color: string
+{%- endcomment -%}
+
+{%- liquid
+  assign target_qty = bundle_qty | default: 3
+  assign target_price = bundle_price | default: 1999
+  assign discount = discount_code | default: 'ANY31999'
+  assign title_text = heading | default: 'Buy Any 3 for ₹1,999'
+  assign subtitle_text = subheading | default: 'Choose any 3 of your favourite pieces for just ₹1,999!'
+  assign ticker_text = marquee_text | default: '✨ BUY ANY 3 FOR ₹1999 ✨ FREE EXPRESS SHIPPING ✨ 100% ANTI-TARNISH JEWELRY ✨ INSTANT DISCOUNT AT CHECKOUT'
+  assign brand_primary = primary_color | default: '#481324'
+  assign brand_accent = accent_color | default: '#ebdaca'
+  assign currency_sym = cart.currency.symbol | default: '₹'
+-%}
+
+<div id="tgm-bundle-builder-root" class="tgm-bb-wrapper"
+     data-target-qty="{{ target_qty }}"
+     data-target-price="{{ target_price }}"
+     data-discount-code="{{ discount }}"
+     data-currency-sym="{{ currency_sym }}">
+
+  <!-- Top Announcement Marquee Ticker -->
+  <div class="tgm-bb-marquee">
+    <div class="tgm-bb-marquee-track">
+      <span>{{ ticker_text }}</span>
+      <span aria-hidden="true">{{ ticker_text }}</span>
+      <span aria-hidden="true">{{ ticker_text }}</span>
+      <span aria-hidden="true">{{ ticker_text }}</span>
+    </div>
+  </div>
+
+  <!-- Hero Header & Live Stepper -->
+  <header class="tgm-bb-header">
+    <div class="tgm-bb-header-inner">
+      <div class="tgm-bb-badge-top">EXCLUSIVE BUNDLE DEAL</div>
+      <h1 class="tgm-bb-title">{{ title_text }}</h1>
+      <p class="tgm-bb-subtitle">{{ subtitle_text }}</p>
+
+      <!-- Stepper / Progress Bar -->
+      <div class="tgm-bb-stepper-box">
+        <div class="tgm-bb-stepper-status">
+          <span class="tgm-bb-stepper-msg" id="tgm-bb-stepper-msg">
+            Add <strong id="tgm-bb-remaining-count">{{ target_qty }}</strong> more item(s) to unlock the <strong>{{ currency_sym }}{{ target_price }}</strong> deal!
+          </span>
+          <span class="tgm-bb-stepper-counter" id="tgm-bb-stepper-counter">0 of {{ target_qty }} Added</span>
+        </div>
+
+        <div class="tgm-bb-progress-bar-bg">
+          <div class="tgm-bb-progress-bar-fill" id="tgm-bb-progress-bar-fill" style="width: 0%;"></div>
+        </div>
+
+        <!-- Step Milestones -->
+        <div class="tgm-bb-milestones">
+          {%- for i in (1..target_qty) -%}
+            <div class="tgm-bb-milestone" data-step="{{ i }}">
+              <div class="tgm-bb-milestone-dot">
+                <span class="tgm-bb-dot-num">{{ i }}</span>
+                <svg class="tgm-bb-dot-check" viewBox="0 0 20 20" fill="currentColor">
+                  <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+                </svg>
+              </div>
+              <span class="tgm-bb-milestone-label">Item {{ i }}</span>
+            </div>
+          {%- endfor -%}
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Filter & Search Controls Bar -->
+  <nav class="tgm-bb-controls-wrapper">
+    <div class="tgm-bb-controls-inner">
+      <!-- Category Tabs -->
+      <div class="tgm-bb-category-tabs" id="tgm-bb-category-tabs">
+        <button class="tgm-bb-tab-btn is-active" data-filter="all">All Pieces</button>
+        <button class="tgm-bb-tab-btn" data-filter="necklace">Necklaces</button>
+        <button class="tgm-bb-tab-btn" data-filter="bracelet">Bracelets</button>
+        <button class="tgm-bb-tab-btn" data-filter="earring">Earrings</button>
+        <button class="tgm-bb-tab-btn" data-filter="ring">Rings</button>
+      </div>
+
+      <div class="tgm-bb-search-sort-row">
+        <!-- Live Search Input -->
+        <div class="tgm-bb-search-box">
+          <svg class="tgm-bb-search-icon" viewBox="0 0 20 20" fill="none" stroke="currentColor">
+            <circle cx="8.5" cy="8.5" r="5.5" stroke-width="1.8" />
+            <path d="M12.5 12.5L17 17" stroke-width="1.8" stroke-linecap="round" />
+          </svg>
+          <input type="text" id="tgm-bb-search-input" placeholder="Search by name, metal, style..." autocomplete="off">
+          <button type="button" class="tgm-bb-search-clear" id="tgm-bb-search-clear" aria-label="Clear search">&times;</button>
+        </div>
+
+        <!-- Sort Select -->
+        <div class="tgm-bb-sort-box">
+          <label for="tgm-bb-sort-select">Sort by:</label>
+          <select id="tgm-bb-sort-select">
+            <option value="default">Featured</option>
+            <option value="price-asc">Price: Low to High</option>
+            <option value="price-desc">Price: High to Low</option>
+            <option value="title-asc">Alphabetical: A-Z</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="tgm-bb-results-count">
+        Showing <span id="tgm-bb-visible-count">{{ collection.products_count }}</span> products in this offer
+      </div>
+    </div>
+  </nav>
+
+  <!-- Product Grid -->
+  {%- paginate collection.products by 250 -%}
+  <main class="tgm-bb-products-section">
+    <div class="tgm-bb-products-grid" id="tgm-bb-products-grid">
+      {%- for product in collection.products -%}
+        {%- liquid
+          assign first_variant = product.selected_or_first_available_variant
+          assign price = first_variant.price | default: product.price
+          assign compare_price = first_variant.compare_at_price | default: product.compare_at_price
+          if compare_price == blank or compare_price <= price
+            assign compare_price = price
+          endif
+          assign p_type = product.type | downcase
+          assign p_title = product.title | downcase
+          assign p_tags = product.tags | join: ',' | downcase
+
+          assign category_category = 'other'
+          if p_type contains 'necklace' or p_title contains 'necklace' or p_tags contains 'necklace' or p_title contains 'pendant' or p_tags contains 'pendant'
+            assign category_category = 'necklace'
+          elsif p_type contains 'bracelet' or p_title contains 'bracelet' or p_tags contains 'bracelet' or p_title contains 'bangle' or p_tags contains 'bangle'
+            assign category_category = 'bracelet'
+          elsif p_type contains 'earring' or p_title contains 'earring' or p_tags contains 'earring' or p_title contains 'stud' or p_tags contains 'stud' or p_title contains 'hoop' or p_tags contains 'hoop'
+            assign category_category = 'earring'
+          elsif p_type contains 'ring' or p_title contains 'ring' or p_tags contains 'ring'
+            assign category_category = 'ring'
+          endif
+
+          assign img_1 = product.featured_image
+          assign img_2 = product.images[1] | default: img_1
+        -%}
+
+        <article class="tgm-bb-card"
+                 data-product-id="{{ product.id }}"
+                 data-category="{{ category_category }}"
+                 data-title="{{ product.title | escape }}"
+                 data-price="{{ price }}"
+                 data-available="{{ product.available }}">
+
+          <!-- Image Wrapper -->
+          <div class="tgm-bb-card-media">
+            <a href="{{ product.url }}" target="_blank" rel="noopener" class="tgm-bb-card-img-link" title="{{ product.title | escape }}">
+              {%- if img_1 != blank -%}
+                <img src="{{ img_1 | image_url: width: 600 }}"
+                     alt="{{ product.title | escape }}"
+                     loading="lazy"
+                     class="tgm-bb-img-primary"
+                     width="600"
+                     height="750">
+                {%- if img_2 != blank and img_2.src != img_1.src -%}
+                  <img src="{{ img_2 | image_url: width: 600 }}"
+                       alt="{{ product.title | escape }}"
+                       loading="lazy"
+                       class="tgm-bb-img-secondary"
+                       width="600"
+                       height="750">
+                {%- endif -%}
+              {%- else -%}
+                {{ 'product-1' | placeholder_svg_tag: 'tgm-bb-placeholder' }}
+              {%- endif -%}
+            </a>
+
+            <!-- Badge Overlays -->
+            <div class="tgm-bb-card-badges">
+              <span class="tgm-bb-badge-deal">3 FOR {{ currency_sym }}{{ target_price }}</span>
+              {%- if compare_price > price -%}
+                {%- assign save_pct = compare_price | minus: price | times: 100.0 | divided_by: compare_price | round -%}
+                {%- if save_pct > 0 -%}
+                  <span class="tgm-bb-badge-save">{{ save_pct }}% OFF</span>
+                {%- endif -%}
+              {%- endif -%}
+            </div>
+
+            <!-- In-Bundle Selected Indicator Checkmark -->
+            <div class="tgm-bb-selected-badge" title="Added to your bundle">
+              <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+              <span>IN BUNDLE</span>
+            </div>
+          </div>
+
+          <!-- Card Content -->
+          <div class="tgm-bb-card-body">
+            <!-- Ratings -->
+            <div class="tgm-bb-card-rating">
+              <span class="tgm-bb-stars">★★★★★</span>
+              <span class="tgm-bb-rating-score">4.9</span>
+            </div>
+
+            <!-- Product Title -->
+            <h3 class="tgm-bb-card-title">
+              <a href="{{ product.url }}" target="_blank" rel="noopener">{{ product.title }}</a>
+            </h3>
+
+            <!-- Price Breakdown -->
+            <div class="tgm-bb-card-price">
+              <span class="tgm-bb-price-effective">Effective {{ currency_sym }}{{ target_price | divided_by: target_qty }}/pc</span>
+              <span class="tgm-bb-price-mrp">{{ compare_price | money }}</span>
+            </div>
+
+            <!-- Inline Variant Selector (if has variants) -->
+            {%- if product.variants.size > 1 -%}
+              <div class="tgm-bb-variant-picker">
+                <label class="tgm-bb-variant-label" for="tgm-bb-var-{{ product.id }}">Option:</label>
+                <select class="tgm-bb-variant-select" id="tgm-bb-var-{{ product.id }}">
+                  {%- for variant in product.variants -%}
+                    <option value="{{ variant.id }}"
+                            data-price="{{ variant.price }}"
+                            data-compare="{{ variant.compare_at_price | default: variant.price }}"
+                            data-img="{{ variant.image | default: img_1 | image_url: width: 600 }}"
+                            data-thumb="{{ variant.image | default: img_1 | image_url: width: 150 }}"
+                            {% unless variant.available %}disabled{% endunless %}
+                            {% if variant.id == first_variant.id %}selected{% endif %}>
+                      {{ variant.title }} {% unless variant.available %}(Sold Out){% endunless %}
+                    </option>
+                  {%- endfor -%}
+                </select>
+              </div>
+            {%- else -%}
+              <input type="hidden" class="tgm-bb-variant-select" value="{{ first_variant.id }}"
+                     data-price="{{ first_variant.price }}"
+                     data-compare="{{ first_variant.compare_at_price | default: first_variant.price }}"
+                     data-img="{{ img_1 | image_url: width: 600 }}"
+                     data-thumb="{{ img_1 | image_url: width: 150 }}">
+            {%- endif -%}
+
+            <!-- Add to Bundle CTA -->
+            <div class="tgm-bb-card-action">
+              {%- if product.available -%}
+                <button type="button"
+                        class="tgm-bb-btn-add"
+                        data-product-id="{{ product.id }}"
+                        data-product-title="{{ product.title | escape }}">
+                  <span class="tgm-bb-btn-icon">+</span>
+                  <span class="tgm-bb-btn-text">ADD TO BUNDLE</span>
+                </button>
+              {%- else -%}
+                <button type="button" class="tgm-bb-btn-add is-soldout" disabled>
+                  <span>SOLD OUT</span>
+                </button>
+              {%- endif -%}
+            </div>
+          </div>
+        </article>
+      {%- endfor -%}
+    </div>
+  </main>
+  {%- endpaginate -%}
+
+  <!-- Sticky Bottom Bundle Tracker Bar (Floating at viewport bottom) -->
+  <aside class="tgm-bb-tracker" id="tgm-bb-tracker">
+    <div class="tgm-bb-tracker-container">
+
+      <!-- Left: Visual Item Slots (3 slots) -->
+      <div class="tgm-bb-tracker-slots-wrap">
+        <div class="tgm-bb-tracker-slots-title">YOUR BUNDLE BOX:</div>
+        <div class="tgm-bb-tracker-slots" id="tgm-bb-tracker-slots">
+          {%- for i in (1..target_qty) -%}
+            <div class="tgm-bb-slot is-empty" data-slot-index="{{ i }}" id="tgm-bb-slot-{{ i }}">
+              <div class="tgm-bb-slot-inner">
+                <span class="tgm-bb-slot-icon">+</span>
+                <span class="tgm-bb-slot-label">Item {{ i }}</span>
+              </div>
+            </div>
+          {%- endfor -%}
+        </div>
+      </div>
+
+      <!-- Center: Status and Dynamic Progress Bar -->
+      <div class="tgm-bb-tracker-middle">
+        <div class="tgm-bb-tracker-status-text" id="tgm-bb-tracker-status-text">
+          Add <span id="tgm-bb-tracker-remaining">{{ target_qty }}</span> more piece(s) to unlock <strong>{{ currency_sym }}{{ target_price }}</strong>
+        </div>
+        <div class="tgm-bb-tracker-progress-bg">
+          <div class="tgm-bb-tracker-progress-fill" id="tgm-bb-tracker-progress-fill" style="width: 0%;"></div>
+        </div>
+      </div>
+
+      <!-- Right: Subtotal, Savings & Checkout CTA -->
+      <div class="tgm-bb-tracker-action-wrap">
+        <div class="tgm-bb-tracker-pricing">
+          <div class="tgm-bb-tracker-deal-price">
+            <span class="tgm-bb-deal-label">BUNDLE TOTAL:</span>
+            <span class="tgm-bb-deal-val" id="tgm-bb-deal-val">{{ currency_sym }}{{ target_price }}</span>
+          </div>
+          <div class="tgm-bb-tracker-mrp-row">
+            <span class="tgm-bb-tracker-mrp" id="tgm-bb-tracker-mrp">{{ currency_sym }}0</span>
+            <span class="tgm-bb-tracker-save" id="tgm-bb-tracker-save">Save {{ currency_sym }}0</span>
+          </div>
+        </div>
+
+        <button type="button"
+                id="tgm-bb-checkout-btn"
+                class="tgm-bb-checkout-btn is-disabled"
+                disabled>
+          <span class="tgm-bb-checkout-btn-text">ADD {{ target_qty }} ITEMS TO UNLOCK</span>
+          <svg class="tgm-bb-btn-arrow" viewBox="0 0 20 20" fill="currentColor">
+            <path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd"/>
+          </svg>
+          <div class="tgm-bb-spinner" aria-hidden="true"></div>
+        </button>
+      </div>
+
+    </div>
+  </aside>
+
+  <!-- Mobile Drawer Overlay for Selected Items -->
+  <div class="tgm-bb-mobile-drawer" id="tgm-bb-mobile-drawer" aria-hidden="true">
+    <div class="tgm-bb-drawer-backdrop" id="tgm-bb-drawer-backdrop"></div>
+    <div class="tgm-bb-drawer-panel">
+      <div class="tgm-bb-drawer-header">
+        <h3>Your Selected Items (<span id="tgm-bb-drawer-count">0</span>/{{ target_qty }})</h3>
+        <button type="button" class="tgm-bb-drawer-close" id="tgm-bb-drawer-close">&times;</button>
+      </div>
+      <div class="tgm-bb-drawer-list" id="tgm-bb-drawer-list">
+        <!-- Injected via JS -->
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<!-- Stylesheet: Scoped Luxury Elinor-Inspired Theme Styles -->
+<style>
+:root {
+  --tgm-bb-primary: {{ brand_primary }};
+  --tgm-bb-primary-dark: #350c18;
+  --tgm-bb-accent: {{ brand_accent }};
+  --tgm-bb-accent-gold: #c59b27;
+  --tgm-bb-success: #16a34a;
+  --tgm-bb-bg: #faf7f5;
+  --tgm-bb-card-bg: #ffffff;
+  --tgm-bb-text: #1d1d1f;
+  --tgm-bb-text-muted: #6e6e73;
+  --tgm-bb-border: #e8e4df;
+  --tgm-bb-radius: 12px;
+  --tgm-bb-shadow: 0 10px 30px rgba(0,0,0,0.08);
+  --tgm-bb-shadow-float: 0 14px 40px rgba(72,19,36,0.18);
+}
+
+.tgm-bb-wrapper {
+  background-color: var(--tgm-bb-bg);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  color: var(--tgm-bb-text);
+  padding-bottom: 120px;
+  overflow-x: hidden;
+}
+
+/* Announcement Marquee */
+.tgm-bb-marquee {
+  background: var(--tgm-bb-primary);
+  color: #ffffff;
+  font-size: 12.5px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  overflow: hidden;
+  white-space: nowrap;
+  padding: 10px 0;
+  position: relative;
+}
+.tgm-bb-marquee-track {
+  display: inline-flex;
+  gap: 30px;
+  animation: tgmMarquee 35s linear infinite;
+}
+@keyframes tgmMarquee {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+/* Hero Header */
+.tgm-bb-header {
+  background: linear-gradient(180deg, rgba(72,19,36,0.04) 0%, rgba(250,247,245,0) 100%);
+  padding: 40px 20px 24px;
+  text-align: center;
+}
+.tgm-bb-header-inner {
+  max-width: 860px;
+  margin: 0 auto;
+}
+.tgm-bb-badge-top {
+  display: inline-block;
+  background: var(--tgm-bb-accent);
+  color: var(--tgm-bb-primary);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  padding: 6px 16px;
+  border-radius: 20px;
+  margin-bottom: 14px;
+}
+.tgm-bb-title {
+  font-size: 38px;
+  font-weight: 800;
+  color: var(--tgm-bb-primary);
+  letter-spacing: -0.02em;
+  line-height: 1.15;
+  margin: 0 0 10px;
+}
+.tgm-bb-subtitle {
+  font-size: 16px;
+  color: var(--tgm-bb-text-muted);
+  max-width: 600px;
+  margin: 0 auto 28px;
+  line-height: 1.5;
+}
+
+/* Stepper Box */
+.tgm-bb-stepper-box {
+  background: #ffffff;
+  border: 1px solid var(--tgm-bb-border);
+  border-radius: var(--tgm-bb-radius);
+  padding: 20px 24px;
+  box-shadow: var(--tgm-bb-shadow);
+  max-width: 740px;
+  margin: 0 auto;
+}
+.tgm-bb-stepper-status {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 14px;
+  margin-bottom: 12px;
+}
+.tgm-bb-stepper-msg {
+  color: var(--tgm-bb-text);
+}
+.tgm-bb-stepper-msg strong {
+  color: var(--tgm-bb-primary);
+}
+.tgm-bb-stepper-counter {
+  font-weight: 700;
+  color: var(--tgm-bb-primary);
+  background: rgba(72,19,36,0.08);
+  padding: 4px 12px;
+  border-radius: 20px;
+  font-size: 12px;
+}
+.tgm-bb-progress-bar-bg {
+  width: 100%;
+  height: 10px;
+  background: #f0ebe6;
+  border-radius: 10px;
+  overflow: hidden;
+  margin-bottom: 18px;
+}
+.tgm-bb-progress-bar-fill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--tgm-bb-primary) 0%, #a23554 100%);
+  border-radius: 10px;
+  transition: width 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.tgm-bb-milestones {
+  display: flex;
+  justify-content: space-between;
+  position: relative;
+}
+.tgm-bb-milestone {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  flex: 1;
+}
+.tgm-bb-milestone-dot {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: #f0ebe6;
+  color: var(--tgm-bb-text-muted);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 13px;
+  font-weight: 700;
+  transition: all 0.3s ease;
+}
+.tgm-bb-dot-check {
+  width: 16px;
+  height: 16px;
+  display: none;
+}
+.tgm-bb-milestone.is-done .tgm-bb-milestone-dot {
+  background: var(--tgm-bb-success);
+  color: #ffffff;
+}
+.tgm-bb-milestone.is-done .tgm-bb-dot-num { display: none; }
+.tgm-bb-milestone.is-done .tgm-bb-dot-check { display: block; }
+.tgm-bb-milestone.is-active .tgm-bb-milestone-dot {
+  background: var(--tgm-bb-primary);
+  color: #ffffff;
+  box-shadow: 0 0 0 4px rgba(72,19,36,0.2);
+}
+.tgm-bb-milestone-label {
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--tgm-bb-text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+/* Controls Bar */
+.tgm-bb-controls-wrapper {
+  max-width: 1340px;
+  margin: 0 auto;
+  padding: 0 20px 20px;
+}
+.tgm-bb-controls-inner {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+.tgm-bb-category-tabs {
+  display: flex;
+  gap: 10px;
+  overflow-x: auto;
+  padding-bottom: 4px;
+  scrollbar-width: none;
+}
+.tgm-bb-category-tabs::-webkit-scrollbar { display: none; }
+.tgm-bb-tab-btn {
+  background: #ffffff;
+  border: 1px solid var(--tgm-bb-border);
+  color: var(--tgm-bb-text);
+  font-size: 14px;
+  font-weight: 600;
+  padding: 10px 20px;
+  border-radius: 30px;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: all 0.2s ease;
+}
+.tgm-bb-tab-btn:hover {
+  border-color: var(--tgm-bb-primary);
+  color: var(--tgm-bb-primary);
+}
+.tgm-bb-tab-btn.is-active {
+  background: var(--tgm-bb-primary);
+  border-color: var(--tgm-bb-primary);
+  color: #ffffff;
+  box-shadow: 0 4px 14px rgba(72,19,36,0.25);
+}
+
+.tgm-bb-search-sort-row {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+}
+.tgm-bb-search-box {
+  flex: 1;
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+.tgm-bb-search-icon {
+  position: absolute;
+  left: 14px;
+  width: 18px;
+  height: 18px;
+  color: var(--tgm-bb-text-muted);
+}
+.tgm-bb-search-box input {
+  width: 100%;
+  padding: 12px 38px 12px 42px;
+  border: 1px solid var(--tgm-bb-border);
+  border-radius: 30px;
+  background: #ffffff;
+  font-size: 14px;
+  outline: none;
+  transition: border-color 0.2s ease;
+}
+.tgm-bb-search-box input:focus {
+  border-color: var(--tgm-bb-primary);
+}
+.tgm-bb-search-clear {
+  position: absolute;
+  right: 14px;
+  background: none;
+  border: none;
+  font-size: 20px;
+  color: var(--tgm-bb-text-muted);
+  cursor: pointer;
+  display: none;
+}
+.tgm-bb-sort-box {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: #ffffff;
+  border: 1px solid var(--tgm-bb-border);
+  border-radius: 30px;
+  padding: 8px 16px;
+  font-size: 13px;
+  white-space: nowrap;
+}
+.tgm-bb-sort-box label {
+  color: var(--tgm-bb-text-muted);
+  font-weight: 500;
+}
+.tgm-bb-sort-box select {
+  border: none;
+  outline: none;
+  background: transparent;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--tgm-bb-text);
+  cursor: pointer;
+}
+.tgm-bb-results-count {
+  font-size: 13px;
+  color: var(--tgm-bb-text-muted);
+  font-weight: 500;
+}
+
+/* Products Section & Grid */
+.tgm-bb-products-section {
+  max-width: 1340px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+.tgm-bb-products-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px 20px;
+}
+@media (max-width: 1024px) {
+  .tgm-bb-products-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px 12px;
+  }
+}
+@media (max-width: 640px) {
+  .tgm-bb-products-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 14px 10px;
+  }
+}
+
+/* Product Card */
+.tgm-bb-card {
+  background: var(--tgm-bb-card-bg);
+  border: 1px solid var(--tgm-bb-border);
+  border-radius: var(--tgm-bb-radius);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+  position: relative;
+}
+.tgm-bb-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 28px rgba(0,0,0,0.08);
+}
+.tgm-bb-card.is-selected {
+  border-color: var(--tgm-bb-primary);
+  box-shadow: 0 0 0 2px var(--tgm-bb-primary);
+}
+
+/* Card Media */
+.tgm-bb-card-media {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  background: #f7f5f2;
+  overflow: hidden;
+}
+.tgm-bb-card-img-link {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+.tgm-bb-card-media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: opacity 0.3s ease, transform 0.4s ease;
+}
+.tgm-bb-img-secondary {
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 0;
+}
+.tgm-bb-card:hover .tgm-bb-img-secondary {
+  opacity: 1;
+}
+.tgm-bb-card:hover .tgm-bb-card-media img {
+  transform: scale(1.03);
+}
+
+/* Card Badges */
+.tgm-bb-card-badges {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  z-index: 2;
+}
+.tgm-bb-badge-deal {
+  background: var(--tgm-bb-primary);
+  color: #ffffff;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  padding: 4px 8px;
+  border-radius: 4px;
+}
+.tgm-bb-badge-save {
+  background: #ffffff;
+  color: #d92d20;
+  border: 1px solid #fecdca;
+  font-size: 10px;
+  font-weight: 700;
+  padding: 3px 6px;
+  border-radius: 4px;
+}
+.tgm-bb-selected-badge {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: var(--tgm-bb-success);
+  color: #ffffff;
+  font-size: 10px;
+  font-weight: 700;
+  padding: 4px 8px;
+  border-radius: 20px;
+  display: none;
+  align-items: center;
+  gap: 4px;
+  z-index: 2;
+}
+.tgm-bb-selected-badge svg {
+  width: 12px;
+  height: 12px;
+}
+.tgm-bb-card.is-selected .tgm-bb-selected-badge {
+  display: inline-flex;
+}
+
+/* Card Body */
+.tgm-bb-card-body {
+  padding: 14px 14px 16px;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+.tgm-bb-card-rating {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  margin-bottom: 6px;
+}
+.tgm-bb-stars {
+  color: #f59e0b;
+  font-size: 12px;
+  letter-spacing: 1px;
+}
+.tgm-bb-rating-score {
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--tgm-bb-text-muted);
+}
+.tgm-bb-card-title {
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 1.35;
+  margin: 0 0 8px;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  min-height: 38px;
+}
+.tgm-bb-card-title a {
+  color: var(--tgm-bb-text);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+.tgm-bb-card-title a:hover {
+  color: var(--tgm-bb-primary);
+}
+
+/* Card Pricing */
+.tgm-bb-card-price {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+  margin-bottom: 12px;
+}
+.tgm-bb-price-effective {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--tgm-bb-primary);
+}
+.tgm-bb-price-mrp {
+  font-size: 12px;
+  color: var(--tgm-bb-text-muted);
+  text-decoration: line-through;
+}
+
+/* Variant Selector */
+.tgm-bb-variant-picker {
+  margin-bottom: 12px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.tgm-bb-variant-label {
+  font-size: 11px;
+  color: var(--tgm-bb-text-muted);
+  font-weight: 500;
+}
+.tgm-bb-variant-select {
+  flex: 1;
+  font-size: 12px;
+  padding: 6px 8px;
+  border: 1px solid var(--tgm-bb-border);
+  border-radius: 6px;
+  background: #ffffff;
+  outline: none;
+  cursor: pointer;
+}
+
+/* Card Action Button */
+.tgm-bb-card-action {
+  margin-top: auto;
+}
+.tgm-bb-btn-add {
+  width: 100%;
+  background: #ffffff;
+  border: 1.5px solid var(--tgm-bb-primary);
+  color: var(--tgm-bb-primary);
+  font-size: 12.5px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  padding: 10px 14px;
+  border-radius: 8px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  transition: all 0.2s ease;
+}
+.tgm-bb-btn-add:hover {
+  background: var(--tgm-bb-primary);
+  color: #ffffff;
+}
+.tgm-bb-card.is-selected .tgm-bb-btn-add {
+  background: var(--tgm-bb-primary);
+  color: #ffffff;
+}
+.tgm-bb-card.is-selected .tgm-bb-btn-text::before {
+  content: "✓ ";
+}
+.tgm-bb-btn-add.is-soldout {
+  background: #f5f5f5;
+  border-color: #e5e5e5;
+  color: #999999;
+  cursor: not-allowed;
+}
+
+/* Sticky Bottom Floating Bundle Tracker Bar */
+.tgm-bb-tracker {
+  position: fixed;
+  bottom: 16px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 95%;
+  max-width: 1180px;
+  background: rgba(255, 255, 255, 0.96);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1px solid rgba(72,19,36,0.14);
+  border-radius: 18px;
+  box-shadow: var(--tgm-bb-shadow-float);
+  z-index: 9999;
+  padding: 12px 20px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.tgm-bb-tracker-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+/* Tracker Slots */
+.tgm-bb-tracker-slots-wrap {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.tgm-bb-tracker-slots-title {
+  font-size: 11px;
+  font-weight: 800;
+  color: var(--tgm-bb-primary);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+.tgm-bb-tracker-slots {
+  display: flex;
+  gap: 10px;
+}
+.tgm-bb-slot {
+  width: 54px;
+  height: 54px;
+  border-radius: 10px;
+  position: relative;
+  transition: all 0.25s ease;
+}
+.tgm-bb-slot.is-empty {
+  border: 1.8px dashed #d6cfc7;
+  background: rgba(240, 235, 230, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.tgm-bb-slot-inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.tgm-bb-slot-icon {
+  font-size: 16px;
+  color: #a89f91;
+  line-height: 1;
+}
+.tgm-bb-slot-label {
+  font-size: 9px;
+  color: #a89f91;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+.tgm-bb-slot.is-filled {
+  border: 1.8px solid var(--tgm-bb-primary);
+  background: #ffffff;
+  overflow: hidden;
+}
+.tgm-bb-slot.is-filled img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+.tgm-bb-slot-remove {
+  position: absolute;
+  top: -4px;
+  right: -4px;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: #d92d20;
+  color: #ffffff;
+  border: none;
+  cursor: pointer;
+  font-size: 12px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 1;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.25);
+  z-index: 3;
+}
+
+/* Tracker Middle (Status & Progress) */
+.tgm-bb-tracker-middle {
+  flex: 1;
+  max-width: 400px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.tgm-bb-tracker-status-text {
+  font-size: 13px;
+  color: var(--tgm-bb-text);
+  font-weight: 500;
+}
+.tgm-bb-tracker-status-text strong {
+  color: var(--tgm-bb-primary);
+}
+.tgm-bb-tracker-progress-bg {
+  width: 100%;
+  height: 8px;
+  background: #eadecd;
+  border-radius: 6px;
+  overflow: hidden;
+}
+.tgm-bb-tracker-progress-fill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--tgm-bb-primary) 0%, #a23554 100%);
+  border-radius: 6px;
+  transition: width 0.3s ease;
+}
+
+/* Tracker Pricing & CTA */
+.tgm-bb-tracker-action-wrap {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+.tgm-bb-tracker-pricing {
+  text-align: right;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+.tgm-bb-deal-label {
+  font-size: 10px;
+  font-weight: 700;
+  color: var(--tgm-bb-text-muted);
+  letter-spacing: 0.05em;
+  margin-right: 4px;
+}
+.tgm-bb-deal-val {
+  font-size: 20px;
+  font-weight: 800;
+  color: var(--tgm-bb-primary);
+}
+.tgm-bb-tracker-mrp-row {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  justify-content: flex-end;
+}
+.tgm-bb-tracker-mrp {
+  font-size: 12px;
+  color: var(--tgm-bb-text-muted);
+  text-decoration: line-through;
+}
+.tgm-bb-tracker-save {
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--tgm-bb-success);
+  background: rgba(22, 163, 74, 0.1);
+  padding: 2px 6px;
+  border-radius: 4px;
+}
+
+/* Checkout Button */
+.tgm-bb-checkout-btn {
+  background: linear-gradient(135deg, var(--tgm-bb-primary) 0%, #681734 100%);
+  color: #ffffff;
+  border: none;
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  padding: 14px 28px;
+  border-radius: 12px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  box-shadow: 0 6px 18px rgba(72,19,36,0.3);
+  transition: all 0.25s ease;
+  position: relative;
+  overflow: hidden;
+}
+.tgm-bb-checkout-btn:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 24px rgba(72,19,36,0.4);
+}
+.tgm-bb-checkout-btn.is-disabled {
+  background: #d8d3cd;
+  color: #7b756d;
+  box-shadow: none;
+  cursor: not-allowed;
+}
+.tgm-bb-checkout-btn:not(:disabled) {
+  animation: tgmShine 3s infinite;
+}
+@keyframes tgmShine {
+  0% { box-shadow: 0 0 0 0 rgba(72,19,36,0.4); }
+  70% { box-shadow: 0 0 0 10px rgba(72,19,36,0); }
+  100% { box-shadow: 0 0 0 0 rgba(72,19,36,0); }
+}
+.tgm-bb-btn-arrow {
+  width: 16px;
+  height: 16px;
+}
+.tgm-bb-spinner {
+  display: none;
+  width: 18px;
+  height: 18px;
+  border: 2px solid rgba(255,255,255,0.3);
+  border-top-color: #ffffff;
+  border-radius: 50%;
+  animation: tgmSpin 0.7s linear infinite;
+}
+@keyframes tgmSpin {
+  to { transform: rotate(360deg); }
+}
+.tgm-bb-checkout-btn.is-loading .tgm-bb-spinner { display: block; }
+.tgm-bb-checkout-btn.is-loading .tgm-bb-checkout-btn-text,
+.tgm-bb-checkout-btn.is-loading .tgm-bb-btn-arrow { display: none; }
+
+/* Mobile View Adjustments */
+@media (max-width: 768px) {
+  .tgm-bb-title { font-size: 26px; }
+  .tgm-bb-subtitle { font-size: 13.5px; }
+  .tgm-bb-header { padding: 24px 14px 16px; }
+  .tgm-bb-stepper-box { padding: 14px 16px; }
+  .tgm-bb-stepper-status { font-size: 12.5px; flex-direction: column; align-items: flex-start; gap: 6px; }
+  
+  .tgm-bb-tracker {
+    bottom: 0;
+    left: 0;
+    transform: none;
+    width: 100%;
+    max-width: 100%;
+    border-radius: 16px 16px 0 0;
+    padding: 10px 14px calc(10px + env(safe-area-inset-bottom, 0px));
+  }
+  .tgm-bb-tracker-container {
+    flex-direction: column;
+    gap: 8px;
+  }
+  .tgm-bb-tracker-slots-title { display: none; }
+  .tgm-bb-tracker-middle { width: 100%; max-width: 100%; }
+  .tgm-bb-tracker-action-wrap {
+    width: 100%;
+    justify-content: space-between;
+  }
+  .tgm-bb-slot { width: 42px; height: 42px; }
+  .tgm-bb-slot-label { display: none; }
+  .tgm-bb-checkout-btn {
+    flex: 1;
+    padding: 11px 16px;
+    font-size: 13px;
+    justify-content: center;
+  }
+  .tgm-bb-deal-val { font-size: 17px; }
+}
+
+/* Mobile Drawer */
+.tgm-bb-mobile-drawer {
+  display: none;
+  position: fixed;
+  inset: 0;
+  z-index: 10000;
+}
+.tgm-bb-mobile-drawer.is-open { display: block; }
+.tgm-bb-drawer-backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0.5);
+  backdrop-filter: blur(4px);
+}
+.tgm-bb-drawer-panel {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: #ffffff;
+  border-radius: 20px 20px 0 0;
+  padding: 20px;
+  max-height: 75vh;
+  overflow-y: auto;
+}
+.tgm-bb-drawer-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+  border-bottom: 1px solid var(--tgm-bb-border);
+  padding-bottom: 12px;
+}
+.tgm-bb-drawer-header h3 {
+  margin: 0;
+  font-size: 16px;
+  color: var(--tgm-bb-primary);
+}
+.tgm-bb-drawer-close {
+  background: none;
+  border: none;
+  font-size: 24px;
+  cursor: pointer;
+  color: var(--tgm-bb-text);
+}
+.tgm-bb-drawer-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 0;
+  border-bottom: 1px solid #f0ebe6;
+}
+.tgm-bb-drawer-item img {
+  width: 50px;
+  height: 60px;
+  object-fit: cover;
+  border-radius: 6px;
+}
+.tgm-bb-drawer-item-info {
+  flex: 1;
+}
+.tgm-bb-drawer-item-title {
+  font-size: 13px;
+  font-weight: 600;
+  margin: 0 0 4px;
+}
+.tgm-bb-drawer-item-variant {
+  font-size: 11px;
+  color: var(--tgm-bb-text-muted);
+}
+.tgm-bb-drawer-item-remove {
+  background: #fee4e2;
+  color: #d92d20;
+  border: none;
+  padding: 6px 10px;
+  border-radius: 6px;
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+}
+</style>
+
+<!-- Bundle Builder Client-side Engine -->
+<script>
+(function() {
+  const root = document.getElementById('tgm-bundle-builder-root');
+  if (!root) return;
+
+  const TARGET_QTY = parseInt(root.dataset.targetQty, 10) || 3;
+  const TARGET_PRICE = parseFloat(root.dataset.targetPrice) || 1999;
+  const DISCOUNT_CODE = root.dataset.discountCode || 'ANY31999';
+  const CURRENCY = root.dataset.currencySym || '₹';
+
+  // State
+  let bundleItems = []; // Array of { productId, variantId, title, variantTitle, price, comparePrice, imageThumb }
+
+  // DOM Elements
+  const stepperMsg = document.getElementById('tgm-bb-stepper-msg');
+  const stepperCounter = document.getElementById('tgm-bb-stepper-counter');
+  const progressBarFill = document.getElementById('tgm-bb-progress-bar-fill');
+  const milestones = root.querySelectorAll('.tgm-bb-milestone');
+  const trackerStatusText = document.getElementById('tgm-bb-tracker-status-text');
+  const trackerProgressFill = document.getElementById('tgm-bb-tracker-progress-fill');
+  const trackerMrp = document.getElementById('tgm-bb-tracker-mrp');
+  const trackerSave = document.getElementById('tgm-bb-tracker-save');
+  const checkoutBtn = document.getElementById('tgm-bb-checkout-btn');
+  const checkoutBtnText = checkoutBtn.querySelector('.tgm-bb-checkout-btn-text');
+  const searchInput = document.getElementById('tgm-bb-search-input');
+  const searchClear = document.getElementById('tgm-bb-search-clear');
+  const sortSelect = document.getElementById('tgm-bb-sort-select');
+  const tabButtons = root.querySelectorAll('.tgm-bb-tab-btn');
+  const productCards = root.querySelectorAll('.tgm-bb-card');
+  const visibleCountEl = document.getElementById('tgm-bb-visible-count');
+
+  // 1. Sync & Update UI based on bundleItems
+  function updateBundleUI() {
+    const count = bundleItems.length;
+    const remaining = Math.max(0, TARGET_QTY - count);
+    const pct = Math.min(100, Math.round((count / TARGET_QTY) * 100));
+
+    // Progress fills
+    if (progressBarFill) progressBarFill.style.width = pct + '%';
+    if (trackerProgressFill) trackerProgressFill.style.width = pct + '%';
+
+    // Stepper counter text
+    if (stepperCounter) stepperCounter.textContent = count + ' of ' + TARGET_QTY + ' Added';
+
+    // Milestones
+    milestones.forEach((m, idx) => {
+      const stepNum = idx + 1;
+      m.classList.remove('is-active', 'is-done');
+      if (count >= stepNum) {
+        m.classList.add('is-done');
+      } else if (count + 1 === stepNum) {
+        m.classList.add('is-active');
+      }
+    });
+
+    // Header & Tracker messages
+    if (count >= TARGET_QTY) {
+      if (stepperMsg) stepperMsg.innerHTML = '🎉 <strong>Bundle Deal Unlocked!</strong> You get ' + TARGET_QTY + ' pieces for <strong>' + CURRENCY + TARGET_PRICE.toLocaleString('en-IN') + '</strong>!';
+      if (trackerStatusText) trackerStatusText.innerHTML = '🎉 <strong>Deal Unlocked!</strong> Any ' + TARGET_QTY + ' for <strong>' + CURRENCY + TARGET_PRICE.toLocaleString('en-IN') + '</strong>';
+      
+      checkoutBtn.disabled = false;
+      checkoutBtn.classList.remove('is-disabled');
+      if (checkoutBtnText) checkoutBtnText.textContent = 'CLAIM DEAL (' + CURRENCY + TARGET_PRICE.toLocaleString('en-IN') + ')';
+    } else {
+      if (stepperMsg) stepperMsg.innerHTML = 'Add <strong>' + remaining + '</strong> more item' + (remaining > 1 ? 's' : '') + ' to unlock the <strong>' + CURRENCY + TARGET_PRICE.toLocaleString('en-IN') + '</strong> deal!';
+      if (trackerStatusText) trackerStatusText.innerHTML = 'Add <strong>' + remaining + '</strong> more piece' + (remaining > 1 ? 's' : '') + ' to unlock <strong>' + CURRENCY + TARGET_PRICE.toLocaleString('en-IN') + '</strong>';
+      
+      checkoutBtn.disabled = true;
+      checkoutBtn.classList.add('is-disabled');
+      if (checkoutBtnText) checkoutBtnText.textContent = 'ADD ' + remaining + ' MORE TO UNLOCK';
+    }
+
+    // Slots rendering
+    for (let i = 1; i <= TARGET_QTY; i++) {
+      const slotEl = document.getElementById('tgm-bb-slot-' + i);
+      if (!slotEl) continue;
+      const item = bundleItems[i - 1];
+
+      if (item) {
+        slotEl.className = 'tgm-bb-slot is-filled';
+        slotEl.innerHTML = `
+          <img src="${item.imageThumb}" alt="${item.title}" title="${item.title}">
+          <button type="button" class="tgm-bb-slot-remove" data-index="${i - 1}" title="Remove item">&times;</button>
+        `;
+      } else {
+        slotEl.className = 'tgm-bb-slot is-empty';
+        slotEl.innerHTML = `
+          <div class="tgm-bb-slot-inner">
+            <span class="tgm-bb-slot-icon">+</span>
+            <span class="tgm-bb-slot-label">Item ${i}</span>
+          </div>
+        `;
+      }
+    }
+
+    // Pricing calculation
+    let totalOriginalPrice = 0;
+    bundleItems.forEach(it => {
+      totalOriginalPrice += (it.comparePrice && it.comparePrice > it.price ? it.comparePrice : it.price);
+    });
+    const formattedMrp = totalOriginalPrice > 9999 ? Math.round(totalOriginalPrice / 100) : Math.round(totalOriginalPrice);
+    if (trackerMrp) trackerMrp.textContent = CURRENCY + formattedMrp.toLocaleString('en-IN');
+
+    if (count >= TARGET_QTY) {
+      const savings = Math.max(0, formattedMrp - TARGET_PRICE);
+      if (trackerSave) {
+        trackerSave.textContent = 'Save ' + CURRENCY + savings.toLocaleString('en-IN');
+        trackerSave.style.display = 'inline-block';
+      }
+    } else {
+      if (trackerSave) trackerSave.style.display = 'none';
+    }
+
+    // Card selected states
+    productCards.forEach(card => {
+      const pId = card.dataset.productId;
+      const isSelected = bundleItems.some(it => it.productId === pId);
+      const btn = card.querySelector('.tgm-bb-btn-add');
+      if (isSelected) {
+        card.classList.add('is-selected');
+        if (btn && !btn.classList.contains('is-soldout')) {
+          btn.querySelector('.tgm-bb-btn-text').textContent = 'ADDED';
+          btn.querySelector('.tgm-bb-btn-icon').textContent = '✓';
+        }
+      } else {
+        card.classList.remove('is-selected');
+        if (btn && !btn.classList.contains('is-soldout')) {
+          btn.querySelector('.tgm-bb-btn-text').textContent = 'ADD TO BUNDLE';
+          btn.querySelector('.tgm-bb-btn-icon').textContent = '+';
+        }
+      }
+    });
+
+    // Update Drawer if present
+    updateDrawer();
+  }
+
+  // 2. Add Item Handler
+  function addItem(card) {
+    if (bundleItems.length >= TARGET_QTY) {
+      alert('You have already selected ' + TARGET_QTY + ' items for the ' + CURRENCY + TARGET_PRICE + ' bundle! Remove an item from the box or proceed to checkout.');
+      return;
+    }
+
+    const productId = card.dataset.productId;
+    const title = card.dataset.title;
+    const selectEl = card.querySelector('.tgm-bb-variant-select');
+    let variantId = '';
+    let variantTitle = '';
+    let price = parseFloat(card.dataset.price);
+    let comparePrice = price;
+    let imageThumb = '';
+
+    if (selectEl) {
+      if (selectEl.tagName === 'SELECT') {
+        const opt = selectEl.options[selectEl.selectedIndex];
+        variantId = opt.value;
+        variantTitle = opt.text;
+        if (opt.dataset.price) price = parseFloat(opt.dataset.price);
+        if (opt.dataset.compare) comparePrice = parseFloat(opt.dataset.compare);
+        if (opt.dataset.thumb) imageThumb = opt.dataset.thumb;
+      } else {
+        variantId = selectEl.value;
+        if (selectEl.dataset.price) price = parseFloat(selectEl.dataset.price);
+        if (selectEl.dataset.compare) comparePrice = parseFloat(selectEl.dataset.compare);
+        if (selectEl.dataset.thumb) imageThumb = selectEl.dataset.thumb;
+      }
+    }
+
+    if (!imageThumb) {
+      const img = card.querySelector('.tgm-bb-img-primary');
+      imageThumb = img ? img.src : '';
+    }
+
+    bundleItems.push({
+      productId: productId,
+      variantId: variantId,
+      title: title,
+      variantTitle: variantTitle,
+      price: price,
+      comparePrice: comparePrice,
+      imageThumb: imageThumb
+    });
+
+    updateBundleUI();
+  }
+
+  // 3. Remove Item Handler
+  function removeItem(index) {
+    if (index >= 0 && index < bundleItems.length) {
+      bundleItems.splice(index, 1);
+      updateBundleUI();
+    }
+  }
+
+  // Delegate click for remove buttons on slots
+  document.addEventListener('click', function(e) {
+    if (e.target && e.target.classList.contains('tgm-bb-slot-remove')) {
+      const idx = parseInt(e.target.dataset.index, 10);
+      removeItem(idx);
+    }
+  });
+
+  // Delegate click for Add to Bundle buttons
+  productCards.forEach(card => {
+    const btn = card.querySelector('.tgm-bb-btn-add');
+    if (btn) {
+      btn.addEventListener('click', function(e) {
+        e.preventDefault();
+        const pId = card.dataset.productId;
+        const existingIdx = bundleItems.findIndex(it => it.productId === pId);
+        if (existingIdx !== -1) {
+          removeItem(existingIdx);
+        } else {
+          addItem(card);
+        }
+      });
+    }
+  });
+
+  // Variant change image preview updater
+  productCards.forEach(card => {
+    const sel = card.querySelector('select.tgm-bb-variant-select');
+    if (sel) {
+      sel.addEventListener('change', function() {
+        const opt = sel.options[sel.selectedIndex];
+        const primaryImg = card.querySelector('.tgm-bb-img-primary');
+        if (opt.dataset.img && primaryImg) {
+          primaryImg.src = opt.dataset.img;
+        }
+      });
+    }
+  });
+
+  // 4. Category Filtering
+  let activeCategory = 'all';
+  let searchQuery = '';
+
+  function filterProducts() {
+    let visibleCount = 0;
+    productCards.forEach(card => {
+      const cat = card.dataset.category || 'other';
+      const title = (card.dataset.title || '').toLowerCase();
+      
+      const matchesCat = (activeCategory === 'all') || (cat === activeCategory);
+      const matchesSearch = (!searchQuery) || title.includes(searchQuery);
+
+      if (matchesCat && matchesSearch) {
+        card.style.display = '';
+        visibleCount++;
+      } else {
+        card.style.display = 'none';
+      }
+    });
+
+    if (visibleCountEl) visibleCountEl.textContent = visibleCount;
+  }
+
+  tabButtons.forEach(btn => {
+    btn.addEventListener('click', function() {
+      tabButtons.forEach(b => b.classList.remove('is-active'));
+      btn.classList.add('is-active');
+      activeCategory = btn.dataset.filter;
+      filterProducts();
+    });
+  });
+
+  // 5. Live Search
+  if (searchInput) {
+    searchInput.addEventListener('input', function() {
+      searchQuery = this.value.trim().toLowerCase();
+      if (searchClear) searchClear.style.display = searchQuery ? 'block' : 'none';
+      filterProducts();
+    });
+  }
+  if (searchClear) {
+    searchClear.addEventListener('click', function() {
+      searchInput.value = '';
+      searchQuery = '';
+      searchClear.style.display = 'none';
+      filterProducts();
+    });
+  }
+
+  // 6. Sorting
+  if (sortSelect) {
+    sortSelect.addEventListener('change', function() {
+      const val = this.value;
+      const grid = document.getElementById('tgm-bb-products-grid');
+      const cardsArr = Array.from(productCards);
+
+      cardsArr.sort((a, b) => {
+        if (val === 'price-asc') {
+          return parseFloat(a.dataset.price) - parseFloat(b.dataset.price);
+        } else if (val === 'price-desc') {
+          return parseFloat(b.dataset.price) - parseFloat(a.dataset.price);
+        } else if (val === 'title-asc') {
+          return a.dataset.title.localeCompare(b.dataset.title);
+        }
+        return 0;
+      });
+
+      cardsArr.forEach(c => grid.appendChild(c));
+    });
+  }
+
+  // 7. Checkout / Add Bundle to Cart Batch Action
+  if (checkoutBtn) {
+    checkoutBtn.addEventListener('click', async function() {
+      if (bundleItems.length < TARGET_QTY) return;
+
+      checkoutBtn.classList.add('is-loading');
+      checkoutBtn.disabled = true;
+
+      const bundleId = 'bundle_' + Date.now();
+      const itemsPayload = bundleItems.map(item => ({
+        id: item.variantId,
+        quantity: 1,
+        properties: {
+          '_bundle': 'Any 3 @ 1999',
+          '_bundle_id': bundleId,
+          'Bundle': 'Any 3 for ' + CURRENCY + TARGET_PRICE
+        }
+      }));
+
+      try {
+        const response = await fetch('/cart/add.js', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            'Accept': 'application/json'
+          },
+          body: JSON.stringify({ items: itemsPayload })
+        });
+
+        if (!response.ok) {
+          throw new Error('Failed to add bundle to cart');
+        }
+
+        // Apply discount coupon and proceed to checkout
+        if (DISCOUNT_CODE) {
+          window.location.href = '/discount/' + encodeURIComponent(DISCOUNT_CODE) + '?redirect=/checkout';
+        } else {
+          window.location.href = '/checkout';
+        }
+      } catch (err) {
+        console.error('Bundle add error:', err);
+        alert('There was a problem adding the bundle to cart. Please try again.');
+        checkoutBtn.classList.remove('is-loading');
+        checkoutBtn.disabled = false;
+      }
+    });
+  }
+
+  // 8. Mobile Drawer helper
+  const mobileDrawer = document.getElementById('tgm-bb-mobile-drawer');
+  const drawerList = document.getElementById('tgm-bb-drawer-list');
+  const drawerCount = document.getElementById('tgm-bb-drawer-count');
+  const drawerClose = document.getElementById('tgm-bb-drawer-close');
+  const drawerBackdrop = document.getElementById('tgm-bb-drawer-backdrop');
+
+  function updateDrawer() {
+    if (!drawerList) return;
+    drawerList.innerHTML = '';
+    if (drawerCount) drawerCount.textContent = bundleItems.length;
+
+    if (bundleItems.length === 0) {
+      drawerList.innerHTML = '<p style="text-align:center;color:#888;padding:20px;">No items selected yet. Tap "+ ADD TO BUNDLE" on any product above!</p>';
+      return;
+    }
+
+    bundleItems.forEach((it, idx) => {
+      const itemEl = document.createElement('div');
+      itemEl.className = 'tgm-bb-drawer-item';
+      itemEl.innerHTML = `
+        <img src="${it.imageThumb}" alt="${it.title}">
+        <div class="tgm-bb-drawer-item-info">
+          <div class="tgm-bb-drawer-item-title">${it.title}</div>
+          ${it.variantTitle ? `<div class="tgm-bb-drawer-item-variant">${it.variantTitle}</div>` : ''}
+        </div>
+        <button type="button" class="tgm-bb-drawer-item-remove" data-index="${idx}">Remove</button>
+      `;
+      drawerList.appendChild(itemEl);
+    });
+  }
+
+  if (drawerList) {
+    drawerList.addEventListener('click', function(e) {
+      if (e.target && e.target.classList.contains('tgm-bb-drawer-item-remove')) {
+        const idx = parseInt(e.target.dataset.index, 10);
+        removeItem(idx);
+      }
+    });
+  }
+
+  if (drawerClose) {
+    drawerClose.addEventListener('click', function() {
+      if (mobileDrawer) mobileDrawer.classList.remove('is-open');
+    });
+  }
+  if (drawerBackdrop) {
+    drawerBackdrop.addEventListener('click', function() {
+      if (mobileDrawer) mobileDrawer.classList.remove('is-open');
+    });
+  }
+
+  // Initialize
+  updateBundleUI();
+})();
+</script>
