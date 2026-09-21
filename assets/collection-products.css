@@ -2514,7 +2514,7 @@ padding: 6px 16px 6px 8px; /* little extra space on right */
 
 .t4s-product.t4s-pr-grid .t4s-product-badge > span,
 .t4s-product.t4s-pr-grid .t4s-badge-sale {
-  background-color: #0b2d6a !important;
+  background-color: #111111 !important;
   color: #ffffff !important;
   font-size: 11px !important;
   font-weight: 700 !important;
@@ -2565,7 +2565,7 @@ padding: 6px 16px 6px 8px; /* little extra space on right */
 }
 
 .t4s-product.t4s-pr-grid .t4s-product-title a:hover {
-  color: #2065c4 !important;
+  color: #c59b27 !important;
 }
 
 /* Price styling & alignment */
@@ -2580,7 +2580,7 @@ padding: 6px 16px 6px 8px; /* little extra space on right */
 }
 
 .t4s-product.t4s-pr-grid .t4s-product-price ins {
-  color: #0b2d6a !important;
+  color: #111111 !important;
   font-size: 15px !important;
   font-weight: 700 !important;
   text-decoration: none !important;
@@ -2636,7 +2636,7 @@ padding: 6px 16px 6px 8px; /* little extra space on right */
   min-height: 38px !important;
   border-radius: 50% !important;
   background-color: #ffffff !important;
-  color: #0b2d6a !important;
+  color: #111111 !important;
   border: 1px solid rgba(0, 0, 0, 0.08) !important;
   box-shadow: 0 3px 10px rgba(0, 0, 0, 0.16) !important;
   display: inline-flex !important;
@@ -2654,10 +2654,10 @@ padding: 6px 16px 6px 8px; /* little extra space on right */
 
 .t4s-product.t4s-pr-grid .t4s-product-inner .t4s-pr-group-btns .t4s-pr-item-btn:hover,
 .t4s-product.t4s-pr-grid .t4s-product-inner .t4s-product-btns a.t4s-pr-item-btn:hover {
-  background-color: #0b2d6a !important;
+  background-color: #111111 !important;
   color: #ffffff !important;
-  border-color: #0b2d6a !important;
-  box-shadow: 0 6px 16px rgba(11, 45, 106, 0.3) !important;
+  border-color: #111111 !important;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.25) !important;
   transform: translateY(-2px) scale(1.06) !important;
 }
 

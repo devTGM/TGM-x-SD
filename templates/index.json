@@ -6,8 +6,7 @@
  * or related systems. Please exercise caution as any changes
  * made to this file may be overwritten.
  * ------------------------------------------------------------
- */
-{
+ */{
   "sections": {
     "collections_list_carousel_RdrgJz": {
       "type": "collections-list-carousel",
@@ -17,7 +16,7 @@
           "settings": {
             "collection": "ring-e",
             "image": "shopify://shop_images/HP_-01.png",
-            "collection_title": "🧿 Ring",
+            "collection_title": "\ud83e\uddff Ring",
             "collection_link": "shopify://collections/ring-e"
           }
         },
@@ -35,7 +34,7 @@
           "settings": {
             "collection": "necklace-e",
             "image": "shopify://shop_images/HP_-02.png",
-            "collection_title": "🧿 Necklace",
+            "collection_title": "\ud83e\uddff Necklace",
             "collection_link": ""
           }
         },
@@ -44,7 +43,7 @@
           "settings": {
             "collection": "necklace-e",
             "image": "shopify://shop_images/HP_-03.png",
-            "collection_title": "🧿 Necklace",
+            "collection_title": "\ud83e\uddff Necklace",
             "collection_link": "shopify://collections/necklace-e"
           }
         },
@@ -62,7 +61,7 @@
           "settings": {
             "collection": "bracelet-e",
             "image": "shopify://shop_images/HP_-05.png",
-            "collection_title": "🧿 Bracelet",
+            "collection_title": "\ud83e\uddff Bracelet",
             "collection_link": ""
           }
         },
@@ -71,7 +70,7 @@
           "settings": {
             "collection": "bracelet-e",
             "image": "shopify://shop_images/HP_-06.png",
-            "collection_title": "🧿 Bracelet",
+            "collection_title": "\ud83e\uddff Bracelet",
             "collection_link": ""
           }
         },
@@ -107,7 +106,7 @@
           "settings": {
             "collection": "earring-e",
             "image": "shopify://shop_images/HP_-04.png",
-            "collection_title": "🧿 Earrings",
+            "collection_title": "\ud83e\uddff Earrings",
             "collection_link": "shopify://collections/earring-e"
           }
         },
@@ -151,7 +150,7 @@
         "title_fs": 15,
         "title_fw": 400,
         "title_cl": "#222222",
-        "title_cl_hover": "#3c7bd2",
+        "title_cl_hover": "#111111",
         "open_link": "_self",
         "image_rd": false,
         "img_effect": "none",
@@ -450,7 +449,7 @@
         "collection_item_fceTVr"
       ],
       "custom_css": [
-        ".t4s-title > span {color: #0b2d6a;}",
+        ".t4s-title > span {color: #111111;}",
         "@media (min-width: 1024px) {.t4s-container {width: 60%; }}"
       ],
       "settings": {
@@ -508,7 +507,7 @@
       "type": "collections-list-carousel",
       "custom_css": [
         ".t4s_ratio:not(.t4s_bg) > *:not(.t4s-not-style),.no-js .t4s_ratio:not(.t4s_bg) > noscript > *:not(.t4s-not-style) {border-radius: 15px;}",
-        ".t4s-title > span {color: #0b2d6a;}"
+        ".t4s-title > span {color: #111111;}"
       ],
       "settings": {
         "show_on": "show_all",
@@ -521,7 +520,7 @@
         "title_fs": 10,
         "title_fw": 100,
         "title_cl": "#ffffff",
-        "title_cl_hover": "#3c7bd2",
+        "title_cl_hover": "#111111",
         "open_link": "_self",
         "image_rd": true,
         "img_effect": "none",
@@ -660,7 +659,7 @@
         "collection_item_rgcfyk"
       ],
       "custom_css": [
-        ".t4s-title > span {color: #0b2d6a;}",
+        ".t4s-title > span {color: #111111;}",
         "@media (min-width: 1024px) {.t4s-container {width: 55%; }}",
         "@media (max-width: 1024px) {.t4s-container {width: 95%; }}"
       ],
@@ -675,7 +674,7 @@
         "title_fs": 10,
         "title_fw": 100,
         "title_cl": "#ffffff",
-        "title_cl_hover": "#3c7bd2",
+        "title_cl_hover": "#111111",
         "open_link": "_self",
         "image_rd": true,
         "img_effect": "none",
@@ -1071,7 +1070,7 @@
       ],
       "custom_css": [
         ".t4s_ratio:not(.t4s_bg) > *:not(.t4s-not-style),.no-js .t4s_ratio:not(.t4s_bg) > noscript > *:not(.t4s-not-style) {border-radius: 15px;}",
-        ".t4s-title > span {color: #0b2d6a;}",
+        ".t4s-title > span {color: #111111;}",
         ".t4s-tabs-se .t4s-tabs-ul li a:hover,.t4s-tabs-se .t4s-tabs-ul li a.t4s-active {color: #ffffff;}"
       ],
       "name": "Tabs collection",
@@ -1088,7 +1087,7 @@
         "item_cl": "#222222",
         "item_bg": "#0e0c0c",
         "item_cl_active": "#292929",
-        "item_bg_active": "#012e6f",
+        "item_bg_active": "#111111",
         "space_between": 2,
         "tabs_pos": "center",
         "tabslist_mb": 10,
@@ -1108,7 +1107,7 @@
     "collections_list_carousel_P4zfCG": {
       "type": "collections-list-carousel",
       "custom_css": [
-        ".t4s-title > span {color: #0b2d6a;}",
+        ".t4s-title > span {color: #111111;}",
         ".t4s-container {margin-top: 16px; margin-bottom: -20px;}"
       ],
       "settings": {
@@ -1122,7 +1121,7 @@
         "title_fs": 10,
         "title_fw": 100,
         "title_cl": "#ffffff",
-        "title_cl_hover": "#3c7bd2",
+        "title_cl_hover": "#111111",
         "open_link": "_self",
         "image_rd": true,
         "img_effect": "none",
@@ -1367,7 +1366,7 @@
       "type": "collections-list-carousel",
       "custom_css": [
         ".t4s_ratio:not(.t4s_bg) > *:not(.t4s-not-style),.no-js .t4s_ratio:not(.t4s_bg) > noscript > *:not(.t4s-not-style) {border-radius: 15px;}",
-        ".t4s-title > span {color: #0b2d6a;}"
+        ".t4s-title > span {color: #111111;}"
       ],
       "settings": {
         "show_on": "show_all",
@@ -1380,7 +1379,7 @@
         "title_fs": 10,
         "title_fw": 100,
         "title_cl": "#ffffff",
-        "title_cl_hover": "#3c7bd2",
+        "title_cl_hover": "#111111",
         "open_link": "_self",
         "image_rd": true,
         "img_effect": "none",
@@ -2007,9 +2006,9 @@
         "slide_FY4gAM"
       ],
       "custom_css": [
-        "h2 {color: #0b2d6a;}",
-        ".description {color: #0b2d6a;}",
-        ".subheading {color: #0b2d6a;}"
+        "h2 {color: #111111;}",
+        ".description {color: #111111;}",
+        ".subheading {color: #111111;}"
       ],
       "name": "Confidence Slider",
       "settings": {

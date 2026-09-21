@@ -203,7 +203,7 @@ endif -%}
                                  <span class="lazyloadt4s-loader is-bg-img" style="background: url({{ image | image_url: width: 1 }});"></span>
                                </i>
                         {% endif -%}
-                        {{ block_stts.title }}{% if block_stts.lb != blank %}<span class="t4s-lb_nav_mb" style="background-color: {{ block_stts.lb_cl | default: '#01bad4' }}">{{ block_stts.lb }}</span>{% endif %}</span><span class="t4s-mb-nav__icon"></span></a>
+                        {{ block_stts.title }}{% if block_stts.lb != blank %}<span class="t4s-lb_nav_mb" style="background-color: {{ block_stts.lb_cl | default: '#c59b27' }}">{{ block_stts.lb }}</span>{% endif %}</span><span class="t4s-mb-nav__icon"></span></a>
                      <ul class="t4s-sub-menu">
                         {%- for link in linklists[block_stts.menu].links -%}
 
@@ -251,7 +251,7 @@ endif -%}
                                  <span class="lazyloadt4s-loader is-bg-img" style="background: url({{ image | image_url: width: 1 }});"></span>
                                </i>
                         {% endif -%}
-                    {{ block_stts.title }}{% if block_stts.lb != blank %}<span class="t4s-lb_nav_mb" style="background-color: {{ block_stts.lb_cl | default: '#01bad4' }}">{{ block_stts.lb }}</span>{% endif %}</a></li>
+                    {{ block_stts.title }}{% if block_stts.lb != blank %}<span class="t4s-lb_nav_mb" style="background-color: {{ block_stts.lb_cl | default: '#c59b27' }}">{{ block_stts.lb }}</span>{% endif %}</a></li>
                {%- endif -%}
 
             {%- when 'catpr' -%}
@@ -296,7 +296,7 @@ endif -%}
                                     <span class="lazyloadt4s-loader is-bg-img" style="background: url({{ image | image_url: width: 1 }});"></span>
                                 </i>
                             {% endif -%}
-                         {{ block_stts.title }}{% if block_stts.lb != blank %}<span class="t4s-lb_nav_mb" style="background-color: {{ block_stts.lb_cl | default: '#01bad4' }}">{{ block_stts.lb }}</span>{% endif %}</span><span class="t4s-mb-nav__icon"></span></a>
+                         {{ block_stts.title }}{% if block_stts.lb != blank %}<span class="t4s-lb_nav_mb" style="background-color: {{ block_stts.lb_cl | default: '#c59b27' }}">{{ block_stts.lb }}</span>{% endif %}</span><span class="t4s-mb-nav__icon"></span></a>
                      <ul class="t4s-sub-menu t4s_ratioadapt t4s_position_8 t4s_cover t4s-cat_design_2">{{ get_sub_cat }}</ul>
                   </li>
                {%- else -%}
@@ -309,7 +309,7 @@ endif -%}
                                  <span class="lazyloadt4s-loader is-bg-img" style="background: url({{ image | image_url: width: 1 }});"></span>
                                </i>
                         {% endif -%}
-                   {{ block_stts.title }}{% if block_stts.lb != blank %}<span class="t4s-lb_nav_mb" style="background-color: {{ block_stts.lb_cl | default: '#01bad4' }}">{{ block_stts.lb }}</span>{% endif %}</a></li>
+                   {{ block_stts.title }}{% if block_stts.lb != blank %}<span class="t4s-lb_nav_mb" style="background-color: {{ block_stts.lb_cl | default: '#c59b27' }}">{{ block_stts.lb }}</span>{% endif %}</a></li>
                {%- endif -%}
 
          {%- endcase -%}
