@@ -207,3 +207,20 @@
 		flex-direction: row-reverse;
 	}
 }
+
+/* ==========================================================================
+   Sollak Designs - Custom Brand Footer Color (#2065C4)
+   ========================================================================== */
+#t4s-footer,
+.t4s-footer,
+.t4s-bottom-bar,
+.t4s_se_footer,
+.t4s_se_bottom-bar,
+.t4s_nt_se_footer,
+.t4s_nt_se_bottom-bar {
+  background-color: #2065C4 !important;
+}
+
+#t4s-footer .t4s-footer-has-border::before {
+  background-color: rgba(255, 255, 255, 0.15) !important;
+}
