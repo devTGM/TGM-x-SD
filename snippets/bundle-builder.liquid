@@ -304,6 +304,14 @@
     </div>
   </aside>
 
+  <!-- Shiprocket Headless Checkout container for sr-checkout initialization -->
+  <div id="tgm-sr-checkout-container"
+       class="shiprocket-headless"
+       data-type="cart"
+       style="position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border: 0; opacity: 0; pointer-events: none;"
+       aria-hidden="true">
+  </div>
+
   <!-- Mobile Drawer Overlay for Selected Items -->
   <div class="tgm-bb-mobile-drawer" id="tgm-bb-mobile-drawer" aria-hidden="true">
     <div class="tgm-bb-drawer-backdrop" id="tgm-bb-drawer-backdrop"></div>
@@ -1540,9 +1548,93 @@
     });
   }
 
-  // 7. Checkout / Add Bundle to Cart Batch Action
+  // 7. Checkout / Add Bundle to Cart & Trigger Shiprocket Headless Checkout (sr-checkout)
+  function triggerSrCheckout() {
+    const indiaTimezones = ["Asia/Kolkata", "Asia/Calcutta"];
+    let isIndia = true;
+    try {
+      const tz = Intl.DateTimeFormat().resolvedOptions().timeZone;
+      if (tz && !indiaTimezones.includes(tz)) {
+        isIndia = false;
+      }
+    } catch (e) {}
+
+    // For international customers where Shiprocket is not supported, fallback to native checkout
+    if (!isIndia) {
+      if (DISCOUNT_CODE) {
+        window.location.href = '/discount/' + encodeURIComponent(DISCOUNT_CODE) + '?redirect=/checkout';
+      } else {
+        window.location.href = '/checkout';
+      }
+      return;
+    }
+
+    function attemptOpenSr() {
+      // 1. Check for button rendered inside our container or any shiprocket-headless container
+      const srBtn = document.querySelector('#tgm-sr-checkout-container button.sr-headless-checkout') ||
+                    document.querySelector('#tgm-sr-checkout-container button') ||
+                    document.querySelector('.shiprocket-headless button.sr-headless-checkout') ||
+                    document.querySelector('.shiprocket-headless [name="sr-headless-button"]');
+      if (srBtn) {
+        srBtn.click();
+        return true;
+      }
+
+      // 2. Global shiprocketCheckoutEvents
+      if (window.shiprocketCheckoutEvents && typeof window.shiprocketCheckoutEvents.buyCart === 'function') {
+        window.shiprocketCheckoutEvents.buyCart();
+        return true;
+      }
+
+      // 3. Global HeadlessCheckout
+      if (window.HeadlessCheckout && typeof window.HeadlessCheckout.checkout === 'function') {
+        window.HeadlessCheckout.checkout();
+        return true;
+      }
+
+      // 4. Global shiprocketCheckoutBuyCartHandler
+      if (typeof window.shiprocketCheckoutBuyCartHandler === 'function') {
+        window.shiprocketCheckoutBuyCartHandler();
+        return true;
+      }
+
+      return false;
+    }
+
+    // Try opening Shiprocket checkout immediately
+    if (attemptOpenSr()) {
+      setTimeout(function() {
+        if (checkoutBtn) {
+          checkoutBtn.classList.remove('is-loading');
+          checkoutBtn.disabled = false;
+        }
+      }, 1200);
+      return;
+    }
+
+    // Poll for up to 1.5 seconds if scripts/buttons are still initializing
+    let attempts = 0;
+    const pollTimer = setInterval(function() {
+      attempts++;
+      if (attemptOpenSr()) {
+        clearInterval(pollTimer);
+        setTimeout(function() {
+          if (checkoutBtn) {
+            checkoutBtn.classList.remove('is-loading');
+            checkoutBtn.disabled = false;
+          }
+        }, 1200);
+      } else if (attempts >= 15) {
+        clearInterval(pollTimer);
+        // Fallback: Redirect to /cart where sr-checkout is permanently active
+        window.location.href = '/cart';
+      }
+    }, 100);
+  }
+
   if (checkoutBtn) {
-    checkoutBtn.addEventListener('click', async function() {
+    checkoutBtn.addEventListener('click', async function(e) {
+      if (e) e.preventDefault();
       if (bundleItems.length < TARGET_QTY) return;
 
       checkoutBtn.classList.add('is-loading');
@@ -1573,12 +1665,23 @@
           throw new Error('Failed to add bundle to cart');
         }
 
-        // Apply discount coupon and proceed to checkout
+        // Apply discount coupon to session, cookies and localStorage for Shiprocket (Fastrr)
         if (DISCOUNT_CODE) {
-          window.location.href = '/discount/' + encodeURIComponent(DISCOUNT_CODE) + '?redirect=/checkout';
-        } else {
-          window.location.href = '/checkout';
+          try {
+            await fetch('/discount/' + encodeURIComponent(DISCOUNT_CODE));
+          } catch (dErr) {
+            console.warn('Discount pre-apply failed:', dErr);
+          }
+          try {
+            document.cookie = 'discount_code=' + encodeURIComponent(DISCOUNT_CODE) + '; path=/; max-age=86400';
+            localStorage.setItem('fastrrCouponCode', DISCOUNT_CODE);
+            localStorage.setItem('fastrrCouponCodeFromLink', DISCOUNT_CODE);
+          } catch (cErr) {}
         }
+
+        // Redirect to / trigger sr-checkout
+        triggerSrCheckout();
+
       } catch (err) {
         console.error('Bundle add error:', err);
         alert('There was a problem adding the bundle to cart. Please try again.');
