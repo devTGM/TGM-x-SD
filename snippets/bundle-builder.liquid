@@ -215,8 +215,10 @@
 
             <!-- Price Breakdown -->
             <div class="tgm-bb-card-price">
-              <span class="tgm-bb-price-effective">Effective {{ currency_sym }}{{ target_price | divided_by: target_qty }}/pc</span>
-              <span class="tgm-bb-price-mrp">{{ compare_price | money }}</span>
+              <span class="tgm-bb-price-actual">{{ price | money }}</span>
+              {%- if compare_price > price -%}
+                <span class="tgm-bb-price-mrp">{{ compare_price | money }}</span>
+              {%- endif -%}
             </div>
 
             <!-- Inline Variant Selector (if has variants) -->
@@ -848,6 +850,7 @@
   gap: 8px;
   margin-bottom: 12px;
 }
+.tgm-bb-price-actual,
 .tgm-bb-price-effective {
   font-size: 14px;
   font-weight: 600;
@@ -1506,7 +1509,7 @@
     }
   });
 
-  // Variant change image preview updater
+  // Variant change image preview & price updater
   productCards.forEach(card => {
     const sel = card.querySelector('select.tgm-bb-variant-select');
     if (sel) {
@@ -1515,6 +1518,24 @@
         const primaryImg = card.querySelector('.tgm-bb-img-primary');
         if (opt.dataset.img && primaryImg) {
           primaryImg.src = opt.dataset.img;
+        }
+        const priceEl = card.querySelector('.tgm-bb-price-actual');
+        const compareEl = card.querySelector('.tgm-bb-price-mrp');
+        if (opt.dataset.price && priceEl) {
+          const p = parseFloat(opt.dataset.price) / 100;
+          priceEl.textContent = '{{ currency_sym }}' + (Number.isInteger(p) ? p.toLocaleString('en-IN') : p.toLocaleString('en-IN', { minimumFractionDigits: 2, maximumFractionDigits: 2 }));
+        }
+        if (opt.dataset.compare) {
+          const cp = parseFloat(opt.dataset.compare) / 100;
+          const p = parseFloat(opt.dataset.price || 0) / 100;
+          if (compareEl) {
+            if (cp > p) {
+              compareEl.textContent = '{{ currency_sym }}' + (Number.isInteger(cp) ? cp.toLocaleString('en-IN') : cp.toLocaleString('en-IN', { minimumFractionDigits: 2, maximumFractionDigits: 2 }));
+              compareEl.style.display = '';
+            } else {
+              compareEl.style.display = 'none';
+            }
+          }
         }
       });
     }
