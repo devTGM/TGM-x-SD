@@ -181,33 +181,10 @@
                 {{ 'product-1' | placeholder_svg_tag: 'tgm-bb-placeholder' }}
               {%- endif -%}
             </a>
-
-            <!-- Badge Overlays -->
-            <div class="tgm-bb-card-badges">
-              <span class="tgm-bb-badge-deal">3 FOR {{ currency_sym }}{{ target_price }}</span>
-              {%- if compare_price > price -%}
-                {%- assign save_pct = compare_price | minus: price | times: 100.0 | divided_by: compare_price | round -%}
-                {%- if save_pct > 0 -%}
-                  <span class="tgm-bb-badge-save">{{ save_pct }}% OFF</span>
-                {%- endif -%}
-              {%- endif -%}
-            </div>
-
-            <!-- In-Bundle Selected Indicator Checkmark -->
-            <div class="tgm-bb-selected-badge" title="Added to your bundle">
-              <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
-              <span>IN BUNDLE</span>
-            </div>
           </div>
 
           <!-- Card Content -->
           <div class="tgm-bb-card-body">
-            <!-- Subtle Review Star Rating -->
-            <div class="tgm-bb-card-rating">
-              <span class="tgm-bb-stars">★★★★★</span>
-              <span class="tgm-bb-rating-score">4.9</span>
-            </div>
-
             <!-- Product Title -->
             <h3 class="tgm-bb-card-title">
               <a href="{{ product.url }}" target="_blank" rel="noopener">{{ product.title }}</a>
@@ -746,57 +723,23 @@
   transform: scale(1.04);
 }
 
-/* Card Badges */
-.tgm-bb-card-badges {
-  position: absolute;
-  top: 10px;
-  left: 10px;
-  display: flex;
-  flex-direction: column;
-  gap: 5px;
-  z-index: 2;
-}
-.tgm-bb-badge-deal {
-  background: var(--tgm-bb-primary, #0B2D6A);
-  color: #ffffff;
-  font-size: 9.5px;
-  font-weight: 600;
-  letter-spacing: 0.08em;
-  padding: 4px 8px;
-  border-radius: 4px;
-  text-transform: uppercase;
-}
-.tgm-bb-badge-save {
-  background: rgba(255, 255, 255, 0.95);
-  color: #111111;
-  border: 1px solid rgba(0, 0, 0, 0.1);
-  font-size: 9.5px;
-  font-weight: 600;
-  padding: 3px 6px;
-  border-radius: 4px;
-}
-.tgm-bb-selected-badge {
-  position: absolute;
-  top: 10px;
-  right: 10px;
-  background: var(--tgm-bb-success);
-  color: #ffffff;
-  font-size: 9.5px;
-  font-weight: 600;
-  letter-spacing: 0.04em;
-  padding: 4px 8px;
-  border-radius: 20px;
-  display: none;
-  align-items: center;
-  gap: 4px;
-  z-index: 2;
-}
-.tgm-bb-selected-badge svg {
-  width: 12px;
-  height: 12px;
-}
-.tgm-bb-card.is-selected .tgm-bb-selected-badge {
-  display: inline-flex;
+/* Clean Luxury Cards: Strictly No Badges or Reviews on Product Cards */
+.tgm-bb-card-badges,
+.tgm-bb-badge-deal,
+.tgm-bb-badge-save,
+.tgm-bb-selected-badge,
+.tgm-bb-card-rating,
+.tgm-bb-stars,
+.tgm-bb-rating-score,
+.tgm-bb-card .t4s-product-badge,
+.tgm-bb-card .t4s-badge-sale,
+.tgm-bb-card .t4s-badge-bogo,
+.tgm-bb-card .jdgm-preview-badge,
+.tgm-bb-card .jdgm-widget,
+.tgm-bb-card .jdgm-star,
+.tgm-bb-wrapper .jdgm-widget,
+.tgm-bb-wrapper .jdgm-preview-badge {
+  display: none !important;
 }
 
 /* Card Body */
@@ -805,22 +748,6 @@
   display: flex;
   flex-direction: column;
   flex: 1;
-}
-.tgm-bb-card-rating {
-  display: flex;
-  align-items: center;
-  gap: 4px;
-  margin-bottom: 6px;
-}
-.tgm-bb-stars {
-  color: #b89038;
-  font-size: 11px;
-  letter-spacing: 1px;
-}
-.tgm-bb-rating-score {
-  font-size: 11px;
-  font-weight: 500;
-  color: var(--tgm-bb-text-muted);
 }
 .tgm-bb-card-title {
   font-size: 13.5px;
