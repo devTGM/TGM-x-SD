@@ -1,0 +1,46 @@
+/* ==========================================================================
+   Sollak Designs - Brand Luxury Overrides & App Drawer Normalization
+   Eliminates third-party app-injected blue accents and enforces luxury palette
+   ========================================================================== */
+
+/* 1. Snap Cart & Drawer Overrides */
+#w4root,
+.wizz4-cart-drawer {
+  --wizz4-primary-color: #111111 !important;
+}
+
+#w4root button,
+#w4root [class*="btn"],
+#w4root [class*="checkout"],
+.w4-storefront-upsell-btnAdd {
+  background-color: #111111 !important;
+  border-color: #111111 !important;
+  color: #ffffff !important;
+}
+
+#w4root button:hover,
+#w4root [class*="btn"]:hover,
+#w4root [class*="checkout"]:hover,
+.w4-storefront-upsell-btnAdd:hover {
+  background-color: #222222 !important;
+  border-color: #222222 !important;
+}
+
+#w4root [style*="#4378C2"],
+#w4root [style*="#4378c2"],
+#w4root [style*="#0B2D6A"],
+#w4root [style*="#0b2d6a"],
+#w4root [style*="rgb(67, 120, 194)"],
+#w4root [style*="rgb(11, 45, 106)"] {
+  background-color: #111111 !important;
+  border-color: #111111 !important;
+  color: #ffffff !important;
+}
+
+/* 2. Global Accent Cleanups */
+:root {
+  --t4s-primary-color: #111111;
+  --accent-color: #111111;
+  --primary-price-color: #111111;
+  --link-color-hover: #c59b27;
+}
